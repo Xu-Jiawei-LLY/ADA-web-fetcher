@@ -1,6 +1,6 @@
 name: Copilot Setup Steps                                                                            
-                                                                                                        
-   on:                                                                                                  
+
+on:                                                                                                  
      workflow_dispatch:                                                                                 
      push:                                                                                              
        paths:                                                                                           
@@ -9,7 +9,7 @@ name: Copilot Setup Steps
        paths:                                                                                           
          - .github/workflows/copilot-setup-steps.yml                                                    
                                                                                                         
-   jobs:                                                                                                
+jobs:                                                                                                
      copilot-setup-steps:                                                                               
        runs-on: ubuntu-latest                                                                           
        permissions:                                                                                     
