@@ -1,24 +1,20 @@
 name: Copilot Copilot Setup Steps                                                                                                                                   
                                                                                                                                                                        
-on: work: workflow_dispatch: push:                                                                                                                                  
-       paths:                                                                                                                                                          
-          paths:                                                                                                                                                       
-         - .github/workflows/copilot-setupt-setup-steps.yml                                                                                                            
-     pull_request:                                                                                                                                                     
-       paths:                                                                                                                                                          
-         - .github/ithub/workflows/copilot-setu-setup-steps.yml                                                                                                        
+on:
+  workflow_dispatch: 
+  push:                                                                                                                                                                                                                                                                                            
+      paths:                                                                                                                                                       
+        - .github/workflows/copilot-setup-steps.yml                                                                                                           
+  pull_request:                                                                                                                                                     
+      paths:                                                                                                                                                          
+        - .github/workflows/copilot-setup-steps.yml                                                                                                        
                                                                                                                                                                        
-jobs: copilot-setup-steot-setup-steps:                                                                                                                              
-       runs-on: ubuntu-launtu-latest                                                                                                                                   
+jobs: 
+  copilot-setup-steps:                                                                                                                              
+       runs-on: ubuntu-latest                                                                                                                                   
        permissions:                                                                                                                                                    
-         contents: read ad                                                                                                                                             
-       timeout-minutesnutes: 59                                                                                                                                        
-       env:                                                                                                                                                            
-         FO   FORCE_JAVASCRIPT_ACTIONS_TO_NODO_NODE24: true                                                                                                            
-       step  steps:                                                                                                                                                    
-       permissions:                                                                                                                                                    
-         contents: read                                                                                                                                                
-       timeout-minutes: 59                                                                                                                                             
+         contents: read                                                                                                                                            
+       timeout-minutes: 59                                                                                                                                                                                                                                                                                   
        env:                                                                                                                                                            
          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true                                                                                                                      
        steps:                                                                                                                                                          
