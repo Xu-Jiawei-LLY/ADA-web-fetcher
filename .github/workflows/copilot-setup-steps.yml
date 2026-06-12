@@ -1,36 +1,45 @@
-name: Copilot Copilot Setup Steps                                                                                                                                   
-                                                                                                                                                                       
+name: Copilot Setup Steps
+
 on:
-  workflow_dispatch: 
-  push:                                                                                                                                                                                                                                                                                            
-      paths:                                                                                                                                                       
-        - .github/workflows/copilot-setup-steps.yml                                                                                                           
-  pull_request:                                                                                                                                                     
-      paths:                                                                                                                                                          
-        - .github/workflows/copilot-setup-steps.yml                                                                                                        
-                                                                                                                                                                       
-jobs: 
-  copilot-setup-steps:                                                                                                                              
-       runs-on: ubuntu-latest                                                                                                                                   
-       permissions:                                                                                                                                                    
-         contents: read                                                                                                                                            
-       timeout-minutes: 59                                                                                                                                                                                                                                                                                   
-       env:                                                                                                                                                            
-         FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true                                                                                                                      
-       steps:                                                                                                                                                          
-         - name: Checkout code                                                                                                                                         
-           uses: actions/checkout@v5                                                                                                                                   
-                                                                                                                                                                       
-         - name: Set up Node.js                                                                                                                                        
-           uses: actions/setup-node@v5                                                                                                                                 
-           with:                                                                                                                                                       
-             node-version: "20"                                                                                                                                        
-                                                                                                                                                                       
-         - name: Install app dependencies                                                                                                                              
-           working-directory: ada-web-fetcher/app                                                                                                                      
-           run: |                                                                                                                                                      
-             if [ -f package-lock.json ]; then npm ci; else npm install; fi                                                                                            
-                                                                                                                                                                       
-         - name: Install Playwright Chromium                                                                                                                           
-           working-directory: ada-web-fetcher/app                                                                                                                      
-           run: npx playwright install --with-deps chromium || true  
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+  pull_request:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 59
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+
+      - name: Install app dependencies (if package.json exists)
+        run: |
+          if [ -f "ada-web-fetcher/app/package.json" ]; then
+            cd ada-web-fetcher/app
+            if [ -f package-lock.json ]; then npm ci; else npm install; fi
+          else
+            echo "No package.json at ada-web-fetcher/app; skipping npm install."
+          fi
+
+      - name: Install Playwright Chromium (if package.json exists)
+        run: |
+          if [ -f "ada-web-fetcher/app/package.json" ]; then
+            cd ada-web-fetcher/app
+            npx playwright install --with-deps chromium || true
+          else
+            echo "No package.json at ada-web-fetcher/app; skipping Playwright install."
+          fi
