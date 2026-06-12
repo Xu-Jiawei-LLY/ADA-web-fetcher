@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ADA Web Fetcher Report — Filtered Search</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 2rem; color: #333; background: #f5f7fa; }
+  h1 { color: #1a5276; margin-bottom: 0.3rem; }
+  .subtitle { color: #666; margin-bottom: 1.5rem; }
+  .summary-bar { background: white; border-radius: 10px; padding: 1rem 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .summary-bar .total { font-weight: 600; color: #2c3e50; margin-right: 1rem; }
+  .company-dot { display: inline-flex; align-items: center; gap: 4px; font-size: 0.85rem; color: #555; }
+  .company-dot::before { content: ''; width: 10px; height: 10px; border-radius: 50%; display: inline-block; background: var(--dot-color, #888); }
+  .tabs-container { background: white; border-radius: 10px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .tab-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; border-bottom: 2px solid #eee; padding-bottom: 1rem; }
+  .tab-btn { border: none; background: #f0f0f0; color: #555; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.2s; }
+  .tab-btn:hover { background: #e0e0e0; }
+  .tab-btn.active { background: var(--tab-color, #2980b9); color: white; }
+  .tab-count { background: rgba(0,0,0,0.08); border-radius: 10px; padding: 1px 7px; margin-left: 4px; font-size: 0.8rem; }
+  .tab-btn.active .tab-count { background: rgba(255,255,255,0.3); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .section-group { margin-bottom: 1.5rem; }
+  .section-group h4 { color: #34495e; margin-bottom: 0.5rem; font-size: 0.95rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+  .article-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .article-table th { background: #f8f9fa; color: #555; text-align: left; padding: 8px 10px; font-weight: 600; border-bottom: 2px solid #eee; }
+  .article-table td { padding: 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  .article-table tr:hover { background: #f8fbff; }
+  .col-id { width: 80px; font-weight: 600; white-space: nowrap; }
+  .col-id a { color: #c0392b; text-decoration: none; }
+  .col-id a:hover { text-decoration: underline; }
+  .col-type { width: 100px; }
+  .col-company { width: 170px; font-size: 0.82rem; color: #666; }
+  .col-trial { width: 110px; font-size: 0.82rem; color: #666; }
+  .type-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; color: white; font-size: 0.75rem; font-weight: 600; }
+  .compound-highlight { color: #e74c3c; font-weight: 600; }
+  a { color: #2980b9; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .data-section { background: white; border-radius: 10px; padding: 1.5rem; margin-top: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .data-section h2 { color: #1a5276; margin-bottom: 0.5rem; }
+  .download-btn { background: #27ae60; color: white; border: none; padding: 8px 20px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; margin: 0.5rem 0 1rem; }
+  .download-btn:hover { background: #219a52; }
+  .table-scroll { overflow-x: auto; }
+  .data-table { border-collapse: collapse; font-size: 0.82rem; width: 100%; min-width: 1000px; }
+  .data-table th { background: #34495e; color: white; padding: 6px 8px; text-align: left; white-space: nowrap; }
+  .data-table td { padding: 5px 8px; border-bottom: 1px solid #eee; }
+  .data-table tr:nth-child(even) { background: #f8f9fa; }
+  .data-table .col-comments { max-width: 220px; font-size: 0.75rem; word-break: break-all; }
+</style>
+</head>
+<body>
+<h1>ADA Web Fetcher Report — Filtered Search</h1>
+<p class="subtitle">Endpoint: HbA1c reduction · Disease: Type 2 diabetes · Population: Chinese / Mainland China · Trial type: Phase 2/3 randomized trials | <a href="https://diabetesjournals.org/diabetes/issue/75/Supplement_1" target="_blank">Source</a> | Generated: 2026-06-08</p>
+
+<div class="summary-bar">
+  <span class="total">2 companies | 3 reports total</span>
+  <span class="company-dot" style="--dot-color:#e74c3c">Unknown 2</span> <span class="company-dot" style="--dot-color:#e67e22">Hengrui 1</span>
+</div>
+
+<div class="tabs-container">
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="tab-0" style="--tab-color:#e74c3c">Other / Unspecified <span class="tab-count">2</span></button>
+      <button class="tab-btn" data-tab="tab-1" style="--tab-color:#e67e22">Hengrui <span class="tab-count">1</span></button>
+  </div>
+  <div class="tab-panel active" id="tab-0">
+        <div class="section-group">
+          <h4>Oral Presentation — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198/1218-OR-Efficacy-and-Safety-of-a-Novel-Oral-Small" target="_blank">1218-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title">Efficacy and Safety of a Novel Oral Small Molecule Glucagon-Like Peptide 1 Receptor Agonist (HDM1002) in Type 2 Diabetes Mellitus Patients Inadequately Controlled on Diet and Exercise or Metformin</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        <div class="section-group">
+          <h4>Poster Presentation — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1762-P/168063/1762-P-THDB0206-Injection-BioChaperone-Lispro" target="_blank">1762-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">THDB0206 Injection (BioChaperone Lispro, BCLIS) Improves Postprandial and Daily Glucose Control vs. Lispro (LIS) in Chinese Patients with Type 2 Diabetes (T2D)</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-1">
+        <div class="section-group">
+          <h4>Poster Presentation — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1712-P/167889/1712-P-Benefits-of-HR17031-vs-Insulin-Glargine" target="_blank">1712-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Benefits of HR17031 vs. Insulin Glargine (iGlar) in Patients (pts) with Type 2 Diabetes (T2D) Uncontrolled on Basal Insulin (BI) and Metformin</td>
+            <td class="col-company">Hengrui</td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div></div>
+</div>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+
+
+
+</body>
+</html>

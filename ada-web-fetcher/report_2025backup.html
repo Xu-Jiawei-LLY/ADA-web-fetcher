@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ADA 2025 - T2D China/Chinese Pharma Report</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 2rem; color: #333; background: #f5f7fa; }
+    h1 { color: #1a5276; margin-bottom: 0.3rem; }
+    .subtitle { color: #666; margin-bottom: 1.5rem; }
+
+    .summary-bar {
+      background: white; border-radius: 10px; padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .summary-bar .total { font-weight: 600; color: #2c3e50; margin-right: 1rem; }
+    .company-dot { display: inline-flex; align-items: center; gap: 4px; font-size: 0.85rem; color: #555; }
+    .company-dot::before { content: ''; width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+    .tabs-container {
+      background: white; border-radius: 10px; padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .tab-bar {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem;
+      border-bottom: 2px solid #eee; padding-bottom: 1rem;
+    }
+    .tab-btn {
+      border: none; background: #f0f0f0; color: #555;
+      padding: 8px 16px; border-radius: 20px; cursor: pointer;
+      font-size: 0.9rem; font-weight: 500; transition: all 0.2s;
+    }
+    .tab-btn:hover { background: #e0e0e0; }
+    .tab-btn.active { background: var(--tab-color, #2980b9); color: white; }
+    .tab-count { background: rgba(255,255,255,0.3); border-radius: 10px; padding: 1px 7px; margin-left: 4px; font-size: 0.8rem; }
+    .tab-btn.active .tab-count { background: rgba(255,255,255,0.3); }
+    .tab-btn:not(.active) .tab-count { background: rgba(0,0,0,0.08); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .section-group { margin-bottom: 1.5rem; }
+    .section-group h4 { color: #34495e; margin-bottom: 0.5rem; font-size: 0.95rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+
+    .article-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .article-table th { background: #f8f9fa; color: #555; text-align: left; padding: 8px 10px; font-weight: 600; border-bottom: 2px solid #eee; }
+    .article-table td { padding: 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+    .article-table tr:hover { background: #f8fbff; }
+    .col-id { width: 80px; font-weight: 600; white-space: nowrap; }
+    .col-id a { color: #c0392b; text-decoration: none; }
+    .col-id a:hover { text-decoration: underline; }
+    .col-type { width: 80px; }
+    .col-company { width: 160px; font-size: 0.82rem; color: #666; }
+    .col-trial { width: 100px; font-size: 0.82rem; color: #666; }
+
+    .type-badge {
+      display: inline-block; padding: 2px 8px; border-radius: 4px;
+      color: white; font-size: 0.75rem; font-weight: 600;
+    }
+    .compound-highlight { color: #e74c3c; font-weight: 600; }
+
+    a { color: #2980b9; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .data-section { background: white; border-radius: 10px; padding: 1.5rem; margin-top: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .data-section h2 { color: #1a5276; margin-bottom: 0.5rem; }
+    .download-btn { background: #27ae60; color: white; border: none; padding: 8px 20px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; margin: 0.5rem 0 1rem; }
+    .download-btn:hover { background: #219a52; }
+    .table-scroll { overflow-x: auto; }
+    .data-table { border-collapse: collapse; font-size: 0.82rem; width: 100%; min-width: 1000px; }
+    .data-table th { background: #34495e; color: white; padding: 6px 8px; text-align: left; white-space: nowrap; }
+    .data-table td { padding: 5px 8px; border-bottom: 1px solid #eee; }
+    .data-table tr:nth-child(even) { background: #f8f9fa; }
+    .data-table .col-comments { max-width: 200px; font-size: 0.75rem; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <h1>ADA 85th Scientific Sessions (2025)</h1>
+  <p class="subtitle">Type 2 Diabetes & China/Chinese Pharma — Categorized by Compound | <a href="https://diabetesjournals.org/diabetes/issue/74/Supplement_1" target="_blank">Source</a> | Generated: 2026-06-01</p>
+
+  <div class="summary-bar">
+    <span class="total">11 companies | 26 reports total</span>
+    <span class="company-dot" style="--dot-color:#e74c3c">Sanofi 3</span> <span class="company-dot" style="--dot-color:#e67e22">Chinese Population Study 14</span> <span class="company-dot" style="--dot-color:#27ae60">BrightGene Bio-Medical 1</span> <span class="company-dot" style="--dot-color:#2980b9">Abbott 1</span> <span class="company-dot" style="--dot-color:#8e44ad">Eli Lilly 1</span> <span class="company-dot" style="--dot-color:#16a085">Guangdong Raynovent Biotech Co 1</span> <span class="company-dot" style="--dot-color:#d35400">Roche Diagnostics 1</span> <span class="company-dot" style="--dot-color:#c0392b">Unknown Chinese Entity 1</span>
+  </div>
+
+  <div class="tabs-container">
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="tab-0" style="--tab-color:#e74c3c">Other / Unspecified <span class="tab-count">13</span></button>
+      <button class="tab-btn" data-tab="tab-1" style="--tab-color:#e67e22">iGlarLixi <span class="tab-count">2</span></button>
+      <button class="tab-btn" data-tab="tab-2" style="--tab-color:#27ae60">Insulin GZR4 <span class="tab-count">2</span></button>
+      <button class="tab-btn" data-tab="tab-3" style="--tab-color:#2980b9">BGM0504 <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-4" style="--tab-color:#8e44ad">Tirzepatide <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-5" style="--tab-color:#16a085">Semaglutide <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-6" style="--tab-color:#d35400">Bofanglutide (GZR18) <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-7" style="--tab-color:#c0392b">RAY1225 <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-8" style="--tab-color:#2c3e50">Cofrogliptin <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-9" style="--tab-color:#7f8c8d">Liraglutide <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-10" style="--tab-color:#f39c12">Berberine Ursodeoxycholate <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-11" style="--tab-color:#1abc9c">Mazdutide <span class="tab-count">1</span></button>
+    </div>
+    <div class="tab-panel active" id="tab-0">
+        <div class="section-group">
+          <h4>Oral Presentation — 3 items</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/107-OR/159063/107-OR-Impact-of-Microvascular-Complications-on" target="_blank">107-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title">Impact of Microvascular Complications on Severe Mental Illness Risk in Patients with Type 2 Diabetes—A Nationwide Cohort Study in Taiwan</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Cohort Study</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/126-OR/159053/126-OR-Efficacy-and-Safety-of-a-Novel-Dual-GLP-1" target="_blank">126-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title">Efficacy and Safety of a Novel Dual GLP-1/GIP Receptor Agonist in Participants with Type 2 Diabetes</td>
+            <td class="col-company">Hansoh Pharma</td>
+            <td class="col-trial">Clinical Trial</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/331-OR/159050/331-OR-Modelling-the-Legacy-Effect-of-Glycaemic" target="_blank">331-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title">Modelling the Legacy Effect of Glycaemic Exposure on Long-Term Cardiovascular Disease Risk in Type 2 Diabetes</td>
+            <td class="col-company">Sanofi</td>
+            <td class="col-trial">Other</td>
+          </tr></tbody>
+          </table>
+        </div>
+        <div class="section-group">
+          <h4>Poster Presentation — 10 items</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/397-P/160154/397-P-Association-of-Visit-to-Visit-Variability-of" target="_blank">397-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Association of Visit-to-Visit Variability of Metabolic Indicators with the Progress of Proteinuria in Patients with Type 2 Diabetes in China</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Other</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/406-P/158624/406-P-The-Risk-Factor-Changes-for-Diabetic-Kidney" target="_blank">406-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">The Risk Factor Changes for Diabetic Kidney in T2DM during 13-Year Period in Beijing Community-Based Cohort Study</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Other</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/436-P/160323/436-P-The-Association-between-Glycemic-Control" target="_blank">436-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">The Association between Glycemic Control, Normal Weight, and Long-Term Macrovascular Outcomes in Chinese Patients with Type 2 Diabetes</td>
+            <td class="col-company">Abbott</td>
+            <td class="col-trial">Other</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/440-P/160066/440-P-Associated-Factors-with-Cardiovascular" target="_blank">440-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Associated Factors with Cardiovascular Disease in Patients with Type 2 Diabetes Mellitus in i-Health Registry</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Other</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/535-P/159843/535-P-Objectively-and-Subjectively-Measured" target="_blank">535-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Objectively and Subjectively Measured Physical Activity in Chinese Immigrants with Type 2 Diabetes</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Other</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/585-P/158706/585-P-Pilot-Study-on-AI-Based-Automatic" target="_blank">585-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Pilot Study on AI-Based Automatic Carbohydrate Counting for Chinese Americans with Type 2 Diabetes</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Other</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/848-P/159928/848-P-The-Antidiabetic-Medication-Treatment" target="_blank">848-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">The Antidiabetic Medication Treatment Patterns in Chinese Patients with Type 2 Diabetes—Real-World Evidence from ICaReMe China Registry Study</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Real-World Study</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1061-P/159065/1061-P-Cost-Effectiveness-of-N-Terminal-Pro-brain" target="_blank">1061-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Cost-Effectiveness of N-Terminal Pro-brain Natriuretic Peptide (NT-proBNP) in Guiding Heart Failure Screening in Chinese Patients with T2D</td>
+            <td class="col-company">Roche Diagnostics</td>
+            <td class="col-trial">Other</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1356-P/159284/1356-P-The-Prevalence-of-Beta-Cell-Monogenic" target="_blank">1356-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">The Prevalence of Beta-Cell Monogenic Diabetes in Early-Onset Type 2 Diabetes Cohort in China</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Cohort Study</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1486-P/159267/1486-P-Control-of-the-Cardiovascular-Risk-Factors" target="_blank">1486-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Control of the Cardiovascular Risk Factors in Patients with Type 2 Diabetes in China</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Other</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-1">
+        <div class="section-group">
+          <h4>Late-Breaking Poster — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1988-LB/158656/1988-LB-Impact-of-Time-of-Injection-Comparing" target="_blank">1988-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Impact of Time of Injection Comparing <span class="compound-highlight">iGlarLixi</span> vs. IDegAsp in Chinese People with Type 2 Diabetes—Exploratory Analysis of the SoliD Study</td>
+            <td class="col-company">Sanofi</td>
+            <td class="col-trial">Other</td>
+          </tr></tbody>
+          </table>
+        </div>
+        <div class="section-group">
+          <h4>Published Only — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/23-PUB/158844/23-PUB-Efficacy-and-Safety-of-IGlarLixi-vs-IDegAsp" target="_blank">23-PUB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#7f8c8d">Published</span></td>
+            <td class="col-title">Efficacy and Safety of <span class="compound-highlight">IGlarLixi</span> vs. IDegAsp by Baseline HbA1c in Chinese People with T2D—Post Hoc Analyses of the SoliD Study</td>
+            <td class="col-company">Sanofi</td>
+            <td class="col-trial">Clinical Trial</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-2">
+        <div class="section-group">
+          <h4>Poster Presentation — 2 items</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/807-P/160444/807-P-Comparable-Glycemic-Control-of-Once-Weekly" target="_blank">807-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Comparable Glycemic Control of Once-Weekly <span class="compound-highlight">Insulin GZR4</span> Relative to Once-Daily Insulin Degludec in Chinese Adults with T2D</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Other</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/808-P/160443/808-P-Superior-Glycemic-Control-Achieved-with-Once" target="_blank">808-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Superior Glycemic Control Achieved with Once-Weekly <span class="compound-highlight">Insulin GZR4</span> Compared with Once-Daily Degludec in Chinese Adults with T2D</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Other</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-3">
+        <div class="section-group">
+          <h4>Oral Presentation — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese" target="_blank">303-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title">Efficacy and Safety of <span class="compound-highlight">BGM0504</span> in Chinese Patients with Type 2 Diabetes—A Multicenter, Randomized, Double-Blind, Placebo-Controlled and Semaglutide Positive-Controlled Phase 2 Trial</td>
+            <td class="col-company">BrightGene Bio-Medical</td>
+            <td class="col-trial">Phase II</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-4">
+        <div class="section-group">
+          <h4>Poster Presentation — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/730-P/159428/730-P-Efficacy-and-Safety-of-Tirzepatide-Added-to" target="_blank">730-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Efficacy and Safety of <span class="compound-highlight">Tirzepatide</span> Added to Basal Insulin in Chinese Patients with Type 2 Diabetes</td>
+            <td class="col-company">Eli Lilly</td>
+            <td class="col-trial">Clinical Trial</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-5">
+        <div class="section-group">
+          <h4>Poster Presentation — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a" target="_blank">752-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Efficacy and Safety of Bofanglutide (GZR18), a Biweekly GLP-1RA, Compared with <span class="compound-highlight">Semaglutide</span> in Chinese Patients with T2D</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Clinical Trial</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-6">
+        <div class="section-group">
+          <h4>Poster Presentation — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/769-P/159626/769-P-Bofanglutide-GZR18-a-Novel-GLP-1RA-Improved" target="_blank">769-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title"><span class="compound-highlight">Bofanglutide (GZR18)</span>, a Novel GLP-1RA, Improved Glycemic Control and Cardiometabolic Risk Factors in Chinese Patients with T2D</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Other</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-7">
+        <div class="section-group">
+          <h4>Poster Presentation — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/795-P/158960/795-P-Efficacy-and-Safety-of-RAY1225-Once-Every" target="_blank">795-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Efficacy and Safety of <span class="compound-highlight">RAY1225</span> Once Every Two Weeks in Chinese Adults with Type 2 Diabetes</td>
+            <td class="col-company">Guangdong Raynovent Biotech Co</td>
+            <td class="col-trial">Clinical Trial</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-8">
+        <div class="section-group">
+          <h4>Poster Presentation — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/863-P/158311/863-P-A-Multicenter-Randomized-Open-Label" target="_blank">863-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">A Multicenter, Randomized, Open-Label, Controlled Study on Evaluating the Efficacy of Switching to <span class="compound-highlight">Cofrogliptin</span> in Chinese T2D Patients</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">RCT</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-9">
+        <div class="section-group">
+          <h4>Late-Breaking Poster — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1975-LB/158759/1975-LB-A-Single-Ascending-Dose-Study-of-a-Once" target="_blank">1975-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">A Single Ascending Dose Study of a Once-Monthly <span class="compound-highlight">Liraglutide</span> Formulation in Participants with Type 2 Diabetes</td>
+            <td class="col-company">Unknown Chinese Entity</td>
+            <td class="col-trial">Other</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-10">
+        <div class="section-group">
+          <h4>Late-Breaking Poster — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/2001-LB/158366/2001-LB-Symphony-1-A-Randomized-Placebo-Controlled" target="_blank">2001-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Symphony 1—A Randomized, Placebo-Controlled Phase 3 Study of <span class="compound-highlight">Berberine Ursodeoxycholate</span> as Monotherapy in Patients with Type 2 Diabetes</td>
+            <td class="col-company">HighTide Therapeutics, Inc</td>
+            <td class="col-trial">Phase III</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-11">
+        <div class="section-group">
+          <h4>Oral Presentation — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/306-OR/158740/306-OR-Mazdutide-vs-Placebo-as-Monotherapy-in" target="_blank">306-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title"><span class="compound-highlight">Mazdutide</span> vs. Placebo as Monotherapy in Patients with Type 2 Diabetes (DREAMS-1)</td>
+            <td class="col-company">Innovent Biologics</td>
+            <td class="col-trial">Other</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+
+  
+  <div class="data-section">
+    <h2>HbA1c Data Analysis</h2>
+    <p>30 data rows extracted from 10 studies</p>
+    <button class="download-btn" onclick="downloadCSV()">Download CSV</button>
+    <div class="table-scroll">
+      <table class="data-table">
+        <thead>
+          <tr><th>study_ind</th><th>arm_ind</th><th>compound</th><th>treat</th><th>n</th><th>y</th><th>se</th><th>base</th><th>weeks</th><th>Phase</th><th>study</th><th>comments</th></tr>
+        </thead>
+        <tbody>
+    <tr>
+      <td>1</td><td>1</td><td>BGM0504</td>
+      <td>BGM0504 5 mg</td><td>12</td><td>-1.82</td><td>0.515</td>
+      <td></td><td>12</td><td>Phase 2</td>
+      <td>CTR20232464</td><td class="col-comments">LSM vs placebo; <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>1</td><td>2</td><td>BGM0504</td>
+      <td>BGM0504 10 mg</td><td>12</td><td>-2.05</td><td>0.625</td>
+      <td></td><td>12</td><td>Phase 2</td>
+      <td>CTR20232464</td><td class="col-comments">LSM vs placebo; <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>1</td><td>3</td><td>BGM0504</td>
+      <td>BGM0504 15 mg</td><td>12</td><td>-2.56</td><td>0.520</td>
+      <td></td><td>12</td><td>Phase 2</td>
+      <td>CTR20232464</td><td class="col-comments">LSM vs placebo; <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>1</td><td>4</td><td>BGM0504</td>
+      <td>Semaglutide 1.0 mg</td><td>16</td><td>-1.86</td><td>0.492</td>
+      <td></td><td>12</td><td>Phase 2</td>
+      <td>CTR20232464</td><td class="col-comments">LSM vs placebo; <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>1</td><td>5</td><td>BGM0504</td>
+      <td>Placebo</td><td>12</td><td></td><td></td>
+      <td></td><td></td><td>Phase 2</td>
+      <td>CTR20232464</td><td class="col-comments">Reference arm; <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>2</td><td>1</td><td>Tirzepatide</td>
+      <td>Tirzepatide 5 mg</td><td>64</td><td>-2.11</td><td>0.12</td>
+      <td>8.66</td><td>40</td><td>Phase 3</td>
+      <td>SURPASS-CN-INS</td><td class="col-comments">CFB; <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/730-P/159428/730-P-Efficacy-and-Safety-of-Tirzepatide-Added-to" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>2</td><td>2</td><td>Tirzepatide</td>
+      <td>Tirzepatide 10 mg</td><td>65</td><td>-2.39</td><td>0.13</td>
+      <td>8.64</td><td>40</td><td>Phase 3</td>
+      <td>SURPASS-CN-INS</td><td class="col-comments">CFB; <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/730-P/159428/730-P-Efficacy-and-Safety-of-Tirzepatide-Added-to" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>2</td><td>3</td><td>Tirzepatide</td>
+      <td>Tirzepatide 15 mg</td><td>63</td><td>-2.37</td><td>0.13</td>
+      <td>8.76</td><td>40</td><td>Phase 3</td>
+      <td>SURPASS-CN-INS</td><td class="col-comments">CFB; <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/730-P/159428/730-P-Efficacy-and-Safety-of-Tirzepatide-Added-to" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>2</td><td>4</td><td>Tirzepatide</td>
+      <td>Placebo</td><td>63</td><td>-0.91</td><td>0.12</td>
+      <td>8.83</td><td>40</td><td>Phase 3</td>
+      <td>SURPASS-CN-INS</td><td class="col-comments">CFB; <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/730-P/159428/730-P-Efficacy-and-Safety-of-Tirzepatide-Added-to" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>3</td><td>1</td><td>Bofanglutide (GZR18)</td>
+      <td>Bofanglutide 12 mg Q2W</td><td>55</td><td>-1.87</td><td>0.122</td>
+      <td>8.56</td><td>24</td><td>Phase 2</td>
+      <td>752-P</td><td class="col-comments">CFB LSM(95%CI); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>3</td><td>2</td><td>Bofanglutide (GZR18)</td>
+      <td>Bofanglutide 18 mg Q2W</td><td>53</td><td>-2.28</td><td>0.130</td>
+      <td>8.31</td><td>24</td><td>Phase 2</td>
+      <td>752-P</td><td class="col-comments">CFB LSM(95%CI); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>3</td><td>3</td><td>Bofanglutide (GZR18)</td>
+      <td>Bofanglutide 24 mg Q2W</td><td>55</td><td>-1.94</td><td>0.127</td>
+      <td>8.31</td><td>24</td><td>Phase 2</td>
+      <td>752-P</td><td class="col-comments">CFB LSM(95%CI); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>3</td><td>4</td><td>Bofanglutide (GZR18)</td>
+      <td>Bofanglutide 24 mg QW</td><td>53</td><td>-2.32</td><td>0.130</td>
+      <td>8.28</td><td>24</td><td>Phase 2</td>
+      <td>752-P</td><td class="col-comments">CFB LSM(95%CI); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>3</td><td>5</td><td>Bofanglutide (GZR18)</td>
+      <td>Semaglutide 1 mg QW</td><td>54</td><td>-1.60</td><td>0.127</td>
+      <td>8.28</td><td>24</td><td>Phase 2</td>
+      <td>752-P</td><td class="col-comments">CFB LSM(95%CI); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>4</td><td>1</td><td>Bofanglutide (GZR18)</td>
+      <td>GZR18</td><td>26</td><td>-1.81</td><td>0.153</td>
+      <td>8.26</td><td>23</td><td>Phase 2A</td>
+      <td>769-P</td><td class="col-comments">CFB mean(SD); SE derived from SD/sqrt(n); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/769-P/159626/769-P-Bofanglutide-GZR18-a-Novel-GLP-1RA-Improved" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>4</td><td>2</td><td>Bofanglutide (GZR18)</td>
+      <td>Placebo</td><td>9</td><td>0.32</td><td>0.403</td>
+      <td>8.10</td><td>23</td><td>Phase 2A</td>
+      <td>769-P</td><td class="col-comments">CFB mean(SD); SE derived from SD/sqrt(n); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/769-P/159626/769-P-Bofanglutide-GZR18-a-Novel-GLP-1RA-Improved" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>5</td><td>1</td><td>RAY1225</td>
+      <td>RAY1225</td><td></td><td>-1.67</td><td>0.125</td>
+      <td></td><td>24</td><td>Phase 2</td>
+      <td>REBUILDING-1</td><td class="col-comments">CFB LSM(SE); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/795-P/158960/795-P-Efficacy-and-Safety-of-RAY1225-Once-Every" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>6</td><td>1</td><td>Insulin GZR4</td>
+      <td>GZR4</td><td>42</td><td>-1.50</td><td>0.196</td>
+      <td>8.23</td><td>16</td><td>Phase 2</td>
+      <td>807-P</td><td class="col-comments">CFB LSM(95%CI); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/807-P/160444/807-P-Comparable-Glycemic-Control-of-Once-Weekly" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>6</td><td>2</td><td>Insulin GZR4</td>
+      <td>Degludec</td><td>41</td><td>-1.48</td><td>0.194</td>
+      <td>8.12</td><td>16</td><td>Phase 2</td>
+      <td>807-P</td><td class="col-comments">CFB LSM(95%CI); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/807-P/160444/807-P-Comparable-Glycemic-Control-of-Once-Weekly" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>7</td><td>1</td><td>Insulin GZR4</td>
+      <td>GZR4</td><td>48</td><td>-1.26</td><td>0.102</td>
+      <td>8.35</td><td>16</td><td>Phase 2</td>
+      <td>808-P</td><td class="col-comments">CFB LSM(95%CI); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/808-P/160443/808-P-Superior-Glycemic-Control-Achieved-with-Once" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>7</td><td>2</td><td>Insulin GZR4</td>
+      <td>Degludec</td><td>48</td><td>-0.87</td><td>0.099</td>
+      <td>8.45</td><td>16</td><td>Phase 2</td>
+      <td>808-P</td><td class="col-comments">CFB LSM(95%CI); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/808-P/160443/808-P-Superior-Glycemic-Control-Achieved-with-Once" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>8</td><td>1</td><td>iGlarLixi</td>
+      <td>iGlarLixi</td><td>291</td><td>-1.88</td><td>0.05</td>
+      <td>8.58</td><td>24</td><td></td>
+      <td>SoliD</td><td class="col-comments">LSM±SE; <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1988-LB/158656/1988-LB-Impact-of-Time-of-Injection-Comparing" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>8</td><td>2</td><td>iGlarLixi</td>
+      <td>IDegAsp BB</td><td>139</td><td>-1.76</td><td>0.07</td>
+      <td>8.52</td><td>24</td><td></td>
+      <td>SoliD</td><td class="col-comments">LSM±SE; <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1988-LB/158656/1988-LB-Impact-of-Time-of-Injection-Comparing" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>8</td><td>3</td><td>iGlarLixi</td>
+      <td>IDegAsp BL</td><td>54</td><td>-1.64</td><td>0.11</td>
+      <td>8.47</td><td>24</td><td></td>
+      <td>SoliD</td><td class="col-comments">LSM±SE; <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1988-LB/158656/1988-LB-Impact-of-Time-of-Injection-Comparing" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>8</td><td>4</td><td>iGlarLixi</td>
+      <td>IDegAsp BD</td><td>98</td><td>-1.59</td><td>0.08</td>
+      <td>8.56</td><td>24</td><td></td>
+      <td>SoliD</td><td class="col-comments">LSM±SE; <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/1988-LB/158656/1988-LB-Impact-of-Time-of-Injection-Comparing" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>9</td><td>1</td><td>Berberine Ursodeoxycholate</td>
+      <td>HTD1801 1000 mg BID</td><td>271</td><td>-1.26</td><td>0.06</td>
+      <td>8.49</td><td>24</td><td>Phase 3</td>
+      <td>Symphony 1</td><td class="col-comments">LSM(SE); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/2001-LB/158366/2001-LB-Symphony-1-A-Randomized-Placebo-Controlled" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>9</td><td>2</td><td>Berberine Ursodeoxycholate</td>
+      <td>Placebo</td><td>136</td><td>-0.61</td><td>0.08</td>
+      <td>8.47</td><td>24</td><td>Phase 3</td>
+      <td>Symphony 1</td><td class="col-comments">LSM(SE); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/2001-LB/158366/2001-LB-Symphony-1-A-Randomized-Placebo-Controlled" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>10</td><td>1</td><td>Mazdutide</td>
+      <td>Mazdutide 4 mg</td><td>106</td><td>-1.57</td><td>0.107</td>
+      <td>8.19</td><td>24</td><td>Phase 3</td>
+      <td>DREAMS-1</td><td class="col-comments">LSM(SE); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/306-OR/158740/306-OR-Mazdutide-vs-Placebo-as-Monotherapy-in" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>10</td><td>2</td><td>Mazdutide</td>
+      <td>Mazdutide 6 mg</td><td>106</td><td>-2.15</td><td>0.109</td>
+      <td>8.21</td><td>24</td><td>Phase 3</td>
+      <td>DREAMS-1</td><td class="col-comments">LSM(SE); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/306-OR/158740/306-OR-Mazdutide-vs-Placebo-as-Monotherapy-in" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>10</td><td>3</td><td>Mazdutide</td>
+      <td>Placebo</td><td>107</td><td>-0.14</td><td>0.107</td>
+      <td>8.33</td><td>24</td><td>Phase 3</td>
+      <td>DREAMS-1</td><td class="col-comments">LSM(SE); <a href="https://diabetesjournals.org/diabetes/article/74/Supplement_1/306-OR/158740/306-OR-Mazdutide-vs-Placebo-as-Monotherapy-in" target="_blank">link</a></td>
+    </tr></tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    function downloadCSV() {
+      const csv = "study_ind,arm_ind,compound,treat,n,y,se,base,weeks,Phase,study,comments\n1,1,BGM0504,BGM0504 5 mg,12,-1.82,0.515,,12,Phase 2,CTR20232464,LSM vs placebo; https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese\n1,2,BGM0504,BGM0504 10 mg,12,-2.05,0.625,,12,Phase 2,CTR20232464,LSM vs placebo; https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese\n1,3,BGM0504,BGM0504 15 mg,12,-2.56,0.520,,12,Phase 2,CTR20232464,LSM vs placebo; https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese\n1,4,BGM0504,Semaglutide 1.0 mg,16,-1.86,0.492,,12,Phase 2,CTR20232464,LSM vs placebo; https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese\n1,5,BGM0504,Placebo,12,,,,,Phase 2,CTR20232464,Reference arm; https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese\n2,1,Tirzepatide,Tirzepatide 5 mg,64,-2.11,0.12,8.66,40,Phase 3,SURPASS-CN-INS,CFB; https://diabetesjournals.org/diabetes/article/74/Supplement_1/730-P/159428/730-P-Efficacy-and-Safety-of-Tirzepatide-Added-to\n2,2,Tirzepatide,Tirzepatide 10 mg,65,-2.39,0.13,8.64,40,Phase 3,SURPASS-CN-INS,CFB; https://diabetesjournals.org/diabetes/article/74/Supplement_1/730-P/159428/730-P-Efficacy-and-Safety-of-Tirzepatide-Added-to\n2,3,Tirzepatide,Tirzepatide 15 mg,63,-2.37,0.13,8.76,40,Phase 3,SURPASS-CN-INS,CFB; https://diabetesjournals.org/diabetes/article/74/Supplement_1/730-P/159428/730-P-Efficacy-and-Safety-of-Tirzepatide-Added-to\n2,4,Tirzepatide,Placebo,63,-0.91,0.12,8.83,40,Phase 3,SURPASS-CN-INS,CFB; https://diabetesjournals.org/diabetes/article/74/Supplement_1/730-P/159428/730-P-Efficacy-and-Safety-of-Tirzepatide-Added-to\n3,1,Bofanglutide (GZR18),Bofanglutide 12 mg Q2W,55,-1.87,0.122,8.56,24,Phase 2,752-P,CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a\n3,2,Bofanglutide (GZR18),Bofanglutide 18 mg Q2W,53,-2.28,0.130,8.31,24,Phase 2,752-P,CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a\n3,3,Bofanglutide (GZR18),Bofanglutide 24 mg Q2W,55,-1.94,0.127,8.31,24,Phase 2,752-P,CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a\n3,4,Bofanglutide (GZR18),Bofanglutide 24 mg QW,53,-2.32,0.130,8.28,24,Phase 2,752-P,CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a\n3,5,Bofanglutide (GZR18),Semaglutide 1 mg QW,54,-1.60,0.127,8.28,24,Phase 2,752-P,CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a\n4,1,Bofanglutide (GZR18),GZR18,26,-1.81,0.153,8.26,23,Phase 2A,769-P,CFB mean(SD); SE derived from SD/sqrt(n); https://diabetesjournals.org/diabetes/article/74/Supplement_1/769-P/159626/769-P-Bofanglutide-GZR18-a-Novel-GLP-1RA-Improved\n4,2,Bofanglutide (GZR18),Placebo,9,0.32,0.403,8.10,23,Phase 2A,769-P,CFB mean(SD); SE derived from SD/sqrt(n); https://diabetesjournals.org/diabetes/article/74/Supplement_1/769-P/159626/769-P-Bofanglutide-GZR18-a-Novel-GLP-1RA-Improved\n5,1,RAY1225,RAY1225,,-1.67,0.125,,24,Phase 2,REBUILDING-1,CFB LSM(SE); https://diabetesjournals.org/diabetes/article/74/Supplement_1/795-P/158960/795-P-Efficacy-and-Safety-of-RAY1225-Once-Every\n6,1,Insulin GZR4,GZR4,42,-1.50,0.196,8.23,16,Phase 2,807-P,CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/807-P/160444/807-P-Comparable-Glycemic-Control-of-Once-Weekly\n6,2,Insulin GZR4,Degludec,41,-1.48,0.194,8.12,16,Phase 2,807-P,CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/807-P/160444/807-P-Comparable-Glycemic-Control-of-Once-Weekly\n7,1,Insulin GZR4,GZR4,48,-1.26,0.102,8.35,16,Phase 2,808-P,CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/808-P/160443/808-P-Superior-Glycemic-Control-Achieved-with-Once\n7,2,Insulin GZR4,Degludec,48,-0.87,0.099,8.45,16,Phase 2,808-P,CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/808-P/160443/808-P-Superior-Glycemic-Control-Achieved-with-Once\n8,1,iGlarLixi,iGlarLixi,291,-1.88,0.05,8.58,24,,SoliD,LSM±SE; https://diabetesjournals.org/diabetes/article/74/Supplement_1/1988-LB/158656/1988-LB-Impact-of-Time-of-Injection-Comparing\n8,2,iGlarLixi,IDegAsp BB,139,-1.76,0.07,8.52,24,,SoliD,LSM±SE; https://diabetesjournals.org/diabetes/article/74/Supplement_1/1988-LB/158656/1988-LB-Impact-of-Time-of-Injection-Comparing\n8,3,iGlarLixi,IDegAsp BL,54,-1.64,0.11,8.47,24,,SoliD,LSM±SE; https://diabetesjournals.org/diabetes/article/74/Supplement_1/1988-LB/158656/1988-LB-Impact-of-Time-of-Injection-Comparing\n8,4,iGlarLixi,IDegAsp BD,98,-1.59,0.08,8.56,24,,SoliD,LSM±SE; https://diabetesjournals.org/diabetes/article/74/Supplement_1/1988-LB/158656/1988-LB-Impact-of-Time-of-Injection-Comparing\n9,1,Berberine Ursodeoxycholate,HTD1801 1000 mg BID,271,-1.26,0.06,8.49,24,Phase 3,Symphony 1,LSM(SE); https://diabetesjournals.org/diabetes/article/74/Supplement_1/2001-LB/158366/2001-LB-Symphony-1-A-Randomized-Placebo-Controlled\n9,2,Berberine Ursodeoxycholate,Placebo,136,-0.61,0.08,8.47,24,Phase 3,Symphony 1,LSM(SE); https://diabetesjournals.org/diabetes/article/74/Supplement_1/2001-LB/158366/2001-LB-Symphony-1-A-Randomized-Placebo-Controlled\n10,1,Mazdutide,Mazdutide 4 mg,106,-1.57,0.107,8.19,24,Phase 3,DREAMS-1,LSM(SE); https://diabetesjournals.org/diabetes/article/74/Supplement_1/306-OR/158740/306-OR-Mazdutide-vs-Placebo-as-Monotherapy-in\n10,2,Mazdutide,Mazdutide 6 mg,106,-2.15,0.109,8.21,24,Phase 3,DREAMS-1,LSM(SE); https://diabetesjournals.org/diabetes/article/74/Supplement_1/306-OR/158740/306-OR-Mazdutide-vs-Placebo-as-Monotherapy-in\n10,3,Mazdutide,Placebo,107,-0.14,0.107,8.33,24,Phase 3,DREAMS-1,LSM(SE); https://diabetesjournals.org/diabetes/article/74/Supplement_1/306-OR/158740/306-OR-Mazdutide-vs-Placebo-as-Monotherapy-in";
+      const blob = new Blob([csv], {type: 'text/csv'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'hba1c_data.csv'; a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADA 2026 - 中国公司会议报告汇总</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f7fa; color: #1a1a2e; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #0d47a1, #1565c0, #00695c); color: #fff; padding: 32px 24px; text-align: center; }
+  .header h1 { font-size: 1.6em; margin-bottom: 6px; }
+  .header p { opacity: 0.85; font-size: 0.95em; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px; }
+
+  .tabs { display: flex; gap: 0; margin-bottom: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .tab-btn { padding: 12px 14px; border: none; cursor: pointer; font-size: 0.88em; font-weight: 700; transition: all 0.2s; border-radius: 10px 10px 0 0; position: relative; top: 1px; white-space: nowrap; flex-shrink: 0; }
+  .tab-btn .tab-count { font-weight: 400; font-size: 0.78em; opacity: 0.8; margin-left: 4px; }
+  .tab-btn.active { color: #fff !important; z-index: 1; }
+
+  .tab-panel { display: none; background: #fff; border-radius: 0 0 10px 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); overflow: hidden; }
+  .tab-panel.active { display: block; }
+
+  .category { margin: 0; }
+  .category-header { padding: 10px 18px; font-weight: 600; font-size: 0.92em; color: #37474f; border-bottom: 1px solid #e0e0e0; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th { background: #fafafa; text-align: left; padding: 10px 14px; font-size: 0.82em; color: #546e7a; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #e0e0e0; }
+  td { padding: 10px 14px; border-bottom: 1px solid #f0f0f0; font-size: 0.9em; vertical-align: top; }
+  tr:hover { background: #f8f9ff; }
+
+  .abs-id { font-weight: 700; white-space: nowrap; min-width: 80px; }
+  .abs-id a { text-decoration: none; }
+  .abs-id a:hover { text-decoration: underline; }
+
+  .abs-title { line-height: 1.5; }
+  .abs-title .product { padding: 1px 5px; border-radius: 3px; font-weight: 600; font-size: 0.88em; }
+
+  .abs-time { white-space: nowrap; font-size: 0.85em; color: #616161; min-width: 150px; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.75em; font-weight: 600; margin-left: 4px; }
+  .badge-oral { background: #e8f5e9; color: #2e7d32; }
+  .badge-poster { background: #e3f2fd; color: #1565c0; }
+  .badge-lb { background: #fff3e0; color: #e65100; }
+  .badge-eposter { background: #fce4ec; color: #880e4f; }
+
+  .panel-footer { padding: 12px 18px; font-size: 0.85em; color: #78909c; background: #fafafa; border-top: 1px solid #f0f0f0; }
+
+  .summary-bar { background: #fff; border-radius: 10px; padding: 18px 24px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .summary-item { display: flex; align-items: center; gap: 6px; font-size: 0.9em; }
+  .summary-dot { width: 12px; height: 12px; border-radius: 50%; }
+  .summary-label { font-weight: 600; }
+  .summary-count { color: #616161; }
+
+  .footer { text-align: center; padding: 20px; font-size: 0.8em; color: #9e9e9e; }
+
+  @media (max-width: 768px) {
+    td, th { padding: 8px 8px; font-size: 0.82em; }
+    .abs-time { font-size: 0.78em; }
+    .tab-btn { font-size: 0.78em; padding: 10px 8px; }
+    .summary-bar { padding: 12px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>ADA 2026 Scientific Sessions</h1>
+  <p>中国公司会议报告汇总 (Chinese Companies Presentations)</p>
+  <p style="margin-top:4px; font-size:0.85em;">New Orleans, LA, USA &bull; June 5-8, 2026 &bull; 检索日期: 2026-04-26</p>
+</div>
+
+<div class="container">
+
+<div class="summary-bar">
+<div class="summary-item"><span class="summary-label">共 8 家公司</span><span class="summary-count"> | 32 项报告</span></div>
+<div style="flex-grow:1"></div>
+<div class="summary-item"><span class="summary-dot" style="background:#1565c0"></span><span>信达生物 11</span></div>
+<div class="summary-item"><span class="summary-dot" style="background:#c62828"></span><span>恒瑞医药 4</span></div>
+<div class="summary-item"><span class="summary-dot" style="background:#00695c"></span><span>华东医药 3</span></div>
+<div class="summary-item"><span class="summary-dot" style="background:#2e7d32"></span><span>华领医药 3</span></div>
+<div class="summary-item"><span class="summary-dot" style="background:#0d47a1"></span><span>甘李药业 7</span></div>
+<div class="summary-item"><span class="summary-dot" style="background:#6a1b9a"></span><span>先为达 2</span></div>
+<div class="summary-item"><span class="summary-dot" style="background:#4e342e"></span><span>通化东宝 1</span></div>
+<div class="summary-item"><span class="summary-dot" style="background:#006064"></span><span>诚益生物 1</span></div>
+</div>
+<div class="tabs">
+<button class="tab-btn active" data-tab="innovent" data-color="#1565c0" data-bg="#e3eaf5" style="background:#1565c0;color:#fff;box-shadow:0 -2px 8px #1565c040;" onclick="switchTab('innovent')">信达生物<span class="tab-count">11项</span></button>
+<button class="tab-btn" data-tab="hengrui" data-color="#c62828" data-bg="#fbe9e7" style="background:#fbe9e7;color:#c62828;" onclick="switchTab('hengrui')">恒瑞医药<span class="tab-count">4项</span></button>
+<button class="tab-btn" data-tab="huadong" data-color="#00695c" data-bg="#e0f2f1" style="background:#e0f2f1;color:#00695c;" onclick="switchTab('huadong')">华东医药<span class="tab-count">3项</span></button>
+<button class="tab-btn" data-tab="huamedicine" data-color="#2e7d32" data-bg="#e8f5e9" style="background:#e8f5e9;color:#2e7d32;" onclick="switchTab('huamedicine')">华领医药<span class="tab-count">3项</span></button>
+<button class="tab-btn" data-tab="ganlee" data-color="#0d47a1" data-bg="#e3f2fd" style="background:#e3f2fd;color:#0d47a1;" onclick="switchTab('ganlee')">甘李药业<span class="tab-count">7项</span></button>
+<button class="tab-btn" data-tab="sciwind" data-color="#6a1b9a" data-bg="#f3e5f5" style="background:#f3e5f5;color:#6a1b9a;" onclick="switchTab('sciwind')">先为达<span class="tab-count">2项</span></button>
+<button class="tab-btn" data-tab="thdb" data-color="#4e342e" data-bg="#efebe9" style="background:#efebe9;color:#4e342e;" onclick="switchTab('thdb')">通化东宝<span class="tab-count">1项</span></button>
+<button class="tab-btn" data-tab="eccogene" data-color="#006064" data-bg="#e0f7fa" style="background:#e0f7fa;color:#006064;" onclick="switchTab('eccogene')">诚益生物<span class="tab-count">1项</span></button>
+</div>
+<div id="tab-innovent" class="tab-panel active" style="border-top: 3px solid #1565c0;">
+<div class="category">
+<div class="category-header" style="background:#e8f5e9;">Oral Presentations (口头报告) &mdash; 4项</div>
+<table>
+<thead><tr><th style="width:90px">编号</th><th>标题</th><th style="width:170px">时间</th></tr></thead>
+<tbody>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P1949" target="_blank" style="color:#1565c0;">1133-OR</a> <span class="badge badge-oral">Oral</span></td>
+  <td class="abs-title">Safety, Tolerability, and Pharmacokinetics of Once-Weekly <span class="product" style="background:#fff3e0;color:#e65100;">Mazdutide</span> in Chinese Adolescents with Obesity: A Phase 1b Trial</td>
+  <td class="abs-time">Jun 5, 5:30pm-5:45pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P2403" target="_blank" style="color:#1565c0;">1225-OR</a> <span class="badge badge-oral">Oral</span></td>
+  <td class="abs-title">Efficacy and Safety of <span class="product" style="background:#fff3e0;color:#e65100;">Mazdutide</span> 9 mg in Chinese Adults with Obesity: Results from the Phase 3 <span class="product" style="background:#fff3e0;color:#e65100;">GLORY-2</span> Trial</td>
+  <td class="abs-time">Jun 7, 8:00am-8:15am</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P2404" target="_blank" style="color:#1565c0;">1226-OR</a> <span class="badge badge-oral">Oral</span></td>
+  <td class="abs-title"><span class="product" style="background:#fff3e0;color:#e65100;">Mazdutide</span> vs. Semaglutide in Chinese Adults with Type 2 Diabetes and Obesity (<span class="product" style="background:#fff3e0;color:#e65100;">DREAMS-3</span>): A Randomised, Open-Label, Phase 3b Trial</td>
+  <td class="abs-time">Jun 7, 8:15am-8:30am</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P2405" target="_blank" style="color:#1565c0;">1227-OR</a> <span class="badge badge-oral">Oral</span></td>
+  <td class="abs-title"><span class="product" style="background:#fff3e0;color:#e65100;">RAY1225</span>, a Biweekly Biased GLP-1/GIP RA for Weight Management: A Phase 2 Trial in Chinese Overweight/Obese Adults (<span class="product" style="background:#fff3e0;color:#e65100;">REBUILDING-1</span>)</td>
+  <td class="abs-time">Jun 7, 8:30am-8:45am</td>
+</tr>
+</tbody></table></div>
+<div class="category">
+<div class="category-header" style="background:#e3f2fd;">General Poster Session (壁报) &mdash; 7项</div>
+<table>
+<thead><tr><th style="width:90px">编号</th><th>标题</th><th style="width:170px">时间</th></tr></thead>
+<tbody>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3193" target="_blank" style="color:#1565c0;">1690-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title">Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of <span class="product" style="background:#fff3e0;color:#e65100;">IBI3032</span>, a Novel Oral Nonpeptide GLP-1 Receptor Agonist: Single- and Multiple-Ascending Dose Studies in Chinese Adults</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3525" target="_blank" style="color:#1565c0;">2505-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title"><span class="product" style="background:#fff3e0;color:#e65100;">Mazdutide</span>, a GCGR/GLP-1R Dual Agonist, Alleviates MASH and Liver Fibrosis through Hepatocytes–Hepatic Stellate Cells Cross Talk</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3181" target="_blank" style="color:#1565c0;">1678-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title"><span class="product" style="background:#fff3e0;color:#e65100;">IBI3032</span>: An Orally Bioavailable Nonpeptidic GLP-1 Receptor Agonist Advancing through Phase 1 Clinical Trials</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3196" target="_blank" style="color:#1565c0;">1693-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title"><span class="product" style="background:#fff3e0;color:#e65100;">Mazdutide</span> Improves Markers of Insulin Sensitivity in Adults with Obesity without Type 2 Diabetes</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3238" target="_blank" style="color:#1565c0;">1733-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title">Effect of <span class="product" style="background:#fff3e0;color:#e65100;">Mazdutide</span> on Kidney Function in Adults with Obesity or Overweight</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3959" target="_blank" style="color:#1565c0;">2620-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title"><span class="product" style="background:#fff3e0;color:#e65100;">MDR-001</span>, an AI-Enabled β-arrestin2-Biased Oral GLP-1RA: Efficacy and Safety in Chinese Adults with Overweight or Obesity</td>
+  <td class="abs-time">Jun 8, 12:30pm-1:30pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3875" target="_blank" style="color:#1565c0;">2543-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title"><span class="product" style="background:#fff3e0;color:#e65100;">IBI3042</span>: A Novel Oral Once-Weekly Small-Molecule GLP-1 Receptor Agonist for Type 2 Diabetes and Obesity</td>
+  <td class="abs-time">Jun 8, 12:30pm-1:30pm</td>
+</tr>
+</tbody></table></div>
+</div>
+<div id="tab-hengrui" class="tab-panel" style="border-top: 3px solid #c62828;">
+<div class="category">
+<div class="category-header" style="background:#e3f2fd;">General Poster Session (壁报) &mdash; 3项</div>
+<table>
+<thead><tr><th style="width:90px">编号</th><th>标题</th><th style="width:170px">时间</th></tr></thead>
+<tbody>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3292" target="_blank" style="color:#c62828;">1815-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title">Efficacy and Safety of the GlP-1/GIP Dual Agonist <span class="product" style="background:#fff3e0;color:#e65100;">HRS9531</span> in Overweight/Obese Chinese Patients with Polycystic Ovary Syndrome</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3184" target="_blank" style="color:#c62828;">1681-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title">Benefits of <span class="product" style="background:#fff3e0;color:#e65100;">HR17031</span> vs. Insulin Glargine (iGlar) in Patients (pts) with Type 2 Diabetes (T2D) Uncontrolled on Metformin (Met) with/without One Other Oral Antidiabetic Drug (OAD)</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3216" target="_blank" style="color:#c62828;">1712-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title">Benefits of <span class="product" style="background:#fff3e0;color:#e65100;">HR17031</span> vs. Insulin Glargine (iGlar) in Patients (pts) with Type 2 Diabetes (T2D) Uncontrolled on Basal Insulin (BI) and Metformin</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+</tbody></table></div>
+<div class="category">
+<div class="category-header" style="background:#fff3e0;">Late Breaking Poster (迟发壁报) &mdash; 1项</div>
+<table>
+<thead><tr><th style="width:90px">编号</th><th>标题</th><th style="width:170px">时间</th></tr></thead>
+<tbody>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P5061" target="_blank" style="color:#c62828;">2816-LB</a> <span class="badge badge-lb">LB</span></td>
+  <td class="abs-title">Efficacy and Safety of Oral <span class="product" style="background:#fff3e0;color:#e65100;">Ribupatide</span> (<span class="product" style="background:#fff3e0;color:#e65100;">HRS9531</span>) in Adults with Obesity: A Phase 2 Trial</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+</tbody></table></div>
+</div>
+<div id="tab-huadong" class="tab-panel" style="border-top: 3px solid #00695c;">
+<div class="category">
+<div class="category-header" style="background:#e8f5e9;">Oral Presentations (口头报告) &mdash; 2项</div>
+<table>
+<thead><tr><th style="width:90px">编号</th><th>标题</th><th style="width:170px">时间</th></tr></thead>
+<tbody>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P2264" target="_blank" style="color:#00695c;">1034-OR</a> <span class="badge badge-oral">Oral</span></td>
+  <td class="abs-title">Efficacy and Safety of Dual GLP-1/GIP Receptor Agonist <span class="product" style="background:#fff3e0;color:#e65100;">HDM1005</span> in Obese Participants without Diabetes: A Randomized, Double-Blind, Placebo-Controlled, Phase 2 Trial</td>
+  <td class="abs-time">Jun 5, 1:15pm-1:30pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P2427" target="_blank" style="color:#00695c;">1218-OR</a> <span class="badge badge-oral">Oral</span></td>
+  <td class="abs-title">Efficacy and Safety of a Novel Oral Small Molecule Glucagon-Like Peptide 1 Receptor Agonist (<span class="product" style="background:#fff3e0;color:#e65100;">HDM1002</span>) in Type 2 Diabetes Mellitus Patients Inadequately Controlled on Diet and Exercise or Metformin</td>
+  <td class="abs-time">Jun 6, 3:30pm-3:45pm</td>
+</tr>
+</tbody></table></div>
+<div class="category">
+<div class="category-header" style="background:#e3f2fd;">General Poster Session (壁报) &mdash; 1项</div>
+<table>
+<thead><tr><th style="width:90px">编号</th><th>标题</th><th style="width:170px">时间</th></tr></thead>
+<tbody>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3947" target="_blank" style="color:#00695c;">2609-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title">Efficacy and Safety of a Novel Oral Small Molecule GLP-1 Receptor Agonist <span class="product" style="background:#fff3e0;color:#e65100;">HDM1002</span> in Chinese Overweight and Obese Adults: A Randomized, Double-Blind, Placebo-Controlled, Phase 2 Trial</td>
+  <td class="abs-time">Jun 8, 12:30pm-1:30pm</td>
+</tr>
+</tbody></table></div>
+</div>
+<div id="tab-huamedicine" class="tab-panel" style="border-top: 3px solid #2e7d32;">
+<div class="category">
+<div class="category-header" style="background:#e3f2fd;">General Poster Session (壁报) &mdash; 2项</div>
+<table>
+<thead><tr><th style="width:90px">编号</th><th>标题</th><th style="width:170px">时间</th></tr></thead>
+<tbody>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3276" target="_blank" style="color:#2e7d32;">1799-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title">Safety and Efficacy of <span class="product" style="background:#fff3e0;color:#e65100;">Dorzagliatin</span> in Patients with Type 2 Diabetes under Real-World Clinical Practice: Preliminary Results from a Large-Scale Post-Marketing Study</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3306" target="_blank" style="color:#2e7d32;">1828-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title">Development of Preliminary Predictive Models for <span class="product" style="background:#fff3e0;color:#e65100;">Dorzagliatin</span> Treatment Response and Diabetes Remission in Type 2 Diabetes: A Focus on Personalized Medicine</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+</tbody></table></div>
+<div class="category">
+<div class="category-header" style="background:#fff3e0;">Late Breaking Poster (迟发壁报) &mdash; 1项</div>
+<table>
+<thead><tr><th style="width:90px">编号</th><th>标题</th><th style="width:170px">时间</th></tr></thead>
+<tbody>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P5119" target="_blank" style="color:#2e7d32;">2874-LB</a> <span class="badge badge-lb">LB</span></td>
+  <td class="abs-title"><span class="product" style="background:#fff3e0;color:#e65100;">Dorzagliatin</span> Improves Glycemic Control in Type 2 Diabetes Patients with Different Time in Range (TIR): A Subgroup Analysis of Six-Month Interim Results from a Prospective Real-World Study</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+</tbody></table></div>
+</div>
+<div id="tab-ganlee" class="tab-panel" style="border-top: 3px solid #0d47a1;">
+<div class="category">
+<div class="category-header" style="background:#e3f2fd;">General Poster Session (壁报) &mdash; 6项</div>
+<table>
+<thead><tr><th style="width:90px">编号</th><th>标题</th><th style="width:170px">时间</th></tr></thead>
+<tbody>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P2697" target="_blank" style="color:#0d47a1;">1745-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title">Effects of Moderate Renal Impairment on Pharmacokinetics and Safety of Once-Weekly Insulin <span class="product" style="background:#fff3e0;color:#e65100;">GZR4</span></td>
+  <td class="abs-time">Jun 6, 12:30pm-1:30pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3202" target="_blank" style="color:#0d47a1;">1699-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title">Effect of <span class="product" style="background:#fff3e0;color:#e65100;">Bofanglutide</span> on the Pharmacokinetics of Metformin in Healthy Participants</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3300" target="_blank" style="color:#0d47a1;">1822-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title">Pharmacokinetic and Pharmacodynamic Profiles of <span class="product" style="background:#fff3e0;color:#e65100;">GZR102</span> Injection, a Novel Once-Weekly Fixed-Ratio Combination of Insulin <span class="product" style="background:#fff3e0;color:#e65100;">GZR4</span> and GLP-1 Analog <span class="product" style="background:#fff3e0;color:#e65100;">Bofanglutide</span></td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3225" target="_blank" style="color:#0d47a1;">1720-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title">Effect of Renal Impairment on the Pharmacokinetics and Safety of <span class="product" style="background:#fff3e0;color:#e65100;">Bofanglutide</span></td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3282" target="_blank" style="color:#0d47a1;">1805-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title">Safety, Tolerability, and Pharmacokinetic Characteristics of <span class="product" style="background:#fff3e0;color:#e65100;">GZR102</span> Injection Compared with <span class="product" style="background:#fff3e0;color:#e65100;">GZR4</span> or <span class="product" style="background:#fff3e0;color:#e65100;">Bofanglutide</span></td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3203" target="_blank" style="color:#0d47a1;">1700-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title">Durable Cardiometabolic Effects of <span class="product" style="background:#fff3e0;color:#e65100;">Utreglutide</span> in Metabolic Dysfunction–Associated Steatotic Liver Disease Patients with Nondiabetic and Prediabetic Status</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+</tbody></table></div>
+<div class="category">
+<div class="category-header" style="background:#fff3e0;">Late Breaking Poster (迟发壁报) &mdash; 1项</div>
+<table>
+<thead><tr><th style="width:90px">编号</th><th>标题</th><th style="width:170px">时间</th></tr></thead>
+<tbody>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P5078" target="_blank" style="color:#0d47a1;">2833-LB</a> <span class="badge badge-lb">LB</span></td>
+  <td class="abs-title"><span class="product" style="background:#fff3e0;color:#e65100;">Utreglutide</span> (<span class="product" style="background:#fff3e0;color:#e65100;">GL0034</span>) Shows Comparable Tolerability and Efficacy with Different Dose Escalation Regimens in Overweight and Obese Adults with Type 2 Diabetes (T2DM)</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+</tbody></table></div>
+</div>
+<div id="tab-sciwind" class="tab-panel" style="border-top: 3px solid #6a1b9a;">
+<div class="category">
+<div class="category-header" style="background:#e3f2fd;">General Poster Session (壁报) &mdash; 1项</div>
+<table>
+<thead><tr><th style="width:90px">编号</th><th>标题</th><th style="width:170px">时间</th></tr></thead>
+<tbody>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P3242" target="_blank" style="color:#6a1b9a;">1766-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title"><span class="product" style="background:#fff3e0;color:#e65100;">VRB-103</span> Is a Potent, Orally Bioavailable Amylin Analog with a Strong Selectivity towards Human Amylin Receptors vs. Calcitonin Receptor</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+</tbody></table></div>
+<div class="category">
+<div class="category-header" style="background:#fff3e0;">Late Breaking Poster (迟发壁报) &mdash; 1项</div>
+<table>
+<thead><tr><th style="width:90px">编号</th><th>标题</th><th style="width:170px">时间</th></tr></thead>
+<tbody>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P5094" target="_blank" style="color:#6a1b9a;">2849-LB</a> <span class="badge badge-lb">LB</span></td>
+  <td class="abs-title">Efficacy and Safety of cAMP-Biased <span class="product" style="background:#fff3e0;color:#e65100;">Ecnoglutide</span> vs. Unbiased Semaglutide in Adults with Obesity: Twenty-Week Results from a Multicenter, Randomized, Open-Label, Phase 2 Study</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+</tbody></table></div>
+</div>
+<div id="tab-thdb" class="tab-panel" style="border-top: 3px solid #4e342e;">
+<div class="category">
+<div class="category-header" style="background:#e3f2fd;">General Poster Session (壁报) &mdash; 1项</div>
+<table>
+<thead><tr><th style="width:90px">编号</th><th>标题</th><th style="width:170px">时间</th></tr></thead>
+<tbody>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P2714" target="_blank" style="color:#4e342e;">1762-P</a> <span class="badge badge-poster">Poster</span></td>
+  <td class="abs-title"><span class="product" style="background:#fff3e0;color:#e65100;">THDB0206</span> Injection (BioChaperone Lispro, BCLIS) Improves Postprandial and Daily Glucose Control vs. Lispro (LIS) in Chinese Patients with Type 2 Diabetes (T2D)</td>
+  <td class="abs-time">Jun 6, 12:30pm-1:30pm</td>
+</tr>
+</tbody></table></div>
+<div class="category">
+<div class="category-header" style="background:#fce4ec;">ePoster Theater &mdash; 1项</div>
+<table>
+<thead><tr><th style="width:90px">编号</th><th>标题</th><th style="width:170px">时间</th></tr></thead>
+<tbody>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P2456" target="_blank" style="color:#4e342e;">1762-P</a> <span class="badge badge-eposter">ePoster</span></td>
+  <td class="abs-title"><span class="product" style="background:#fff3e0;color:#e65100;">THDB0206</span> Injection (BioChaperone Lispro, BCLIS) Improves Postprandial and Daily Glucose Control vs. Lispro (LIS) in Chinese Patients with Type 2 Diabetes (T2D)</td>
+  <td class="abs-time">Jun 8, 1:00pm-1:10pm</td>
+</tr>
+</tbody></table></div>
+</div>
+<div id="tab-eccogene" class="tab-panel" style="border-top: 3px solid #006064;">
+<div class="category">
+<div class="category-header" style="background:#fff3e0;">Late Breaking Poster (迟发壁报) &mdash; 1项</div>
+<table>
+<thead><tr><th style="width:90px">编号</th><th>标题</th><th style="width:170px">时间</th></tr></thead>
+<tbody>
+<tr>
+  <td class="abs-id"><a href="https://eppro02.ativ.me/web/page.php?page=Session&project=ADA26&id=P5089" target="_blank" style="color:#006064;">2844-LB</a> <span class="badge badge-lb">LB</span></td>
+  <td class="abs-title">Safety, Tolerability, PK, and PD of <span class="product" style="background:#fff3e0;color:#e65100;">Elecoglipron</span>, an Oral Small-Molecule GLP-1 Receptor Agonist, in Chinese Adults Living with Obesity or Overweight With or Without Type 2 Diabetes</td>
+  <td class="abs-time">Jun 7, 12:30pm-1:30pm</td>
+</tr>
+</tbody></table></div>
+</div>
+</div>
+
+<div class="footer">
+  数据来源: <a href="https://eppro02.ativ.me/web/planner.php?id=ADA26" target="_blank">ADA 2026 Scientific Sessions Online Planner</a> &bull; 检索日期: 2026-04-26 &bull; 点击编号可跳转至原始页面
+</div>
+
+<script>
+function switchTab(slug) {
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.remove('active');
+    const bg = b.getAttribute('data-bg');
+    const color = b.getAttribute('data-color');
+    b.style.background = bg;
+    b.style.color = color;
+    b.style.boxShadow = '';
+  });
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
+  const activeBtn = document.querySelector('.tab-btn[data-tab="' + slug + '"]');
+  const activeColor = activeBtn.getAttribute('data-color');
+  activeBtn.classList.add('active');
+  activeBtn.style.background = activeColor;
+  activeBtn.style.color = '#fff';
+  activeBtn.style.boxShadow = '0 -2px 8px ' + activeColor + '40';
+  document.getElementById('tab-' + slug).classList.add('active');
+}
+</script>
+
+</body>
+</html>

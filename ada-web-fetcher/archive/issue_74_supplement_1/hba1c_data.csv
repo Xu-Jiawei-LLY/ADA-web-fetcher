@@ -1,0 +1,31 @@
+study_ind,arm_ind,compound,treat,n,y,se,base,weeks,Phase,study,comments
+1,1,BGM0504,BGM0504 5 mg,12,-1.82,0.515,,12,Phase 2,CTR20232464,LSM vs placebo; https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese
+1,2,BGM0504,BGM0504 10 mg,12,-2.05,0.625,,12,Phase 2,CTR20232464,LSM vs placebo; https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese
+1,3,BGM0504,BGM0504 15 mg,12,-2.56,0.520,,12,Phase 2,CTR20232464,LSM vs placebo; https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese
+1,4,BGM0504,Semaglutide 1.0 mg,16,-1.86,0.492,,12,Phase 2,CTR20232464,LSM vs placebo; https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese
+1,5,BGM0504,Placebo,12,,,,,Phase 2,CTR20232464,Reference arm; https://diabetesjournals.org/diabetes/article/74/Supplement_1/303-OR/158743/303-OR-Efficacy-and-Safety-of-BGM0504-in-Chinese
+2,1,Tirzepatide,Tirzepatide 5 mg,64,-2.11,0.12,8.66,40,Phase 3,SURPASS-CN-INS,CFB; https://diabetesjournals.org/diabetes/article/74/Supplement_1/730-P/159428/730-P-Efficacy-and-Safety-of-Tirzepatide-Added-to
+2,2,Tirzepatide,Tirzepatide 10 mg,65,-2.39,0.13,8.64,40,Phase 3,SURPASS-CN-INS,CFB; https://diabetesjournals.org/diabetes/article/74/Supplement_1/730-P/159428/730-P-Efficacy-and-Safety-of-Tirzepatide-Added-to
+2,3,Tirzepatide,Tirzepatide 15 mg,63,-2.37,0.13,8.76,40,Phase 3,SURPASS-CN-INS,CFB; https://diabetesjournals.org/diabetes/article/74/Supplement_1/730-P/159428/730-P-Efficacy-and-Safety-of-Tirzepatide-Added-to
+2,4,Tirzepatide,Placebo,63,-0.91,0.12,8.83,40,Phase 3,SURPASS-CN-INS,CFB; https://diabetesjournals.org/diabetes/article/74/Supplement_1/730-P/159428/730-P-Efficacy-and-Safety-of-Tirzepatide-Added-to
+3,1,Bofanglutide (GZR18),Bofanglutide 12 mg Q2W,55,-1.87,0.122,8.56,24,Phase 2,752-P,"CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a"
+3,2,Bofanglutide (GZR18),Bofanglutide 18 mg Q2W,53,-2.28,0.130,8.31,24,Phase 2,752-P,"CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a"
+3,3,Bofanglutide (GZR18),Bofanglutide 24 mg Q2W,55,-1.94,0.127,8.31,24,Phase 2,752-P,"CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a"
+3,4,Bofanglutide (GZR18),Bofanglutide 24 mg QW,53,-2.32,0.130,8.28,24,Phase 2,752-P,"CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a"
+3,5,Bofanglutide (GZR18),Semaglutide 1 mg QW,54,-1.60,0.127,8.28,24,Phase 2,752-P,"CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/752-P/158836/752-P-Efficacy-and-Safety-of-Bofanglutide-GZR18-a"
+4,1,Bofanglutide (GZR18),GZR18,26,-1.81,0.153,8.26,23,Phase 2A,769-P,"CFB mean(SD); SE derived from SD/sqrt(n); https://diabetesjournals.org/diabetes/article/74/Supplement_1/769-P/159626/769-P-Bofanglutide-GZR18-a-Novel-GLP-1RA-Improved"
+4,2,Bofanglutide (GZR18),Placebo,9,0.32,0.403,8.10,23,Phase 2A,769-P,"CFB mean(SD); SE derived from SD/sqrt(n); https://diabetesjournals.org/diabetes/article/74/Supplement_1/769-P/159626/769-P-Bofanglutide-GZR18-a-Novel-GLP-1RA-Improved"
+5,1,RAY1225,RAY1225,,-1.67,0.125,,24,Phase 2,REBUILDING-1,CFB LSM(SE); https://diabetesjournals.org/diabetes/article/74/Supplement_1/795-P/158960/795-P-Efficacy-and-Safety-of-RAY1225-Once-Every
+6,1,Insulin GZR4,GZR4,42,-1.50,0.196,8.23,16,Phase 2,807-P,"CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/807-P/160444/807-P-Comparable-Glycemic-Control-of-Once-Weekly"
+6,2,Insulin GZR4,Degludec,41,-1.48,0.194,8.12,16,Phase 2,807-P,"CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/807-P/160444/807-P-Comparable-Glycemic-Control-of-Once-Weekly"
+7,1,Insulin GZR4,GZR4,48,-1.26,0.102,8.35,16,Phase 2,808-P,"CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/808-P/160443/808-P-Superior-Glycemic-Control-Achieved-with-Once"
+7,2,Insulin GZR4,Degludec,48,-0.87,0.099,8.45,16,Phase 2,808-P,"CFB LSM(95%CI); https://diabetesjournals.org/diabetes/article/74/Supplement_1/808-P/160443/808-P-Superior-Glycemic-Control-Achieved-with-Once"
+8,1,iGlarLixi,iGlarLixi,291,-1.88,0.05,8.58,24,,SoliD,LSM±SE; https://diabetesjournals.org/diabetes/article/74/Supplement_1/1988-LB/158656/1988-LB-Impact-of-Time-of-Injection-Comparing
+8,2,iGlarLixi,IDegAsp BB,139,-1.76,0.07,8.52,24,,SoliD,LSM±SE; https://diabetesjournals.org/diabetes/article/74/Supplement_1/1988-LB/158656/1988-LB-Impact-of-Time-of-Injection-Comparing
+8,3,iGlarLixi,IDegAsp BL,54,-1.64,0.11,8.47,24,,SoliD,LSM±SE; https://diabetesjournals.org/diabetes/article/74/Supplement_1/1988-LB/158656/1988-LB-Impact-of-Time-of-Injection-Comparing
+8,4,iGlarLixi,IDegAsp BD,98,-1.59,0.08,8.56,24,,SoliD,LSM±SE; https://diabetesjournals.org/diabetes/article/74/Supplement_1/1988-LB/158656/1988-LB-Impact-of-Time-of-Injection-Comparing
+9,1,Berberine Ursodeoxycholate,HTD1801 1000 mg BID,271,-1.26,0.06,8.49,24,Phase 3,Symphony 1,LSM(SE); https://diabetesjournals.org/diabetes/article/74/Supplement_1/2001-LB/158366/2001-LB-Symphony-1-A-Randomized-Placebo-Controlled
+9,2,Berberine Ursodeoxycholate,Placebo,136,-0.61,0.08,8.47,24,Phase 3,Symphony 1,LSM(SE); https://diabetesjournals.org/diabetes/article/74/Supplement_1/2001-LB/158366/2001-LB-Symphony-1-A-Randomized-Placebo-Controlled
+10,1,Mazdutide,Mazdutide 4 mg,106,-1.57,0.107,8.19,24,Phase 3,DREAMS-1,LSM(SE); https://diabetesjournals.org/diabetes/article/74/Supplement_1/306-OR/158740/306-OR-Mazdutide-vs-Placebo-as-Monotherapy-in
+10,2,Mazdutide,Mazdutide 6 mg,106,-2.15,0.109,8.21,24,Phase 3,DREAMS-1,LSM(SE); https://diabetesjournals.org/diabetes/article/74/Supplement_1/306-OR/158740/306-OR-Mazdutide-vs-Placebo-as-Monotherapy-in
+10,3,Mazdutide,Placebo,107,-0.14,0.107,8.33,24,Phase 3,DREAMS-1,LSM(SE); https://diabetesjournals.org/diabetes/article/74/Supplement_1/306-OR/158740/306-OR-Mazdutide-vs-Placebo-as-Monotherapy-in

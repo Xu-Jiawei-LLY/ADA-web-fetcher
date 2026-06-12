@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ADA Web Fetcher Report — Filtered Search</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 2rem; color: #333; background: #f5f7fa; }
+  h1 { color: #1a5276; margin-bottom: 0.3rem; }
+  .subtitle { color: #666; margin-bottom: 1.5rem; }
+  .summary-bar { background: white; border-radius: 10px; padding: 1rem 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .summary-bar .total { font-weight: 600; color: #2c3e50; margin-right: 1rem; }
+  .company-dot { display: inline-flex; align-items: center; gap: 4px; font-size: 0.85rem; color: #555; }
+  .company-dot::before { content: ''; width: 10px; height: 10px; border-radius: 50%; display: inline-block; background: var(--dot-color, #888); }
+  .tabs-container { background: white; border-radius: 10px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .tab-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; border-bottom: 2px solid #eee; padding-bottom: 1rem; }
+  .tab-btn { border: none; background: #f0f0f0; color: #555; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.2s; }
+  .tab-btn:hover { background: #e0e0e0; }
+  .tab-btn.active { background: var(--tab-color, #2980b9); color: white; }
+  .tab-count { background: rgba(0,0,0,0.08); border-radius: 10px; padding: 1px 7px; margin-left: 4px; font-size: 0.8rem; }
+  .tab-btn.active .tab-count { background: rgba(255,255,255,0.3); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .section-group { margin-bottom: 1.5rem; }
+  .section-group h4 { color: #34495e; margin-bottom: 0.5rem; font-size: 0.95rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+  .section-group h5 { color: #2c3e50; margin: 0.75rem 0 0.4rem; font-size: 0.88rem; font-weight: 500; }
+  .compound-block { margin-bottom: 1rem; background: #fafbfc; border: 1px solid #e6e8eb; border-radius: 8px; padding: 0.6rem 1rem; }
+  .compound-block + .compound-block { margin-top: 0.6rem; }
+  .compound-block > summary { cursor: pointer; padding: 0.35rem 0; font-weight: 600; color: #1a5276; outline: none; user-select: none; list-style: none; display: flex; align-items: center; gap: 0.6rem; }
+  .compound-block > summary::-webkit-details-marker { display: none; }
+  .compound-block > summary::before { content: '▸'; display: inline-block; width: 0.9rem; color: #888; transition: transform 120ms; }
+  .compound-block[open] > summary::before { transform: rotate(90deg); }
+  .compound-block > summary:hover { color: #c0392b; }
+  .compound-name { font-size: 0.95rem; }
+  .compound-count { font-size: 0.78rem; color: #888; font-weight: 400; background: #eef1f4; padding: 1px 8px; border-radius: 10px; }
+  .compound-body { padding: 0.4rem 0 0.2rem; }
+  .article-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .article-table th { background: #f8f9fa; color: #555; text-align: left; padding: 8px 10px; font-weight: 600; border-bottom: 2px solid #eee; }
+  .article-table td { padding: 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  .article-table tr:hover { background: #f8fbff; }
+  .col-id { width: 80px; font-weight: 600; white-space: nowrap; }
+  .col-id a { color: #c0392b; text-decoration: none; }
+  .col-id a:hover { text-decoration: underline; }
+  .col-type { width: 100px; }
+  .col-company { width: 170px; font-size: 0.82rem; color: #666; }
+  .col-trial { width: 110px; font-size: 0.82rem; color: #666; }
+  .type-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; color: white; font-size: 0.75rem; font-weight: 600; }
+  .compound-highlight { color: #e74c3c; font-weight: 600; }
+  a { color: #2980b9; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .data-section { background: white; border-radius: 10px; padding: 1.5rem; margin-top: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .data-section-header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem; }
+  .data-section h2 { color: #1a5276; margin-bottom: 0.25rem; }
+  .data-meta { color: #666; font-size: 0.88rem; margin: 0; }
+  .edit-hint { color: #999; font-size: 0.82rem; }
+  .change-summary { color: #e67e22; font-weight: 600; }
+  .change-summary.hidden { display: none; }
+  .data-section-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .download-btn { background: #27ae60; color: white; border: none; padding: 7px 14px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; white-space: nowrap; }
+  .download-btn:hover { background: #219a52; }
+  .download-btn.dl-original { background: #7f8c8d; }
+  .download-btn.dl-original:hover { background: #6c7a7d; }
+  .download-btn.dl-edited.has-edits { background: #e67e22; animation: pulse-btn 1.6s ease-in-out 1; }
+  .download-btn.dl-edited.has-edits:hover { background: #d35400; }
+  @keyframes pulse-btn { 0%,100%{transform:scale(1)} 40%{transform:scale(1.06)} }
+  .undo-btn, .reset-btn { background: #f0f0f0; color: #444; border: 1px solid #ccc; padding: 7px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; white-space: nowrap; }
+  .undo-btn:hover:not(:disabled), .reset-btn:hover:not(:disabled) { background: #e0e0e0; }
+  .undo-btn:disabled, .reset-btn:disabled { opacity: 0.38; cursor: not-allowed; }
+  .table-scroll { overflow-x: auto; }
+  .data-table { border-collapse: collapse; font-size: 0.82rem; width: 100%; min-width: 1000px; }
+  .data-table th { background: #34495e; color: white; padding: 6px 8px; text-align: left; white-space: nowrap; }
+  .data-table td { padding: 5px 8px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .data-table tr:nth-child(even) { background: #f8f9fa; }
+  .data-table .col-comments { max-width: 220px; font-size: 0.75rem; word-break: break-all; }
+  /* editable cells */
+  .editable-cell { cursor: text; outline: none; min-width: 40px; transition: background 120ms; }
+  .editable-cell:hover { background: #f0f7ff !important; }
+  .editable-cell:focus { background: #e8f4ff !important; box-shadow: inset 0 0 0 2px #3498db; border-radius: 2px; }
+  .editable-cell.changed { background: #fff8e1 !important; border-left: 3px solid #f39c12; font-style: italic; }
+  .editable-cell.changed:hover { background: #fff3cd !important; }
+  .editable-cell.restored { background: #f0fff4 !important; border-left: 3px solid #2ecc71; }
+  /* row-restore button */
+  .col-restore-hdr { width: 32px; text-align: center; }
+  .col-restore { width: 32px; text-align: center; padding: 2px; }
+  .row-restore-btn { background: none; border: none; cursor: pointer; font-size: 0.9rem; color: #aaa; padding: 2px 4px; border-radius: 3px; }
+  .row-restore-btn:hover { color: #e74c3c; background: #fef0f0; }
+  /* legend */
+  .edit-legend { font-size: 0.78rem; color: #888; margin-top: 0.6rem; }
+  .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: middle; margin-right: 3px; }
+  .legend-dot.changed { background: #fff8e1; border: 1px solid #f39c12; border-left: 3px solid #f39c12; }
+  .legend-dot.restored { background: #f0fff4; border: 1px solid #2ecc71; border-left: 3px solid #2ecc71; }
+</style>
+</head>
+<body>
+<h1>ADA Web Fetcher Report — Filtered Search</h1>
+<p class="subtitle">Endpoint: Weight reduction · Disease: Obesity / overweight · Trial type: Phase 2/3 randomized trials | <a href="https://diabetesjournals.org/diabetes/issue/75/Supplement_1" target="_blank">Source</a> | Generated: 2026-06-10</p>
+
+<div class="summary-bar">
+  <span class="total">4 companies | 38 reports total</span>
+  <span class="company-dot" style="--dot-color:#e74c3c">Innovent 2</span> <span class="company-dot" style="--dot-color:#e67e22">Hengrui 1</span> <span class="company-dot" style="--dot-color:#27ae60">Boehringer 1</span> <span class="company-dot" style="--dot-color:#2980b9">Other / Unspecified 0</span>
+</div>
+
+<div class="tabs-container">
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="tab-0" style="--tab-color:#e74c3c">Innovent <span class="tab-count">2</span></button>
+      <button class="tab-btn" data-tab="tab-1" style="--tab-color:#e67e22">Hengrui <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-2" style="--tab-color:#27ae60">Boehringer <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-3" style="--tab-color:#2980b9">Other / Unspecified <span class="tab-count">34</span></button>
+  </div>
+  <div class="tab-panel active" id="tab-0">
+      <details class="compound-block" open>
+        <summary>
+          <span class="compound-name">Mazdutide</span>
+          <span class="compound-count">2 articles</span>
+        </summary>
+        <div class="compound-body">
+          
+        <div class="section-group">
+          <h5>Oral Presentation — 2 items</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1225-OR/167122/1225-OR-Efficacy-and-Safety-of-Mazdutide-9-mg-in" target="_blank">1225-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title">Efficacy and Safety of <span class="compound-highlight">Mazdutide</span> 9 mg in Chinese Adults with Obesity: Results from the Phase 3 GLORY-2 Trial</td>
+            <td class="col-company">Innovent</td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1226-OR/167125/1226-OR-Mazdutide-vs-Semaglutide-in-Chinese-Adults" target="_blank">1226-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title"><span class="compound-highlight">Mazdutide</span> vs. Semaglutide in Chinese Adults with Type 2 Diabetes and Obesity (DREAMS-3): A Randomised, Open-Label, Phase 3b Trial</td>
+            <td class="col-company">Innovent</td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        </div>
+      </details></div>
+    <div class="tab-panel" id="tab-1">
+      <details class="compound-block" open>
+        <summary>
+          <span class="compound-name">Ribupatide</span>
+          <span class="compound-count">1 article</span>
+        </summary>
+        <div class="compound-body">
+          
+        <div class="section-group">
+          <h5>Late-Breaking Poster — 1 item</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2816-LB/167269/2816-LB-Efficacy-and-Safety-of-Oral-Ribupatide" target="_blank">2816-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Efficacy and Safety of Oral <span class="compound-highlight">Ribupatide</span> (HRS9531) in Adults with Obesity: A Phase 2 Trial</td>
+            <td class="col-company">Hengrui</td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        </div>
+      </details></div>
+    <div class="tab-panel" id="tab-2">
+      <details class="compound-block" open>
+        <summary>
+          <span class="compound-name">Other / Unspecified</span>
+          <span class="compound-count">1 article</span>
+        </summary>
+        <div class="compound-body">
+          
+        <div class="section-group">
+          <h5>Poster Presentation — 1 item</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2551-P/168538/2551-P-Survodutide-Improves-Stroke-Outcome-in" target="_blank">2551-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Survodutide Improves Stroke Outcome in Obese/Type 2 Diabetic Mice</td>
+            <td class="col-company">Boehringer</td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        </div>
+      </details></div>
+    <div class="tab-panel" id="tab-3">
+      <details class="compound-block" open>
+        <summary>
+          <span class="compound-name">Semaglutide</span>
+          <span class="compound-count">9 articles</span>
+        </summary>
+        <div class="compound-body">
+          
+        <div class="section-group">
+          <h5>Oral Presentation — 1 item</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab" target="_blank">1230-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title">Lean Mass Effects of Anti-GDF8 (Trevogrumab) ± Anti-Activin A (Garetosmab) in People Living with Obesity Treated with <span class="compound-highlight">Semaglutide</span> with or without Low Lean Mass at Baseline</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        <div class="section-group">
+          <h5>Late-Breaking Poster — 2 items</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2835-LB/167250/2835-LB-Greater-Combined-A1C-Reductions-and-Weight" target="_blank">2835-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Greater Combined A1C Reductions and Weight Loss with 25 mg and 50 mg vs. 14 mg Oral <span class="compound-highlight">Semaglutide</span> in Adults with T2D: Evidence from PIONEER PLUS</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2876-LB/167751/2876-LB-Triple-Therapy-for-Type-1-Diabetes-with" target="_blank">2876-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Triple Therapy for Type 1 Diabetes with Insulin, <span class="compound-highlight">Semaglutide</span>, and Dapagliflozin (TTT1): A Phase 3 Clinical Trial</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        <div class="section-group">
+          <h5>Poster Presentation — 6 items</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2589-P/167285/2589-P-Combination-LUM-201-and-Semaglutide" target="_blank">2589-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Combination LUM-201 and <span class="compound-highlight">Semaglutide</span> Enhances Weight Loss and Preserves Lean Mass in Diet-Induced Obesity: Translational Rationale for a Phase 2 Study in Adults with Obesity</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1723-P/167878/1723-P-Semaglutide-Reduces-Asthma-Related-Adverse" target="_blank">1723-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title"><span class="compound-highlight">Semaglutide</span> Reduces Asthma-Related Adverse Outcomes in Patients with Comorbid Asthma and Obesity: A Post Hoc Analysis of the SELECT Trial</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2548-P/167469/2548-P-Petrelintide-Elicits-Distinct-Effects-on" target="_blank">2548-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Petrelintide Elicits Distinct Effects on Eating Pattern and Maintains Locomotor Activity Compared with <span class="compound-highlight">Semaglutide</span> in Rats with Diet-Induced Obesity</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2643-P/168283/2643-P-Preliminary-Data-on-Continuing-Weight-Loss" target="_blank">2643-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Preliminary Data on Continuing Weight Loss at 52 Weeks and Durable Weight Loss Off Therapy with Nimacimab, a CB1R Antibody, in Combination with <span class="compound-highlight">Semaglutide</span></td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2644-P/168282/2644-P-A-Phase-3-Clinical-Protocol-Evaluating-the" target="_blank">2644-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">A Phase 3 Clinical Protocol Evaluating the Safety and Efficacy of NA-931 Alone and in Combination with Oral <span class="compound-highlight">Semaglutide</span> for the Treatment of Obesity</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2649-P/168277/2649-P-Population-Normed-Z-scores-for-Body" target="_blank">2649-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Population-Normed Z-scores for Body Composition Enhance Sensitivity and Effect Size: Analysis of a Phase 2 RCT Testing Anti-GDF8 and Anti-Activin A on Top of <span class="compound-highlight">Semaglutide</span> (COURAGE)</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        </div>
+      </details>
+      <details class="compound-block">
+        <summary>
+          <span class="compound-name">Tirzepatide</span>
+          <span class="compound-count">2 articles</span>
+        </summary>
+        <div class="compound-body">
+          
+        <div class="section-group">
+          <h5>Late-Breaking Poster — 1 item</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2869-LB/167758/2869-LB-Increasing-Energy-Expenditure-with-the" target="_blank">2869-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Increasing Energy Expenditure with the Liver-Targeted Mitochondrial Protonophore TLC-6740 Enhances Weight Loss and Metabolic Benefits in Combination with <span class="compound-highlight">Tirzepatide</span> in Obesity: A Phase 2a Study</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        <div class="section-group">
+          <h5>Poster Presentation — 1 item</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1683-P/167716/1683-P-Fracture-Risk-Associated-with-Tirzepatide-A" target="_blank">1683-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Fracture Risk Associated with <span class="compound-highlight">Tirzepatide</span>: A Systematic Review and Meta-analysis of Randomized Controlled Trials and Real-World Evidence</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        </div>
+      </details>
+      <details class="compound-block">
+        <summary>
+          <span class="compound-name">Mazdutide</span>
+          <span class="compound-count">2 articles</span>
+        </summary>
+        <div class="compound-body">
+          
+        <div class="section-group">
+          <h5>Poster Presentation — 2 items</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1693-P/168781/1693-P-Mazdutide-Improves-Markers-of-Insulin" target="_blank">1693-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title"><span class="compound-highlight">Mazdutide</span> Improves Markers of Insulin Sensitivity in Adults with Obesity without Type 2 Diabetes</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1733-P/169005/1733-P-Effect-of-Mazdutide-on-Kidney-Function-in" target="_blank">1733-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Effect of <span class="compound-highlight">Mazdutide</span> on Kidney Function in Adults with Obesity or Overweight</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        </div>
+      </details>
+      <details class="compound-block">
+        <summary>
+          <span class="compound-name">HDM1002</span>
+          <span class="compound-count">2 articles</span>
+        </summary>
+        <div class="compound-body">
+          
+        <div class="section-group">
+          <h5>Oral Presentation — 1 item</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198/1218-OR-Efficacy-and-Safety-of-a-Novel-Oral-Small" target="_blank">1218-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title">Efficacy and Safety of a Novel Oral Small Molecule Glucagon-Like Peptide 1 Receptor Agonist (<span class="compound-highlight">HDM1002</span>) in Type 2 Diabetes Mellitus Patients Inadequately Controlled on Diet and Exercise or Metformin</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        <div class="section-group">
+          <h5>Poster Presentation — 1 item</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2609-P/168457/2609-P-Efficacy-and-Safety-of-a-Novel-Oral-Small" target="_blank">2609-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Efficacy and Safety of a Novel Oral Small Molecule GLP-1 Receptor Agonist <span class="compound-highlight">HDM1002</span> in Chinese Overweight and Obese Adults: A Randomized, Double-Blind, Placebo-Controlled, Phase 2 Trial</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        </div>
+      </details>
+      <details class="compound-block">
+        <summary>
+          <span class="compound-name">Ecnoglutide</span>
+          <span class="compound-count">1 article</span>
+        </summary>
+        <div class="compound-body">
+          
+        <div class="section-group">
+          <h5>Late-Breaking Poster — 1 item</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2849-LB/167777/2849-LB-Efficacy-and-Safety-of-cAMP-Biased" target="_blank">2849-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Efficacy and Safety of cAMP-Biased <span class="compound-highlight">Ecnoglutide</span> vs. Unbiased Semaglutide in Adults with Obesity: Twenty-Week Results from a Multicenter, Randomized, Open-Label, Phase 2 Study</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        </div>
+      </details>
+      <details class="compound-block">
+        <summary>
+          <span class="compound-name">HDM1005</span>
+          <span class="compound-count">1 article</span>
+        </summary>
+        <div class="compound-body">
+          
+        <div class="section-group">
+          <h5>Oral Presentation — 1 item</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1034-OR/167745/1034-OR-Efficacy-and-Safety-of-Dual-GLP-1-GIP" target="_blank">1034-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title">Efficacy and Safety of Dual GLP-1/GIP Receptor Agonist <span class="compound-highlight">HDM1005</span> in Obese Participants without Diabetes: A Randomized, Double-Blind, Placebo-Controlled, Phase 2 Trial</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        </div>
+      </details>
+      <details class="compound-block">
+        <summary>
+          <span class="compound-name">IBI3042</span>
+          <span class="compound-count">1 article</span>
+        </summary>
+        <div class="compound-body">
+          
+        <div class="section-group">
+          <h5>Poster Presentation — 1 item</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2543-P/167474/2543-P-IBI3042-A-Novel-Oral-Once-Weekly-Small" target="_blank">2543-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title"><span class="compound-highlight">IBI3042</span>: A Novel Oral Once-Weekly Small-Molecule GLP-1 Receptor Agonist for Type 2 Diabetes and Obesity</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        </div>
+      </details>
+      <details class="compound-block">
+        <summary>
+          <span class="compound-name">MDR-001</span>
+          <span class="compound-count">1 article</span>
+        </summary>
+        <div class="compound-body">
+          
+        <div class="section-group">
+          <h5>Poster Presentation — 1 item</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168752/2620-P-MDR-001-an-AI-Enabled-arrestin2-Biased-Oral" target="_blank">2620-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title"><span class="compound-highlight">MDR-001</span>, an AI-Enabled β-arrestin2-Biased Oral GLP-1RA: Efficacy and Safety in Chinese Adults with Overweight or Obesity</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        </div>
+      </details>
+      <details class="compound-block">
+        <summary>
+          <span class="compound-name">Other / Unspecified</span>
+          <span class="compound-count">15 articles</span>
+        </summary>
+        <div class="compound-body">
+          
+        <div class="section-group">
+          <h5>Oral Presentation — 2 items</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1227-OR/167132/1227-OR-RAY1225-a-Biweekly-Biased-GLP-1-GIP-RA-for" target="_blank">1227-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title">RAY1225, a Biweekly Biased GLP-1/GIP RA for Weight Management: A Phase 2 Trial in Chinese Overweight/Obese Adults (REBUILDING-1)</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1032-OR/167934/1032-OR-ACCESS-Trial-Dose-Ranging-Evaluation-of" target="_blank">1032-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title">ACCESS Trial: Dose-Ranging Evaluation of Aleniglipron, an Oral Small Molecule Nonpeptide GLP-1RA, Demonstrates Meaningful Weight Reductions in People Living with Obesity and Overweight</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        <div class="section-group">
+          <h5>Late-Breaking Poster — 5 items</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2813-LB/167971/2813-LB-CT-388-a-cAMP-Signal-Biased-GLP-1-GIP" target="_blank">2813-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">CT-388, a cAMP Signal-Biased GLP-1/GIP Receptor Agonist, Achieves Clinically Meaningful Weight Loss in People With Overweight/Obesity: A 48-Week Phase 2 Study</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/3043-LB/168810/3043-LB-Synergistic-Hepatoprotective-and-Weight" target="_blank">3043-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Synergistic Hepatoprotective and Weight-Loss Effects of Vanoglipel and Resmetirom Combination Therapy in a Diet-Induced Obese, Biopsy-Confirmed Mouse Model of MASH</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/3083-LB/167451/3083-LB-Petrelintide-a-Human-Amylin-Analog-for-the" target="_blank">3083-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Petrelintide, a Human Amylin Analog for the Treatment of Obesity: Efficacy and Safety from the Phase 2 Trial, ZUPREME 1</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/168446/3090-LB-UBT251-a-Triple-Hormone-Receptor-Agonist" target="_blank">3090-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">UBT251, a Triple Hormone Receptor Agonist in Adults with Overweight or Obesity: A Multicenter, Double-Blind, Placebo-Controlled, Randomized, Phase 2 Trial</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/3101-LB/167969/3101-LB-Exploring-a-Lower-Starting-Dose-of" target="_blank">3101-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Exploring a Lower Starting Dose of Aleniglipron, an Oral Small Molecule GLP-1RA, to Improve GI Tolerability in Obesity: Beyond the ACCESS Trials</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        <div class="section-group">
+          <h5>Poster Presentation — 8 items</h5>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1672-P/169112/1672-P-Oral-Small-Molecule-GLP-1-ASC30" target="_blank">1672-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Oral Small Molecule GLP-1, ASC30, Demonstrated Placebo-Adjusted Weight Loss of 7.7% with Better Gastrointestinal Tolerability in Its 13-Week U.S. Phase II Study in Participants with Obesity</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1666-P/168229/1666-P-Orforglipron-and-Markers-of-Insulin" target="_blank">1666-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Orforglipron and Markers of Insulin Sensitivity and Beta-Cell Function by Prediabetes Status in Adults with Obesity: A Post Hoc Analysis of the ATTAIN-1 Trial</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1725-P/168235/1725-P-Once-Monthly-Zovaglutide-ZT002-in-Adults" target="_blank">1725-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Once-Monthly Zovaglutide (ZT002) in Adults with Overweight or Obesity and Prediabetes: A Phase 2 Subgroup Analysis</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1782-P/169109/1782-P-Phase-1b-Study-of-AMPK-Mitochondrial" target="_blank">1782-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Phase 1b Study of AMPK/Mitochondrial Activator ATX-304 in Prediabetic Obese Participants</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2598-P/167276/2598-P-Long-Acting-Amylin-Analog-Petrelintide-Does" target="_blank">2598-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Long-Acting Amylin Analog Petrelintide Does Not Delay Gastric Emptying</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2608-P/168458/2608-P-Efficacy-and-Safety-of-DA-302168S-a-Novel" target="_blank">2608-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Efficacy and Safety of DA-302168S, a Novel Oral GLP-1 Receptor Agonist, in Chinese Adults with Overweight or Obesity: A Phase 2 Trial</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2636-P/167996/2636-P-Efsubaglutide-Alfa-in-Overweight-or-Obesity" target="_blank">2636-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Efsubaglutide Alfa in Overweight or Obesity: Phase 2b ENLIGHT Study</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2637-P/167995/2637-P-Safety-Tolerability-and-Efficacy-of" target="_blank">2637-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Safety, Tolerability, and Efficacy of Aleniglipron in Doses up to 240 mg in People Living with Obesity: The Phase 2 ACCESS II Trial</td>
+            <td class="col-company"></td>
+            <td class="col-trial"></td>
+          </tr></tbody>
+          </table>
+        </div>
+        </div>
+      </details></div>
+</div>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+
+
+
+</body>
+</html>

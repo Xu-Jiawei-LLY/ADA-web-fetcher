@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ADA 2026 - T2D China/Chinese Pharma Report</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 2rem; color: #333; background: #f5f7fa; }
+    h1 { color: #1a5276; margin-bottom: 0.3rem; }
+    .subtitle { color: #666; margin-bottom: 1.5rem; }
+
+    .summary-bar {
+      background: white; border-radius: 10px; padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .summary-bar .total { font-weight: 600; color: #2c3e50; margin-right: 1rem; }
+    .company-dot { display: inline-flex; align-items: center; gap: 4px; font-size: 0.85rem; color: #555; }
+    .company-dot::before { content: ''; width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+    .tabs-container {
+      background: white; border-radius: 10px; padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .tab-bar {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem;
+      border-bottom: 2px solid #eee; padding-bottom: 1rem;
+    }
+    .tab-btn {
+      border: none; background: #f0f0f0; color: #555;
+      padding: 8px 16px; border-radius: 20px; cursor: pointer;
+      font-size: 0.9rem; font-weight: 500; transition: all 0.2s;
+    }
+    .tab-btn:hover { background: #e0e0e0; }
+    .tab-btn.active { background: var(--tab-color, #2980b9); color: white; }
+    .tab-count { background: rgba(255,255,255,0.3); border-radius: 10px; padding: 1px 7px; margin-left: 4px; font-size: 0.8rem; }
+    .tab-btn.active .tab-count { background: rgba(255,255,255,0.3); }
+    .tab-btn:not(.active) .tab-count { background: rgba(0,0,0,0.08); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .section-group { margin-bottom: 1.5rem; }
+    .section-group h4 { color: #34495e; margin-bottom: 0.5rem; font-size: 0.95rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+
+    .article-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .article-table th { background: #f8f9fa; color: #555; text-align: left; padding: 8px 10px; font-weight: 600; border-bottom: 2px solid #eee; }
+    .article-table td { padding: 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+    .article-table tr:hover { background: #f8fbff; }
+    .col-id { width: 80px; font-weight: 600; white-space: nowrap; }
+    .col-id a { color: #c0392b; text-decoration: none; }
+    .col-id a:hover { text-decoration: underline; }
+    .col-type { width: 80px; }
+    .col-company { width: 160px; font-size: 0.82rem; color: #666; }
+    .col-trial { width: 100px; font-size: 0.82rem; color: #666; }
+
+    .type-badge {
+      display: inline-block; padding: 2px 8px; border-radius: 4px;
+      color: white; font-size: 0.75rem; font-weight: 600;
+    }
+    .compound-highlight { color: #e74c3c; font-weight: 600; }
+
+    a { color: #2980b9; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .data-section { background: white; border-radius: 10px; padding: 1.5rem; margin-top: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .data-section h2 { color: #1a5276; margin-bottom: 0.5rem; }
+    .download-btn { background: #27ae60; color: white; border: none; padding: 8px 20px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; margin: 0.5rem 0 1rem; }
+    .download-btn:hover { background: #219a52; }
+    .table-scroll { overflow-x: auto; }
+    .data-table { border-collapse: collapse; font-size: 0.82rem; width: 100%; min-width: 1000px; }
+    .data-table th { background: #34495e; color: white; padding: 6px 8px; text-align: left; white-space: nowrap; }
+    .data-table td { padding: 5px 8px; border-bottom: 1px solid #eee; }
+    .data-table tr:nth-child(even) { background: #f8f9fa; }
+    .data-table .col-comments { max-width: 200px; font-size: 0.75rem; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <h1>ADA 86th Scientific Sessions (2026)</h1>
+  <p class="subtitle">Type 2 Diabetes & China/Chinese Pharma — Categorized by Compound | <a href="https://diabetesjournals.org/diabetes/issue/75/Supplement_1" target="_blank">Source</a> | Generated: 2026-06-07</p>
+
+  <div class="summary-bar">
+    <span class="total">9 companies | 15 reports total</span>
+    <span class="company-dot" style="--dot-color:#e74c3c">Chinese Population Study 4</span> <span class="company-dot" style="--dot-color:#e67e22">Current; Eccogene 1</span> <span class="company-dot" style="--dot-color:#27ae60">AstraZeneca 1</span> <span class="company-dot" style="--dot-color:#2980b9">Sanofi 1</span> <span class="company-dot" style="--dot-color:#8e44ad">Tonghua Dongbao 1</span> <span class="company-dot" style="--dot-color:#16a085">Bayer 1</span> <span class="company-dot" style="--dot-color:#d35400">Unknown Chinese Entity 4</span> <span class="company-dot" style="--dot-color:#c0392b">Current; Sun Pharmaceutical Industries Ltd 1</span>
+  </div>
+
+  <div class="tabs-container">
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="tab-0" style="--tab-color:#e74c3c">Other / Unspecified <span class="tab-count">12</span></button>
+      <button class="tab-btn" data-tab="tab-1" style="--tab-color:#e67e22">THDB0206 <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-2" style="--tab-color:#27ae60">GL0034 <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-3" style="--tab-color:#2980b9">Dorzagliatin <span class="tab-count">1</span></button>
+    </div>
+    <div class="tab-panel active" id="tab-0">
+        <div class="section-group">
+          <h4>Oral Presentation — 2 items</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1116-OR/167740/1116-OR-An-Interpretable-Machine-Learning-Model-to" target="_blank">1116-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title">An Interpretable Machine-Learning Model to Differentiate Diabetic and Nondiabetic Kidney Disease in Type 2 Diabetes</td>
+            <td class="col-company">Unknown Chinese Entity</td>
+            <td class="col-trial">Other</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1153-OR/167184/1153-OR-A-Novel-Dual-Endpoint-Model-to" target="_blank">1153-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title">A Novel Dual-Endpoint Model to Simultaneously Predict Risks of Type 2 Diabetes and Cardiovascular Disease in Prediabetes</td>
+            <td class="col-company">Unknown Chinese Entity</td>
+            <td class="col-trial">Other</td>
+          </tr></tbody>
+          </table>
+        </div>
+        <div class="section-group">
+          <h4>Late-Breaking Poster — 5 items</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2767-LB/167648/2767-LB-Evaluation-of-Generative-AI-Dietary-Advice" target="_blank">2767-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Evaluation of Generative AI Dietary Advice for Older, Low-Income Chinese Population with Type 2 Diabetes in the U.S.</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Other</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2844-LB/168271/2844-LB-Safety-Tolerability-PK-and-PD-of" target="_blank">2844-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Safety, Tolerability, PK, and PD of Elecoglipron, an Oral Small-Molecule GLP-1 Receptor Agonist, in Chinese Adults Living with Obesity or Overweight With or Without Type 2 Diabetes</td>
+            <td class="col-company">Current; Eccogene</td>
+            <td class="col-trial">Clinical Trial</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2989-LB/167643/2989-LB-Sex-Heterogeneous-Association-between" target="_blank">2989-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Sex-Heterogeneous Association between Chinese Visceral Adiposity Index and Osteoporosis in Middle-Aged and Elderly Chinese Patients with Type 2 Diabetes</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Other</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2780-LB/169030/2780-LB-Co-occurrence-of-Type-2-Diabetes-and-Poor" target="_blank">2780-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Co-occurrence of Type 2 Diabetes and Poor Mental Health from the Mediators of Atherosclerosis in South Asians Living in America (MASALA) and Multiethnic Study of Atherosclerosis (MESA) Studies</td>
+            <td class="col-company">Unknown Chinese Entity</td>
+            <td class="col-trial">Other</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2972-LB/167230/2972-LB-Proteomics-Based-Molecular-Adiposity-and" target="_blank">2972-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Proteomics-Based Molecular Adiposity and Risk of Type 2 Diabetes in Diverse Population</td>
+            <td class="col-company">Unknown Chinese Entity</td>
+            <td class="col-trial">Other</td>
+          </tr></tbody>
+          </table>
+        </div>
+        <div class="section-group">
+          <h4>Poster Presentation — 5 items</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1374-P/168338/1374-P-Higher-Fractional-Excretion-of-Uric-Acid" target="_blank">1374-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Higher Fractional Excretion of Uric Acid Independently Associates with Diabetic Kidney Disease in Chinese Patients with Type 2 Diabetes</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Other</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1837-P/168219/1837-P-Efficacy-and-Safety-of-DAPA-MET-Fixed-Dose" target="_blank">1837-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Efficacy and Safety of DAPA/MET Fixed-Dose Combination (FDC) vs. Co-Administration (Co-ADM) in Chinese Patients with T2DM</td>
+            <td class="col-company">AstraZeneca</td>
+            <td class="col-trial">Clinical Trial</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1755-P/168649/1755-P-Improved-Glycemic-Control-with-Insulin" target="_blank">1755-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Improved Glycemic Control with Insulin Glargine 300 U/ml in Insulin-Naïve Chinese People with T2D Uncontrolled on GLP-1RAs: A Real-World Retrospective Cohort Study</td>
+            <td class="col-company">Sanofi</td>
+            <td class="col-trial">Real-World Study</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2294-P/168951/2294-P-Characteristics-and-Clinical-Outcomes-of" target="_blank">2294-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Characteristics and Clinical Outcomes of Patients with Chronic Kidney Disease and Type 2 Diabetes Using Finerenone in China: A Real-World Retrospective Cohort Study</td>
+            <td class="col-company">Bayer</td>
+            <td class="col-trial">Real-World Study</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2398-P/168018/2398-P-Identifying-Clinical-Discriminators-of-GCK" target="_blank">2398-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Identifying Clinical Discriminators of GCK-MODY in a Type 2 Diabetes–Dominant Population in Taiwan</td>
+            <td class="col-company">Chinese Population Study</td>
+            <td class="col-trial">Other</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-1">
+        <div class="section-group">
+          <h4>Poster Presentation — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1762-P/168063/1762-P-THDB0206-Injection-BioChaperone-Lispro" target="_blank">1762-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title"><span class="compound-highlight">THDB0206</span> Injection (BioChaperone Lispro, BCLIS) Improves Postprandial and Daily Glucose Control vs. Lispro (LIS) in Chinese Patients with Type 2 Diabetes (T2D)</td>
+            <td class="col-company">Tonghua Dongbao</td>
+            <td class="col-trial">Other</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-2">
+        <div class="section-group">
+          <h4>Late-Breaking Poster — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2833-LB/167252/2833-LB-Utreglutide-GL0034-Shows-Comparable" target="_blank">2833-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Utreglutide (<span class="compound-highlight">GL0034</span>) Shows Comparable Tolerability and Efficacy with Different Dose Escalation Regimens in Overweight and Obese Adults with Type 2 Diabetes (T2DM)</td>
+            <td class="col-company">Current; Sun Pharmaceutical Industries Ltd</td>
+            <td class="col-trial">Clinical Trial</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-3">
+        <div class="section-group">
+          <h4>Late-Breaking Poster — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2874-LB/167753/2874-LB-Dorzagliatin-Improves-Glycemic-Control-in" target="_blank">2874-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title"><span class="compound-highlight">Dorzagliatin</span> Improves Glycemic Control in Type 2 Diabetes Patients with Different Time in Range (TIR): A Subgroup Analysis of Six-Month Interim Results from a Prospective Real-World Study</td>
+            <td class="col-company">Hua Medicine</td>
+            <td class="col-trial">Real-World Study</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+
+  
+  <div class="data-section">
+    <h2>HbA1c Data Analysis</h2>
+    <p>13 data rows extracted from 5 studies</p>
+    <button class="download-btn" onclick="downloadCSV()">Download CSV</button>
+    <div class="table-scroll">
+      <table class="data-table">
+        <thead>
+          <tr><th>study_ind</th><th>arm_ind</th><th>compound</th><th>treat</th><th>n</th><th>y</th><th>se</th><th>base</th><th>weeks</th><th>Phase</th><th>study</th><th>comments</th></tr>
+        </thead>
+        <tbody>
+    <tr>
+      <td>1</td><td>1</td><td>Dapagliflozin</td>
+      <td>DAPA/MET FDC</td><td>297</td><td>-2.06</td><td>0.041</td>
+      <td>8.72</td><td>24</td><td>Phase 4</td>
+      <td>EFFICIENT (NCT06327815)</td><td class="col-comments">LSM CFB; 95% CI -2.14 to -1.98; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1837-P/168219" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>1</td><td>2</td><td>Dapagliflozin</td>
+      <td>DAPA + MET Co-Administration</td><td>293</td><td>-2.12</td><td>0.041</td>
+      <td>8.85</td><td>24</td><td>Phase 4</td>
+      <td>EFFICIENT (NCT06327815)</td><td class="col-comments">LSM CFB; 95% CI -2.20 to -2.04; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1837-P/168219" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>2</td><td>1</td><td>Insulin Glargine 300</td>
+      <td>Gla-300 Overall</td><td>240</td><td>-0.98</td><td>0.110</td>
+      <td>8.61</td><td>26</td><td>Real-World</td>
+      <td>IMPROVE G</td><td class="col-comments">6mo CFB 95% CI -1.20 to -0.77; retrospective single-arm cohort; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1755-P/168649" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>2</td><td>2</td><td>Insulin Glargine 300</td>
+      <td>Gla-300 Add-on to GLP-1 RA</td><td>187</td><td>-0.91</td><td>0.122</td>
+      <td>8.50</td><td>26</td><td>Real-World</td>
+      <td>IMPROVE G</td><td class="col-comments">6mo CFB 95% CI -1.15 to -0.67; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1755-P/168649" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>2</td><td>3</td><td>Insulin Glargine 300</td>
+      <td>Switch to Gla-300</td><td>53</td><td>-1.24</td><td>0.250</td>
+      <td>8.84</td><td>26</td><td>Real-World</td>
+      <td>IMPROVE G</td><td class="col-comments">6mo CFB 95% CI -1.73 to -0.75; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1755-P/168649" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>3</td><td>1</td><td>THDB0206 (BCLIS)</td>
+      <td>BCLIS (BioChaperone Lispro) + Glargine</td><td>623</td><td>-0.65</td><td></td>
+      <td></td><td>26</td><td>Phase 3</td>
+      <td>THDB0206</td><td class="col-comments">Treatment diff vs LIS -0.07 [95% CI -0.18 to 0.03]; non-inferiority met; n from figure; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1762-P/168063" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>3</td><td>2</td><td>THDB0206 (BCLIS)</td>
+      <td>Lispro (Humalog) + Glargine</td><td>415</td><td>-0.57</td><td></td>
+      <td></td><td>26</td><td>Phase 3</td>
+      <td>THDB0206</td><td class="col-comments">Comparator arm; n from figure; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1762-P/168063" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>4</td><td>1</td><td>GL0034 (Utreglutide)</td>
+      <td>GL0034 Cohort 1 (titrated to 3.0 mg/wk)</td><td>16</td><td>-0.88</td><td>0.39</td>
+      <td></td><td>16</td><td>Phase 2</td>
+      <td>GL0034</td><td class="col-comments">Mean ± SD (SD used); p<0.01 vs placebo; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2833-LB/167252" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>4</td><td>2</td><td>GL0034 (Utreglutide)</td>
+      <td>GL0034 Cohort 2 (titrated to 2.4 mg/wk)</td><td>16</td><td>-1.09</td><td>0.63</td>
+      <td></td><td>16</td><td>Phase 2</td>
+      <td>GL0034</td><td class="col-comments">Mean ± SD (SD used); p<0.001 vs placebo; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2833-LB/167252" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>4</td><td>3</td><td>GL0034 (Utreglutide)</td>
+      <td>Placebo</td><td>16</td><td>0.01</td><td>0.55</td>
+      <td></td><td>16</td><td>Phase 2</td>
+      <td>GL0034</td><td class="col-comments">Mean ± SD (SD used); <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2833-LB/167252" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>5</td><td>1</td><td>Dorzagliatin</td>
+      <td>Dorzagliatin (TIR≤50% subgroup)</td><td>34</td><td>-1.30</td><td></td>
+      <td>9.30</td><td>26</td><td>Real-World</td>
+      <td>Dorzagliatin Tianjin RWE</td><td class="col-comments">Paired CFB (mean only); baseline SD 1.7 / 6mo SD 1.4; SE of change not reported; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2874-LB/167753" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>5</td><td>2</td><td>Dorzagliatin</td>
+      <td>Dorzagliatin (50%<TIR≤70% subgroup)</td><td>76</td><td>-0.80</td><td></td>
+      <td>8.20</td><td>26</td><td>Real-World</td>
+      <td>Dorzagliatin Tianjin RWE</td><td class="col-comments">Paired CFB (mean only); baseline SD 1.0 / 6mo SD 1.0; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2874-LB/167753" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>5</td><td>3</td><td>Dorzagliatin</td>
+      <td>Dorzagliatin (TIR>70% subgroup)</td><td>145</td><td>-1.00</td><td></td>
+      <td>8.50</td><td>26</td><td>Real-World</td>
+      <td>Dorzagliatin Tianjin RWE</td><td class="col-comments">Paired CFB (mean only); baseline SD 1.4 / 6mo SD 1.2; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2874-LB/167753" target="_blank">link</a></td>
+    </tr></tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    function downloadCSV() {
+      const csv = "study_ind,arm_ind,compound,treat,n,y,se,base,weeks,Phase,study,comments\n1,1,Dapagliflozin,DAPA/MET FDC,297,-2.06,0.041,8.72,24,Phase 4,EFFICIENT (NCT06327815),LSM CFB; 95% CI -2.14 to -1.98; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1837-P/168219\n1,2,Dapagliflozin,DAPA + MET Co-Administration,293,-2.12,0.041,8.85,24,Phase 4,EFFICIENT (NCT06327815),LSM CFB; 95% CI -2.20 to -2.04; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1837-P/168219\n2,1,Insulin Glargine 300,Gla-300 Overall,240,-0.98,0.110,8.61,26,Real-World,IMPROVE G,6mo CFB 95% CI -1.20 to -0.77; retrospective single-arm cohort; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1755-P/168649\n2,2,Insulin Glargine 300,Gla-300 Add-on to GLP-1 RA,187,-0.91,0.122,8.50,26,Real-World,IMPROVE G,6mo CFB 95% CI -1.15 to -0.67; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1755-P/168649\n2,3,Insulin Glargine 300,Switch to Gla-300,53,-1.24,0.250,8.84,26,Real-World,IMPROVE G,6mo CFB 95% CI -1.73 to -0.75; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1755-P/168649\n3,1,THDB0206 (BCLIS),BCLIS (BioChaperone Lispro) + Glargine,623,-0.65,,,26,Phase 3,THDB0206,Treatment diff vs LIS -0.07 [95% CI -0.18 to 0.03]; non-inferiority met; n from figure; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1762-P/168063\n3,2,THDB0206 (BCLIS),Lispro (Humalog) + Glargine,415,-0.57,,,26,Phase 3,THDB0206,Comparator arm; n from figure; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1762-P/168063\n4,1,GL0034 (Utreglutide),GL0034 Cohort 1 (titrated to 3.0 mg/wk),16,-0.88,0.39,,16,Phase 2,GL0034,Mean ± SD (SD used); p<0.01 vs placebo; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2833-LB/167252\n4,2,GL0034 (Utreglutide),GL0034 Cohort 2 (titrated to 2.4 mg/wk),16,-1.09,0.63,,16,Phase 2,GL0034,Mean ± SD (SD used); p<0.001 vs placebo; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2833-LB/167252\n4,3,GL0034 (Utreglutide),Placebo,16,0.01,0.55,,16,Phase 2,GL0034,Mean ± SD (SD used); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2833-LB/167252\n5,1,Dorzagliatin,Dorzagliatin (TIR≤50% subgroup),34,-1.30,,9.30,26,Real-World,Dorzagliatin Tianjin RWE,Paired CFB (mean only); baseline SD 1.7 / 6mo SD 1.4; SE of change not reported; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2874-LB/167753\n5,2,Dorzagliatin,Dorzagliatin (50%<TIR≤70% subgroup),76,-0.80,,8.20,26,Real-World,Dorzagliatin Tianjin RWE,Paired CFB (mean only); baseline SD 1.0 / 6mo SD 1.0; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2874-LB/167753\n5,3,Dorzagliatin,Dorzagliatin (TIR>70% subgroup),145,-1.00,,8.50,26,Real-World,Dorzagliatin Tianjin RWE,Paired CFB (mean only); baseline SD 1.4 / 6mo SD 1.2; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2874-LB/167753";
+      const blob = new Blob([csv], {type: 'text/csv'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'hba1c_data.csv'; a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+
+</body>
+</html>

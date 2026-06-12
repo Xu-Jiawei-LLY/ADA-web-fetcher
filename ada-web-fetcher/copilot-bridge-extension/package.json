@@ -1,0 +1,63 @@
+{
+  "name": "ada-copilot-bridge",
+  "displayName": "ADA Copilot Bridge",
+  "description": "Local VS Code bridge exposing Copilot Business language model access for ADA Web Fetcher",
+  "version": "0.0.1",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.102.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:adaCopilotBridge.start",
+    "onCommand:adaCopilotBridge.stop",
+    "onCommand:adaCopilotBridge.status",
+    "onCommand:adaCopilotBridge.authorize"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "adaCopilotBridge.start",
+        "title": "ADA Copilot Bridge: Start"
+      },
+      {
+        "command": "adaCopilotBridge.stop",
+        "title": "ADA Copilot Bridge: Stop"
+      },
+      {
+        "command": "adaCopilotBridge.status",
+        "title": "ADA Copilot Bridge: Status"
+      },
+      {
+        "command": "adaCopilotBridge.authorize",
+        "title": "ADA Copilot Bridge: Authorize Copilot Access"
+      }
+    ],
+    "configuration": {
+      "title": "ADA Copilot Bridge",
+      "properties": {
+        "adaCopilotBridge.autoStart": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically start the local bridge server when VS Code starts."
+        },
+        "adaCopilotBridge.host": {
+          "type": "string",
+          "default": "127.0.0.1",
+          "description": "Host interface for the local bridge server."
+        },
+        "adaCopilotBridge.port": {
+          "type": "number",
+          "default": 42175,
+          "minimum": 1024,
+          "maximum": 65535,
+          "description": "Port used by the local bridge server."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADA 2026 - 中国公司体重减轻数据汇总</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f7fa; color: #1a1a2e; line-height: 1.6; }
+  .header { background: linear-gradient(135deg, #0d47a1, #1565c0, #00695c); color: #fff; padding: 32px 24px; text-align: center; }
+  .header h1 { font-size: 1.6em; margin-bottom: 6px; }
+  .header p { opacity: 0.9; font-size: 0.95em; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+
+  .summary-bar { background: #fff; border-radius: 10px; padding: 18px 24px; margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .summary-item { display: flex; align-items: center; gap: 6px; font-size: 0.9em; }
+  .summary-dot { width: 12px; height: 12px; border-radius: 50%; }
+  .summary-label { font-weight: 600; }
+  .summary-count { color: #616161; }
+
+  .tabs { display: flex; gap: 4px; margin-bottom: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .tab-btn { padding: 12px 14px; border: none; cursor: pointer; font-size: 0.88em; font-weight: 700; transition: all 0.2s;
+    border-radius: 10px 10px 0 0; position: relative; top: 1px; white-space: nowrap; flex-shrink: 0; }
+  .tab-btn .tab-count { font-weight: 400; font-size: 0.75em; opacity: 0.85; margin-left: 4px; }
+  .tab-btn.active { z-index: 1; }
+
+  .tab-panel { display: none; background: #fff; border-radius: 0 0 10px 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); overflow: hidden; }
+  .tab-panel.active { display: block; }
+
+  .category { margin: 0; }
+  .category-header { padding: 10px 18px; font-weight: 600; font-size: 0.92em; border-bottom: 1px solid #e0e0e0; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th { background: #fafafa; text-align: left; padding: 10px 14px; font-size: 0.82em; color: #546e7a;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #e0e0e0; }
+  td { padding: 10px 14px; border-bottom: 1px solid #f0f0f0; font-size: 0.9em; vertical-align: top; }
+  tr:hover { background: #f8f9ff; }
+
+  .abs-id { font-weight: 700; white-space: nowrap; }
+  .abs-id a { text-decoration: none; }
+  .abs-id a:hover { text-decoration: underline; }
+  .abs-title { line-height: 1.5; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.72em; font-weight: 600; margin-left: 4px; }
+
+  .table-scroll { overflow-x: auto; }
+  .data-table { font-size: 0.82em; min-width: 1100px; }
+  .data-table th { background: #34495e; color: white; padding: 6px 8px; white-space: nowrap; font-size: 0.78em; }
+  .data-table td { padding: 5px 8px; }
+  .data-table tr:nth-child(even) { background: #f8f9fa; }
+  .data-table .pos { color: #1b5e20; font-weight: 600; }
+
+  .download-row { padding: 14px 18px; background: #fafafa; border-top: 1px solid #e0e0e0; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .download-btn { background: #27ae60; color: white; border: none; padding: 8px 18px; border-radius: 6px; cursor: pointer; font-size: 0.9em; font-weight: 600; }
+  .download-btn:hover { background: #219a52; }
+  .download-info { color: #546e7a; font-size: 0.85em; }
+
+  .note { background: #fff8e1; border-left: 4px solid #ff9800; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 0.88em; color: #5d4037; }
+
+  .footer { text-align: center; padding: 20px; font-size: 0.8em; color: #9e9e9e; }
+
+  @media (max-width: 768px) {
+    td, th { padding: 8px 8px; font-size: 0.82em; }
+    .tab-btn { font-size: 0.78em; padding: 10px 8px; }
+    .summary-bar { padding: 12px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>ADA 2026 Scientific Sessions</h1>
+  <p>中国公司 — 体重减轻临床研究数据汇总</p>
+  <p>Chinese Companies — Weight-Reduction Clinical Trial Data</p>
+  <p style="margin-top:8px; font-size:0.85em;">New Orleans, LA, USA &bull; June 5-8, 2026 &bull; 数据来源: <a href="https://diabetesjournals.org/diabetes/issue/75/Supplement_1" target="_blank" style="color:#fff; text-decoration:underline;">Diabetes Vol 75 Suppl 1</a></p>
+</div>
+
+<div class="container">
+
+<div class="summary-bar">
+  <div class="summary-item"><span class="summary-label">8 家公司</span> | <span class="summary-count">29 项报告 (摘要可获)</span> | <span class="summary-count">16 个研究 / 46 个治疗组数据</span></div>
+  <div style="flex-grow:1"></div>
+  <div class="summary-item"><span class="summary-dot" style="background:#1565c0"></span><span>信达生物 8</span></div><div class="summary-item"><span class="summary-dot" style="background:#c62828"></span><span>恒瑞医药 4</span></div><div class="summary-item"><span class="summary-dot" style="background:#00695c"></span><span>华东医药 3</span></div><div class="summary-item"><span class="summary-dot" style="background:#2e7d32"></span><span>华领医药 3</span></div><div class="summary-item"><span class="summary-dot" style="background:#0d47a1"></span><span>甘李药业 7</span></div><div class="summary-item"><span class="summary-dot" style="background:#6a1b9a"></span><span>先为达 2</span></div><div class="summary-item"><span class="summary-dot" style="background:#4e342e"></span><span>通化东宝 1</span></div><div class="summary-item"><span class="summary-dot" style="background:#006064"></span><span>诚益生物 1</span></div>
+</div>
+
+<div class="note">
+  <strong>说明:</strong> y = 体重相对基线的百分比变化 (%); 阴性值表示体重下降. 若摘要仅报告 kg 变化, 已在 comments 列标注换算逻辑. 主要终点为体重减轻的试验已优先收录. 注: 参考报告中 1225-OR (Mazdutide GLORY-2 9 mg) / 1226-OR (DREAMS-3) / 1227-OR (RAY1225 REBUILDING-1) 三项口头报告未在 Diabetes 期刊增刊发表 (可能为禁运迟发数据), 故未收录.
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" data-tab="innovent" data-color="#1565c0" data-bg="#e3eaf5" style="background:#1565c0;color:#fff;box-shadow:0 -2px 8px #1565c040;" onclick="switchTab('innovent')">信达生物<span class="tab-count">8项 / 13arms</span></button>
+<button class="tab-btn" data-tab="hengrui" data-color="#c62828" data-bg="#fbe9e7" style="background:#fbe9e7;color:#c62828;" onclick="switchTab('hengrui')">恒瑞医药<span class="tab-count">4项 / 10arms</span></button>
+<button class="tab-btn" data-tab="huadong" data-color="#00695c" data-bg="#e0f2f1" style="background:#e0f2f1;color:#00695c;" onclick="switchTab('huadong')">华东医药<span class="tab-count">3项 / 12arms</span></button>
+<button class="tab-btn" data-tab="huamedicine" data-color="#2e7d32" data-bg="#e8f5e9" style="background:#e8f5e9;color:#2e7d32;" onclick="switchTab('huamedicine')">华领医药<span class="tab-count">3项 / 0arms</span></button>
+<button class="tab-btn" data-tab="ganlee" data-color="#0d47a1" data-bg="#e3f2fd" style="background:#e3f2fd;color:#0d47a1;" onclick="switchTab('ganlee')">甘李药业<span class="tab-count">7项 / 6arms</span></button>
+<button class="tab-btn" data-tab="sciwind" data-color="#6a1b9a" data-bg="#f3e5f5" style="background:#f3e5f5;color:#6a1b9a;" onclick="switchTab('sciwind')">先为达<span class="tab-count">2项 / 2arms</span></button>
+<button class="tab-btn" data-tab="thdb" data-color="#4e342e" data-bg="#efebe9" style="background:#efebe9;color:#4e342e;" onclick="switchTab('thdb')">通化东宝<span class="tab-count">1项 / 0arms</span></button>
+<button class="tab-btn" data-tab="eccogene" data-color="#006064" data-bg="#e0f7fa" style="background:#e0f7fa;color:#006064;" onclick="switchTab('eccogene')">诚益生物<span class="tab-count">1项 / 3arms</span></button>
+</div>
+<div id="tab-innovent" class="tab-panel active" style="border-top: 3px solid #1565c0;">
+    
+      <div class="category">
+        <div class="category-header" style="background:#e3eaf5;color:#1565c0;">Oral Presentation &mdash; 1</div>
+        <table>
+          <thead><tr><th style="width:140px">编号 ID</th><th>标题 Title</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1133-OR/167616/1133-OR-Safety-Tolerability-and-Pharmacokinetics" target="_blank" style="color:#1565c0">1133-OR</a> <span class="badge" style="background:#e8f5e9;color:#2e7d32">Oral</span></td>
+          <td class="abs-title">Safety, Tolerability, and Pharmacokinetics of Once-Weekly Mazdutide in Chinese Adolescents with Obesity: A Phase 1b Trial</td>
+        </tr></tbody>
+        </table>
+      </div>
+      <div class="category">
+        <div class="category-header" style="background:#e3eaf5;color:#1565c0;">Poster Presentation &mdash; 7</div>
+        <table>
+          <thead><tr><th style="width:140px">编号 ID</th><th>标题 Title</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1678-P/167721/1678-P-IBI3032-An-Orally-Bioavailable-Nonpeptidic" target="_blank" style="color:#1565c0">1678-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">IBI3032: An Orally Bioavailable Nonpeptidic GLP-1 Receptor Agonist Advancing through Phase 1 Clinical Trials</td>
+        </tr>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1690-P/169100/1690-P-Safety-Tolerability-Pharmacokinetics-and" target="_blank" style="color:#1565c0">1690-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of IBI3032, a Novel Oral Nonpeptide GLP-1 Receptor Agonist: Single- and Multiple-Ascending Dose Studies in Chinese Adults</td>
+        </tr>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1693-P/168781/1693-P-Mazdutide-Improves-Markers-of-Insulin" target="_blank" style="color:#1565c0">1693-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Mazdutide Improves Markers of Insulin Sensitivity in Adults with Obesity without Type 2 Diabetes</td>
+        </tr>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1733-P/169005/1733-P-Effect-of-Mazdutide-on-Kidney-Function-in" target="_blank" style="color:#1565c0">1733-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Effect of Mazdutide on Kidney Function in Adults with Obesity or Overweight</td>
+        </tr>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2505-P/167797/2505-P-Mazdutide-a-GCGR-GLP-1R-Dual-Agonist" target="_blank" style="color:#1565c0">2505-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Mazdutide, a GCGR/GLP-1R Dual Agonist, Alleviates MASH and Liver Fibrosis through Hepatocytes–Hepatic Stellate Cells Cross Talk</td>
+        </tr>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2543-P/167474/2543-P-IBI3042-A-Novel-Oral-Once-Weekly-Small" target="_blank" style="color:#1565c0">2543-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">IBI3042: A Novel Oral Once-Weekly Small-Molecule GLP-1 Receptor Agonist for Type 2 Diabetes and Obesity</td>
+        </tr>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168752/2620-P-MDR-001-an-AI-Enabled-arrestin2-Biased-Oral" target="_blank" style="color:#1565c0">2620-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">MDR-001, an AI-Enabled β-arrestin2-Biased Oral GLP-1RA: Efficacy and Safety in Chinese Adults with Overweight or Obesity</td>
+        </tr></tbody>
+        </table>
+      </div>
+    
+      <div class="category">
+        <div class="category-header" style="background:#e3eaf5;color:#1565c0;">体重减轻数据 Weight Reduction Data &mdash; 13 治疗组</div>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr><th>study</th><th>arm</th><th>compound</th><th>treat</th><th>n</th>
+                  <th>y (% Δ)</th><th>kg Δ</th><th>se</th><th>base kg</th><th>weeks</th>
+                  <th>Phase</th><th>trial</th></tr>
+            </thead>
+            <tbody>
+      <tr>
+        <td>2</td><td>1</td><td>Mazdutide</td>
+        <td>Mazdutide 4 mg QW (adolescents)</td><td>12</td>
+        <td class="pos">-7.87</td>
+        <td>-7.72</td><td>1.462</td>
+        <td>99.85</td><td>12</td>
+        <td>Phase 1b</td><td>Mazdutide adolescent (NCT06536023)</td>
+      </tr>
+      <tr>
+        <td>2</td><td>2</td><td>Mazdutide</td>
+        <td>Mazdutide 6 mg QW (adolescents)</td><td>12</td>
+        <td class="pos">-9.93</td>
+        <td>-8.65</td><td>1.457</td>
+        <td>95.15</td><td>12</td>
+        <td>Phase 1b</td><td>Mazdutide adolescent (NCT06536023)</td>
+      </tr>
+      <tr>
+        <td>2</td><td>3</td><td>Mazdutide</td>
+        <td>Placebo</td><td>12</td>
+        <td class="pos">-1.19</td>
+        <td>-1.42</td><td>1.527</td>
+        <td>92.49</td><td>12</td>
+        <td>Phase 1b</td><td>Mazdutide adolescent (NCT06536023)</td>
+      </tr>
+      <tr>
+        <td>4</td><td>1</td><td>IBI3032</td>
+        <td>IBI3032 8 mg QD (oral)</td><td>12</td>
+        <td class="pos">-8.80</td>
+        <td></td><td></td>
+        <td>78.10</td><td>4</td>
+        <td>Phase 1 MAD</td><td>IBI3032 SAD/MAD</td>
+      </tr>
+      <tr>
+        <td>4</td><td>2</td><td>IBI3032</td>
+        <td>IBI3032 9 mg QD (oral)</td><td>12</td>
+        <td class="pos">-10.70</td>
+        <td></td><td></td>
+        <td>78.10</td><td>4</td>
+        <td>Phase 1 MAD</td><td>IBI3032 SAD/MAD</td>
+      </tr>
+      <tr>
+        <td>4</td><td>3</td><td>IBI3032</td>
+        <td>Placebo</td><td>8</td>
+        <td class="pos">-2.10</td>
+        <td></td><td></td>
+        <td>78.10</td><td>4</td>
+        <td>Phase 1 MAD</td><td>IBI3032 SAD/MAD</td>
+      </tr>
+      <tr>
+        <td>5</td><td>1</td><td>Mazdutide</td>
+        <td>Mazdutide (max dose) - Phase 2 obesity</td><td>179</td>
+        <td class="pos">-22.30</td>
+        <td></td><td></td>
+        <td></td><td>48</td>
+        <td>Phase 2</td><td>Mazdutide Phase 2 (NCT06124807)</td>
+      </tr>
+      <tr>
+        <td>7</td><td>1</td><td>Mazdutide</td>
+        <td>Mazdutide 10 mg QW (Phase 2 kidney sub-analysis)</td><td>48</td>
+        <td class=""></td>
+        <td></td><td></td>
+        <td></td><td>48</td>
+        <td>Phase 2</td><td>Mazdutide Phase 2 (NCT06124807)</td>
+      </tr>
+      <tr>
+        <td>10</td><td>1</td><td>MDR-001</td>
+        <td>MDR-001 90 mg BID</td><td>63</td>
+        <td class="pos">-8.00</td>
+        <td></td><td></td>
+        <td>90.10</td><td>24</td>
+        <td>Phase 2b</td><td>MDR-001 obesity Phase 2b</td>
+      </tr>
+      <tr>
+        <td>10</td><td>2</td><td>MDR-001</td>
+        <td>MDR-001 120 mg BID</td><td>64</td>
+        <td class="pos">-9.10</td>
+        <td></td><td></td>
+        <td>90.10</td><td>24</td>
+        <td>Phase 2b</td><td>MDR-001 obesity Phase 2b</td>
+      </tr>
+      <tr>
+        <td>10</td><td>3</td><td>MDR-001</td>
+        <td>MDR-001 150 mg BID</td><td>63</td>
+        <td class="pos">-9.60</td>
+        <td></td><td></td>
+        <td>90.10</td><td>24</td>
+        <td>Phase 2b</td><td>MDR-001 obesity Phase 2b</td>
+      </tr>
+      <tr>
+        <td>10</td><td>4</td><td>MDR-001</td>
+        <td>MDR-001 180 mg BID</td><td>63</td>
+        <td class="pos">-9.30</td>
+        <td></td><td></td>
+        <td>90.10</td><td>24</td>
+        <td>Phase 2b</td><td>MDR-001 obesity Phase 2b</td>
+      </tr>
+      <tr>
+        <td>10</td><td>5</td><td>MDR-001</td>
+        <td>Placebo</td><td>62</td>
+        <td class="pos">-2.60</td>
+        <td></td><td></td>
+        <td>90.10</td><td>24</td>
+        <td>Phase 2b</td><td>MDR-001 obesity Phase 2b</td>
+      </tr></tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+<div id="tab-hengrui" class="tab-panel" style="border-top: 3px solid #c62828;">
+    
+      <div class="category">
+        <div class="category-header" style="background:#fbe9e7;color:#c62828;">Late-Breaking Poster &mdash; 1</div>
+        <table>
+          <thead><tr><th style="width:140px">编号 ID</th><th>标题 Title</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2816-LB/167269/2816-LB-Efficacy-and-Safety-of-Oral-Ribupatide" target="_blank" style="color:#c62828">2816-LB</a> <span class="badge" style="background:#fff3e0;color:#e65100">LB</span></td>
+          <td class="abs-title">Efficacy and Safety of Oral Ribupatide (HRS9531) in Adults with Obesity: A Phase 2 Trial</td>
+        </tr></tbody>
+        </table>
+      </div>
+      <div class="category">
+        <div class="category-header" style="background:#fbe9e7;color:#c62828;">Poster Presentation &mdash; 3</div>
+        <table>
+          <thead><tr><th style="width:140px">编号 ID</th><th>标题 Title</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1681-P/167718/1681-P-Benefits-of-HR17031-vs-Insulin-Glargine" target="_blank" style="color:#c62828">1681-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Benefits of HR17031 vs. Insulin Glargine (iGlar) in Patients (pts) with Type 2 Diabetes (T2D) Uncontrolled on Metformin (Met) with/without One Other Oral Antidiabetic Drug (OAD)</td>
+        </tr>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1712-P/167889/1712-P-Benefits-of-HR17031-vs-Insulin-Glargine" target="_blank" style="color:#c62828">1712-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Benefits of HR17031 vs. Insulin Glargine (iGlar) in Patients (pts) with Type 2 Diabetes (T2D) Uncontrolled on Basal Insulin (BI) and Metformin</td>
+        </tr>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1815-P/168057/1815-P-Efficacy-and-Safety-of-the-GlP-1-GIP-Dual" target="_blank" style="color:#c62828">1815-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Efficacy and Safety of the GlP-1/GIP Dual Agonist HRS9531 in Overweight/Obese Chinese Patients with Polycystic Ovary Syndrome</td>
+        </tr></tbody>
+        </table>
+      </div>
+    
+      <div class="category">
+        <div class="category-header" style="background:#fbe9e7;color:#c62828;">体重减轻数据 Weight Reduction Data &mdash; 10 治疗组</div>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr><th>study</th><th>arm</th><th>compound</th><th>treat</th><th>n</th>
+                  <th>y (% Δ)</th><th>kg Δ</th><th>se</th><th>base kg</th><th>weeks</th>
+                  <th>Phase</th><th>trial</th></tr>
+            </thead>
+            <tbody>
+      <tr>
+        <td>8</td><td>1</td><td>HRS9531</td>
+        <td>HRS9531 4.0 mg QW SC (PCOS)</td><td>30</td>
+        <td class="pos">-21.38</td>
+        <td></td><td>3.14</td>
+        <td></td><td>28</td>
+        <td>Phase 2</td><td>HRS9531 PCOS</td>
+      </tr>
+      <tr>
+        <td>8</td><td>2</td><td>HRS9531</td>
+        <td>Placebo (PCOS)</td><td>15</td>
+        <td class="pos">-8.97</td>
+        <td></td><td></td>
+        <td></td><td>28</td>
+        <td>Phase 2</td><td>HRS9531 PCOS</td>
+      </tr>
+      <tr>
+        <td>11</td><td>1</td><td>Ribupatide (HRS9531)</td>
+        <td>Oral Ribupatide 10 mg</td><td>40</td>
+        <td class="pos">-6.70</td>
+        <td></td><td></td>
+        <td>92.60</td><td>26</td>
+        <td>Phase 2</td><td>Oral Ribupatide Phase 2</td>
+      </tr>
+      <tr>
+        <td>11</td><td>2</td><td>Ribupatide (HRS9531)</td>
+        <td>Oral Ribupatide 25 mg</td><td>40</td>
+        <td class="pos">-11.90</td>
+        <td></td><td></td>
+        <td>92.60</td><td>26</td>
+        <td>Phase 2</td><td>Oral Ribupatide Phase 2</td>
+      </tr>
+      <tr>
+        <td>11</td><td>3</td><td>Ribupatide (HRS9531)</td>
+        <td>Oral Ribupatide 50 mg</td><td>40</td>
+        <td class="pos">-11.40</td>
+        <td></td><td></td>
+        <td>92.60</td><td>26</td>
+        <td>Phase 2</td><td>Oral Ribupatide Phase 2</td>
+      </tr>
+      <tr>
+        <td>11</td><td>4</td><td>Ribupatide (HRS9531)</td>
+        <td>Placebo</td><td>40</td>
+        <td class="pos">-2.10</td>
+        <td></td><td></td>
+        <td>92.60</td><td>26</td>
+        <td>Phase 2</td><td>Oral Ribupatide Phase 2</td>
+      </tr>
+      <tr>
+        <td>15</td><td>1</td><td>HR17031</td>
+        <td>HR17031 (basal insulin + GLP-1 FRC) - QWINT vs iGlar Met-uncontrolled</td><td>200</td>
+        <td class="">1.97</td>
+        <td>1.50</td><td></td>
+        <td>76.00</td><td>26</td>
+        <td>Phase 3</td><td>HR17031 (Met-uncontrolled)</td>
+      </tr>
+      <tr>
+        <td>15</td><td>2</td><td>HR17031</td>
+        <td>Insulin Glargine (Met-uncontrolled)</td><td>201</td>
+        <td class="">3.67</td>
+        <td>2.79</td><td></td>
+        <td>76.00</td><td>26</td>
+        <td>Phase 3</td><td>HR17031 (Met-uncontrolled)</td>
+      </tr>
+      <tr>
+        <td>16</td><td>1</td><td>HR17031</td>
+        <td>HR17031 (BI+Met uncontrolled)</td><td>197</td>
+        <td class="pos">-0.08</td>
+        <td>-0.06</td><td></td>
+        <td>76.00</td><td>26</td>
+        <td>Phase 3</td><td>HR17031 (BI-uncontrolled)</td>
+      </tr>
+      <tr>
+        <td>16</td><td>2</td><td>HR17031</td>
+        <td>Insulin Glargine (BI+Met uncontrolled)</td><td>196</td>
+        <td class="">1.78</td>
+        <td>1.35</td><td></td>
+        <td>76.00</td><td>26</td>
+        <td>Phase 3</td><td>HR17031 (BI-uncontrolled)</td>
+      </tr></tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+<div id="tab-huadong" class="tab-panel" style="border-top: 3px solid #00695c;">
+    
+      <div class="category">
+        <div class="category-header" style="background:#e0f2f1;color:#00695c;">Oral Presentation &mdash; 2</div>
+        <table>
+          <thead><tr><th style="width:140px">编号 ID</th><th>标题 Title</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1034-OR/167745/1034-OR-Efficacy-and-Safety-of-Dual-GLP-1-GIP" target="_blank" style="color:#00695c">1034-OR</a> <span class="badge" style="background:#e8f5e9;color:#2e7d32">Oral</span></td>
+          <td class="abs-title">Efficacy and Safety of Dual GLP-1/GIP Receptor Agonist HDM1005 in Obese Participants without Diabetes: A Randomized, Double-Blind, Placebo-Controlled, Phase 2 Trial</td>
+        </tr>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198/1218-OR-Efficacy-and-Safety-of-a-Novel-Oral-Small" target="_blank" style="color:#00695c">1218-OR</a> <span class="badge" style="background:#e8f5e9;color:#2e7d32">Oral</span></td>
+          <td class="abs-title">Efficacy and Safety of a Novel Oral Small Molecule Glucagon-Like Peptide 1 Receptor Agonist (HDM1002) in Type 2 Diabetes Mellitus Patients Inadequately Controlled on Diet and Exercise or Metformin</td>
+        </tr></tbody>
+        </table>
+      </div>
+      <div class="category">
+        <div class="category-header" style="background:#e0f2f1;color:#00695c;">Poster Presentation &mdash; 1</div>
+        <table>
+          <thead><tr><th style="width:140px">编号 ID</th><th>标题 Title</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2609-P/168457/2609-P-Efficacy-and-Safety-of-a-Novel-Oral-Small" target="_blank" style="color:#00695c">2609-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Efficacy and Safety of a Novel Oral Small Molecule GLP-1 Receptor Agonist HDM1002 in Chinese Overweight and Obese Adults: A Randomized, Double-Blind, Placebo-Controlled, Phase 2 Trial</td>
+        </tr></tbody>
+        </table>
+      </div>
+    
+      <div class="category">
+        <div class="category-header" style="background:#e0f2f1;color:#00695c;">体重减轻数据 Weight Reduction Data &mdash; 12 治疗组</div>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr><th>study</th><th>arm</th><th>compound</th><th>treat</th><th>n</th>
+                  <th>y (% Δ)</th><th>kg Δ</th><th>se</th><th>base kg</th><th>weeks</th>
+                  <th>Phase</th><th>trial</th></tr>
+            </thead>
+            <tbody>
+      <tr>
+        <td>1</td><td>1</td><td>HDM1005</td>
+        <td>HDM1005 0.5 mg QW SC</td><td>49</td>
+        <td class="pos">-7.38</td>
+        <td></td><td></td>
+        <td></td><td>22</td>
+        <td>Phase 2</td><td>HDM1005 Phase 2 (NCT06886126)</td>
+      </tr>
+      <tr>
+        <td>1</td><td>2</td><td>HDM1005</td>
+        <td>HDM1005 1.0 mg QW SC</td><td>49</td>
+        <td class="pos">-9.61</td>
+        <td></td><td></td>
+        <td></td><td>22</td>
+        <td>Phase 2</td><td>HDM1005 Phase 2 (NCT06886126)</td>
+      </tr>
+      <tr>
+        <td>1</td><td>3</td><td>HDM1005</td>
+        <td>HDM1005 2.0 mg QW SC</td><td>49</td>
+        <td class="pos">-13.21</td>
+        <td></td><td></td>
+        <td></td><td>22</td>
+        <td>Phase 2</td><td>HDM1005 Phase 2 (NCT06886126)</td>
+      </tr>
+      <tr>
+        <td>1</td><td>4</td><td>HDM1005</td>
+        <td>HDM1005 4.0 mg QW SC</td><td>49</td>
+        <td class="pos">-13.32</td>
+        <td></td><td></td>
+        <td></td><td>22</td>
+        <td>Phase 2</td><td>HDM1005 Phase 2 (NCT06886126)</td>
+      </tr>
+      <tr>
+        <td>1</td><td>5</td><td>HDM1005</td>
+        <td>Placebo</td><td>49</td>
+        <td class="pos">-2.45</td>
+        <td></td><td></td>
+        <td></td><td>22</td>
+        <td>Phase 2</td><td>HDM1005 Phase 2 (NCT06886126)</td>
+      </tr>
+      <tr>
+        <td>3</td><td>1</td><td>HDM1002</td>
+        <td>HDM1002 50 mg QD</td><td>65</td>
+        <td class=""></td>
+        <td></td><td></td>
+        <td></td><td>12</td>
+        <td>Phase 2</td><td>HDM1002 T2DM Phase 2</td>
+      </tr>
+      <tr>
+        <td>3</td><td>2</td><td>HDM1002</td>
+        <td>HDM1002 400 mg QD</td><td>65</td>
+        <td class=""></td>
+        <td>-2.14</td><td></td>
+        <td></td><td>12</td>
+        <td>Phase 2</td><td>HDM1002 T2DM Phase 2</td>
+      </tr>
+      <tr>
+        <td>3</td><td>3</td><td>HDM1002</td>
+        <td>Placebo</td><td>65</td>
+        <td class=""></td>
+        <td>-0.78</td><td></td>
+        <td></td><td>12</td>
+        <td>Phase 2</td><td>HDM1002 T2DM Phase 2</td>
+      </tr>
+      <tr>
+        <td>9</td><td>1</td><td>HDM1002</td>
+        <td>HDM1002 100 mg BID</td><td>46</td>
+        <td class="pos">-4.63</td>
+        <td></td><td></td>
+        <td>90.02</td><td>12</td>
+        <td>Phase 2</td><td>HDM1002 obesity Phase 2 (NCT06500299)</td>
+      </tr>
+      <tr>
+        <td>9</td><td>2</td><td>HDM1002</td>
+        <td>HDM1002 200 mg BID</td><td>46</td>
+        <td class="pos">-6.08</td>
+        <td></td><td></td>
+        <td>90.02</td><td>12</td>
+        <td>Phase 2</td><td>HDM1002 obesity Phase 2 (NCT06500299)</td>
+      </tr>
+      <tr>
+        <td>9</td><td>3</td><td>HDM1002</td>
+        <td>HDM1002 400 mg QD</td><td>46</td>
+        <td class="pos">-6.83</td>
+        <td></td><td></td>
+        <td>90.02</td><td>12</td>
+        <td>Phase 2</td><td>HDM1002 obesity Phase 2 (NCT06500299)</td>
+      </tr>
+      <tr>
+        <td>9</td><td>4</td><td>HDM1002</td>
+        <td>Placebo</td><td>47</td>
+        <td class="pos">-2.88</td>
+        <td></td><td></td>
+        <td>90.02</td><td>12</td>
+        <td>Phase 2</td><td>HDM1002 obesity Phase 2 (NCT06500299)</td>
+      </tr></tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+<div id="tab-huamedicine" class="tab-panel" style="border-top: 3px solid #2e7d32;">
+    
+      <div class="category">
+        <div class="category-header" style="background:#e8f5e9;color:#2e7d32;">Late-Breaking Poster &mdash; 1</div>
+        <table>
+          <thead><tr><th style="width:140px">编号 ID</th><th>标题 Title</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2874-LB/167753/2874-LB-Dorzagliatin-Improves-Glycemic-Control-in" target="_blank" style="color:#2e7d32">2874-LB</a> <span class="badge" style="background:#fff3e0;color:#e65100">LB</span></td>
+          <td class="abs-title">Dorzagliatin Improves Glycemic Control in Type 2 Diabetes Patients with Different Time in Range (TIR): A Subgroup Analysis of Six-Month Interim Results from a Prospective Real-World Study</td>
+        </tr></tbody>
+        </table>
+      </div>
+      <div class="category">
+        <div class="category-header" style="background:#e8f5e9;color:#2e7d32;">Poster Presentation &mdash; 2</div>
+        <table>
+          <thead><tr><th style="width:140px">编号 ID</th><th>标题 Title</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1799-P/168970/1799-P-Safety-and-Efficacy-of-Dorzagliatin-in" target="_blank" style="color:#2e7d32">1799-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Safety and Efficacy of Dorzagliatin in Patients with Type 2 Diabetes under Real-World Clinical Practice: Preliminary Results from a Large-Scale Post-Marketing Study</td>
+        </tr>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1828-P/168045/1828-P-Development-of-Preliminary-Predictive" target="_blank" style="color:#2e7d32">1828-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Development of Preliminary Predictive Models for Dorzagliatin Treatment Response and Diabetes Remission in Type 2 Diabetes: A Focus on Personalized Medicine</td>
+        </tr></tbody>
+        </table>
+      </div>
+    
+  </div>
+<div id="tab-ganlee" class="tab-panel" style="border-top: 3px solid #0d47a1;">
+    
+      <div class="category">
+        <div class="category-header" style="background:#e3f2fd;color:#0d47a1;">Late-Breaking Poster &mdash; 1</div>
+        <table>
+          <thead><tr><th style="width:140px">编号 ID</th><th>标题 Title</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2833-LB/167252/2833-LB-Utreglutide-GL0034-Shows-Comparable" target="_blank" style="color:#0d47a1">2833-LB</a> <span class="badge" style="background:#fff3e0;color:#e65100">LB</span></td>
+          <td class="abs-title">Utreglutide (GL0034) Shows Comparable Tolerability and Efficacy with Different Dose Escalation Regimens in Overweight and Obese Adults with Type 2 Diabetes (T2DM)</td>
+        </tr></tbody>
+        </table>
+      </div>
+      <div class="category">
+        <div class="category-header" style="background:#e3f2fd;color:#0d47a1;">Poster Presentation &mdash; 6</div>
+        <table>
+          <thead><tr><th style="width:140px">编号 ID</th><th>标题 Title</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1699-P/167602/1699-P-Effect-of-Bofanglutide-on-the" target="_blank" style="color:#0d47a1">1699-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Effect of Bofanglutide on the Pharmacokinetics of Metformin in Healthy Participants</td>
+        </tr>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1700-P/167601/1700-P-Durable-Cardiometabolic-Effects-of" target="_blank" style="color:#0d47a1">1700-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Durable Cardiometabolic Effects of Utreglutide in Metabolic Dysfunction–Associated Steatotic Liver Disease Patients with Nondiabetic and Prediabetic Status</td>
+        </tr>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1720-P/167881/1720-P-Effect-of-Renal-Impairment-on-the" target="_blank" style="color:#0d47a1">1720-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Effect of Renal Impairment on the Pharmacokinetics and Safety of Bofanglutide</td>
+        </tr>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1745-P/168504/1745-P-Effects-of-Moderate-Renal-Impairment-on" target="_blank" style="color:#0d47a1">1745-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Effects of Moderate Renal Impairment on Pharmacokinetics and Safety of Once-Weekly Insulin GZR4</td>
+        </tr>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1805-P/167498/1805-P-Safety-Tolerability-and-Pharmacokinetic" target="_blank" style="color:#0d47a1">1805-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Safety, Tolerability, and Pharmacokinetic Characteristics of GZR102 Injection Compared with GZR4 or Bofanglutide</td>
+        </tr>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1822-P/168050/1822-P-Pharmacokinetic-and-Pharmacodynamic" target="_blank" style="color:#0d47a1">1822-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">Pharmacokinetic and Pharmacodynamic Profiles of GZR102 Injection, a Novel Once-Weekly Fixed-Ratio Combination of Insulin GZR4 and GLP-1 Analog Bofanglutide</td>
+        </tr></tbody>
+        </table>
+      </div>
+    
+      <div class="category">
+        <div class="category-header" style="background:#e3f2fd;color:#0d47a1;">体重减轻数据 Weight Reduction Data &mdash; 6 治疗组</div>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr><th>study</th><th>arm</th><th>compound</th><th>treat</th><th>n</th>
+                  <th>y (% Δ)</th><th>kg Δ</th><th>se</th><th>base kg</th><th>weeks</th>
+                  <th>Phase</th><th>trial</th></tr>
+            </thead>
+            <tbody>
+      <tr>
+        <td>6</td><td>1</td><td>Utreglutide</td>
+        <td>Utreglutide (HbA1c<5.7% subgroup; W14)</td><td>18</td>
+        <td class="pos">-7.20</td>
+        <td></td><td></td>
+        <td></td><td>14</td>
+        <td>Phase 1b/2a</td><td>UTG MASLD (NCT?)</td>
+      </tr>
+      <tr>
+        <td>6</td><td>2</td><td>Utreglutide</td>
+        <td>Utreglutide (HbA1c<5.7% subgroup; W17)</td><td>18</td>
+        <td class="pos">-5.70</td>
+        <td></td><td></td>
+        <td></td><td>17</td>
+        <td>Phase 1b/2a</td><td>UTG MASLD (NCT?)</td>
+      </tr>
+      <tr>
+        <td>6</td><td>3</td><td>Utreglutide</td>
+        <td>Utreglutide (HbA1c>=5.7% subgroup)</td><td>18</td>
+        <td class="pos">-7.10</td>
+        <td></td><td></td>
+        <td></td><td>17</td>
+        <td>Phase 1b/2a</td><td>UTG MASLD (NCT?)</td>
+      </tr>
+      <tr>
+        <td>12</td><td>1</td><td>Utreglutide (GL0034)</td>
+        <td>GL0034 Cohort 1 (max 3.0 mg/wk)</td><td>16</td>
+        <td class="pos">-7.70</td>
+        <td></td><td>5.30</td>
+        <td></td><td>16</td>
+        <td>Phase 2</td><td>GL0034</td>
+      </tr>
+      <tr>
+        <td>12</td><td>2</td><td>Utreglutide (GL0034)</td>
+        <td>GL0034 Cohort 2 (max 2.4 mg/wk)</td><td>16</td>
+        <td class="pos">-6.50</td>
+        <td></td><td>4.40</td>
+        <td></td><td>16</td>
+        <td>Phase 2</td><td>GL0034</td>
+      </tr>
+      <tr>
+        <td>12</td><td>3</td><td>Utreglutide (GL0034)</td>
+        <td>Placebo</td><td>16</td>
+        <td class="pos">-0.70</td>
+        <td></td><td>2.20</td>
+        <td></td><td>16</td>
+        <td>Phase 2</td><td>GL0034</td>
+      </tr></tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+<div id="tab-sciwind" class="tab-panel" style="border-top: 3px solid #6a1b9a;">
+    
+      <div class="category">
+        <div class="category-header" style="background:#f3e5f5;color:#6a1b9a;">Late-Breaking Poster &mdash; 1</div>
+        <table>
+          <thead><tr><th style="width:140px">编号 ID</th><th>标题 Title</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2849-LB/167777/2849-LB-Efficacy-and-Safety-of-cAMP-Biased" target="_blank" style="color:#6a1b9a">2849-LB</a> <span class="badge" style="background:#fff3e0;color:#e65100">LB</span></td>
+          <td class="abs-title">Efficacy and Safety of cAMP-Biased Ecnoglutide vs. Unbiased Semaglutide in Adults with Obesity: Twenty-Week Results from a Multicenter, Randomized, Open-Label, Phase 2 Study</td>
+        </tr></tbody>
+        </table>
+      </div>
+      <div class="category">
+        <div class="category-header" style="background:#f3e5f5;color:#6a1b9a;">Poster Presentation &mdash; 1</div>
+        <table>
+          <thead><tr><th style="width:140px">编号 ID</th><th>标题 Title</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1766-P/167509/1766-P-VRB-103-Is-a-Potent-Orally-Bioavailable" target="_blank" style="color:#6a1b9a">1766-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">VRB-103 Is a Potent, Orally Bioavailable Amylin Analog with a Strong Selectivity towards Human Amylin Receptors vs. Calcitonin Receptor</td>
+        </tr></tbody>
+        </table>
+      </div>
+    
+      <div class="category">
+        <div class="category-header" style="background:#f3e5f5;color:#6a1b9a;">体重减轻数据 Weight Reduction Data &mdash; 2 治疗组</div>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr><th>study</th><th>arm</th><th>compound</th><th>treat</th><th>n</th>
+                  <th>y (% Δ)</th><th>kg Δ</th><th>se</th><th>base kg</th><th>weeks</th>
+                  <th>Phase</th><th>trial</th></tr>
+            </thead>
+            <tbody>
+      <tr>
+        <td>14</td><td>1</td><td>Ecnoglutide</td>
+        <td>Ecnoglutide 2.4 mg QW SC</td><td>82</td>
+        <td class="pos">-12.80</td>
+        <td></td><td>0.485</td>
+        <td></td><td>20</td>
+        <td>Phase 2</td><td>Ecnoglutide vs Sema (NCT07073417)</td>
+      </tr>
+      <tr>
+        <td>14</td><td>2</td><td>Ecnoglutide</td>
+        <td>Semaglutide 2.4 mg QW SC</td><td>81</td>
+        <td class="pos">-9.50</td>
+        <td></td><td>0.485</td>
+        <td></td><td>20</td>
+        <td>Phase 2</td><td>Ecnoglutide vs Sema (NCT07073417)</td>
+      </tr></tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+<div id="tab-thdb" class="tab-panel" style="border-top: 3px solid #4e342e;">
+    
+      <div class="category">
+        <div class="category-header" style="background:#efebe9;color:#4e342e;">Poster Presentation &mdash; 1</div>
+        <table>
+          <thead><tr><th style="width:140px">编号 ID</th><th>标题 Title</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1762-P/168063/1762-P-THDB0206-Injection-BioChaperone-Lispro" target="_blank" style="color:#4e342e">1762-P</a> <span class="badge" style="background:#e3f2fd;color:#1565c0">Poster</span></td>
+          <td class="abs-title">THDB0206 Injection (BioChaperone Lispro, BCLIS) Improves Postprandial and Daily Glucose Control vs. Lispro (LIS) in Chinese Patients with Type 2 Diabetes (T2D)</td>
+        </tr></tbody>
+        </table>
+      </div>
+    
+  </div>
+<div id="tab-eccogene" class="tab-panel" style="border-top: 3px solid #006064;">
+    
+      <div class="category">
+        <div class="category-header" style="background:#e0f7fa;color:#006064;">Late-Breaking Poster &mdash; 1</div>
+        <table>
+          <thead><tr><th style="width:140px">编号 ID</th><th>标题 Title</th></tr></thead>
+          <tbody>
+        <tr>
+          <td class="abs-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2844-LB/168271/2844-LB-Safety-Tolerability-PK-and-PD-of" target="_blank" style="color:#006064">2844-LB</a> <span class="badge" style="background:#fff3e0;color:#e65100">LB</span></td>
+          <td class="abs-title">Safety, Tolerability, PK, and PD of Elecoglipron, an Oral Small-Molecule GLP-1 Receptor Agonist, in Chinese Adults Living with Obesity or Overweight With or Without Type 2 Diabetes</td>
+        </tr></tbody>
+        </table>
+      </div>
+    
+      <div class="category">
+        <div class="category-header" style="background:#e0f7fa;color:#006064;">体重减轻数据 Weight Reduction Data &mdash; 3 治疗组</div>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr><th>study</th><th>arm</th><th>compound</th><th>treat</th><th>n</th>
+                  <th>y (% Δ)</th><th>kg Δ</th><th>se</th><th>base kg</th><th>weeks</th>
+                  <th>Phase</th><th>trial</th></tr>
+            </thead>
+            <tbody>
+      <tr>
+        <td>13</td><td>1</td><td>Elecoglipron (ECC5004/AZD5004)</td>
+        <td>Elecoglipron oral (Cohort A non-T2DM)</td><td>16</td>
+        <td class=""></td>
+        <td></td><td></td>
+        <td></td><td>16</td>
+        <td>Phase 1b</td><td>Elecoglipron Phase 1b</td>
+      </tr>
+      <tr>
+        <td>13</td><td>2</td><td>Elecoglipron (ECC5004/AZD5004)</td>
+        <td>Elecoglipron oral (Cohort B T2DM)</td><td>14</td>
+        <td class=""></td>
+        <td></td><td></td>
+        <td></td><td>16</td>
+        <td>Phase 1b</td><td>Elecoglipron Phase 1b</td>
+      </tr>
+      <tr>
+        <td>13</td><td>3</td><td>Elecoglipron (ECC5004/AZD5004)</td>
+        <td>Placebo (pooled)</td><td>15</td>
+        <td class=""></td>
+        <td></td><td></td>
+        <td></td><td>16</td>
+        <td>Phase 1b</td><td>Elecoglipron Phase 1b</td>
+      </tr></tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+
+<div class="download-row" style="background:#fff; border-radius:10px; margin-top:20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+  <button class="download-btn" onclick="downloadCSV()">下载完整 CSV (Download Full CSV)</button>
+  <span class="download-info">46 行数据 · 16 个研究 · 包含所有公司</span>
+</div>
+
+</div>
+
+<div class="footer">
+  生成时间: 2026-06-07 &bull; 主要终点: 体重相对基线 % 变化
+</div>
+
+<script>
+function switchTab(slug) {
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.remove('active');
+    b.style.background = b.getAttribute('data-bg');
+    b.style.color = b.getAttribute('data-color');
+    b.style.boxShadow = '';
+  });
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  const btn = document.querySelector('.tab-btn[data-tab="' + slug + '"]');
+  const color = btn.getAttribute('data-color');
+  btn.classList.add('active');
+  btn.style.background = color;
+  btn.style.color = '#fff';
+  btn.style.boxShadow = '0 -2px 8px ' + color + '40';
+  document.getElementById('tab-' + slug).classList.add('active');
+}
+function downloadCSV() {
+  const csv = "study_ind,arm_ind,company,compound,treat,n,y_pct,kg_change,se,base_kg,weeks,Phase,study,comments\n1,1,华东医药,HDM1005,HDM1005 0.5 mg QW SC,49,-7.38,,,,22,Phase 2,HDM1005 Phase 2 (NCT06886126),\"Treatment-policy estimand; %CFB; n approximated as 243/5; primary endpoint; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1034-OR/167745\"\n1,2,华东医药,HDM1005,HDM1005 1.0 mg QW SC,49,-9.61,,,,22,Phase 2,HDM1005 Phase 2 (NCT06886126),\"%CFB; p<0.0001 vs placebo; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1034-OR/167745\"\n1,3,华东医药,HDM1005,HDM1005 2.0 mg QW SC,49,-13.21,,,,22,Phase 2,HDM1005 Phase 2 (NCT06886126),\"%CFB; p<0.0001 vs placebo; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1034-OR/167745\"\n1,4,华东医药,HDM1005,HDM1005 4.0 mg QW SC,49,-13.32,,,,22,Phase 2,HDM1005 Phase 2 (NCT06886126),\"%CFB; p<0.0001 vs placebo; 70.8% achieved >=10% weight loss; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1034-OR/167745\"\n1,5,华东医药,HDM1005,Placebo,49,-2.45,,,,22,Phase 2,HDM1005 Phase 2 (NCT06886126),\"Reference arm; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1034-OR/167745\"\n2,1,信达生物,Mazdutide,Mazdutide 4 mg QW (adolescents),12,-7.87,-7.72,1.462,99.85,12,Phase 1b,Mazdutide adolescent (NCT06536023),\"LSM %CFB and kg CFB from Table; baseline 99.85±15.485 kg; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1133-OR/167927\"\n2,2,信达生物,Mazdutide,Mazdutide 6 mg QW (adolescents),12,-9.93,-8.65,1.457,95.15,12,Phase 1b,Mazdutide adolescent (NCT06536023),\"LSM %CFB and kg CFB from Table; baseline 95.15±22.360 kg; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1133-OR/167927\"\n2,3,信达生物,Mazdutide,Placebo,12,-1.19,-1.42,1.527,92.49,12,Phase 1b,Mazdutide adolescent (NCT06536023),\"LSM %CFB and kg CFB from Table; baseline 92.49±16.966 kg; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1133-OR/167927\"\n3,1,华东医药,HDM1002,HDM1002 50 mg QD,65,,,,,12,Phase 2,HDM1002 T2DM Phase 2,\"Body weight change not separately reported per dose; only 400mg arm noted; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198\"\n3,2,华东医药,HDM1002,HDM1002 400 mg QD,65,,-2.14,,,12,Phase 2,HDM1002 T2DM Phase 2,\"LSM kg CFB; baseline BW not reported in abstract; %change cannot be derived; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198\"\n3,3,华东医药,HDM1002,Placebo,65,,-0.78,,,12,Phase 2,HDM1002 T2DM Phase 2,\"LSM kg CFB; reference arm; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198\"\n4,1,信达生物,IBI3032,IBI3032 8 mg QD (oral),12,-8.80,,,78.10,4,Phase 1 MAD,IBI3032 SAD/MAD,\"%CFB at Week 4; baseline 78.1 kg; n approximated 12/cohort; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1690-P/167927\"\n4,2,信达生物,IBI3032,IBI3032 9 mg QD (oral),12,-10.70,,,78.10,4,Phase 1 MAD,IBI3032 SAD/MAD,\"%CFB at Week 4; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1690-P/167927\"\n4,3,信达生物,IBI3032,Placebo,8,-2.10,,,78.10,4,Phase 1 MAD,IBI3032 SAD/MAD,\"Reference arm; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1690-P/167927\"\n5,1,信达生物,Mazdutide,Mazdutide (max dose) - Phase 2 obesity,179,-22.30,,,,48,Phase 2,Mazdutide Phase 2 (NCT06124807),\"Up to -22.3% at W48; sub-analysis abstract; only headline figure reported; baseline not given here; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1693-P/168781\"\n6,1,甘李药业,Utreglutide,Utreglutide (HbA1c<5.7% subgroup; W14),18,-7.20,,,,14,Phase 1b/2a,UTG MASLD (NCT?),\"BMI %CFB at W14; n approx 36/2; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1700-P/167421\"\n6,2,甘李药业,Utreglutide,Utreglutide (HbA1c<5.7% subgroup; W17),18,-5.70,,,,17,Phase 1b/2a,UTG MASLD (NCT?),\"BW %CFB at W17 (post fixed-dose 2.4 mg); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1700-P/167421\"\n6,3,甘李药业,Utreglutide,Utreglutide (HbA1c>=5.7% subgroup),18,-7.10,,,,17,Phase 1b/2a,UTG MASLD (NCT?),\"BW %CFB at W17; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1700-P/167421\"\n7,1,信达生物,Mazdutide,Mazdutide 10 mg QW (Phase 2 kidney sub-analysis),48,,,,,48,Phase 2,Mazdutide Phase 2 (NCT06124807),\"Sub-analysis on kidney function; weight not reported per arm in this abstract; up to -22.3% at W48 from parent study; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1733-P/167927\"\n8,1,恒瑞医药,HRS9531,HRS9531 4.0 mg QW SC (PCOS),30,-21.38,,3.14,,28,Phase 2,HRS9531 PCOS,\"Mean %CFB; ETD vs PBO -11.98 (95% CI -18.01 to -5.95); P=0.0002; SE = (18.01-5.95)/3.92; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1815-P/168781\"\n8,2,恒瑞医药,HRS9531,Placebo (PCOS),15,-8.97,,,,28,Phase 2,HRS9531 PCOS,\"Reference arm; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1815-P/168781\"\n9,1,华东医药,HDM1002,HDM1002 100 mg BID,46,-4.63,,,90.02,12,Phase 2,HDM1002 obesity Phase 2 (NCT06500299),\"LSM %CFB at Week 12; baseline 90.02 kg; n approx 185/4; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2609-P/167927\"\n9,2,华东医药,HDM1002,HDM1002 200 mg BID,46,-6.08,,,90.02,12,Phase 2,HDM1002 obesity Phase 2 (NCT06500299),\"LSM %CFB; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2609-P/167927\"\n9,3,华东医药,HDM1002,HDM1002 400 mg QD,46,-6.83,,,90.02,12,Phase 2,HDM1002 obesity Phase 2 (NCT06500299),\"LSM %CFB; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2609-P/167927\"\n9,4,华东医药,HDM1002,Placebo,47,-2.88,,,90.02,12,Phase 2,HDM1002 obesity Phase 2 (NCT06500299),\"Reference arm; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2609-P/167927\"\n10,1,信达生物,MDR-001,MDR-001 90 mg BID,63,-8.00,,,90.10,24,Phase 2b,MDR-001 obesity Phase 2b,\"LSM %CFB at W24; baseline 90.1 kg; n=63; from figure; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168781\"\n10,2,信达生物,MDR-001,MDR-001 120 mg BID,64,-9.10,,,90.10,24,Phase 2b,MDR-001 obesity Phase 2b,\"LSM %CFB at W24; n=64; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168781\"\n10,3,信达生物,MDR-001,MDR-001 150 mg BID,63,-9.60,,,90.10,24,Phase 2b,MDR-001 obesity Phase 2b,\"LSM %CFB at W24; n=63; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168781\"\n10,4,信达生物,MDR-001,MDR-001 180 mg BID,63,-9.30,,,90.10,24,Phase 2b,MDR-001 obesity Phase 2b,\"LSM %CFB at W24; n=63; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168781\"\n10,5,信达生物,MDR-001,Placebo,62,-2.60,,,90.10,24,Phase 2b,MDR-001 obesity Phase 2b,\"Reference arm; n=62; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168781\"\n11,1,恒瑞医药,Ribupatide (HRS9531),Oral Ribupatide 10 mg,40,-6.70,,,92.60,26,Phase 2,Oral Ribupatide Phase 2,\"LS mean %CFB at W26; baseline 92.6 kg; n approx 160/4; p=0.0023 vs PBO; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2816-LB/167927\"\n11,2,恒瑞医药,Ribupatide (HRS9531),Oral Ribupatide 25 mg,40,-11.90,,,92.60,26,Phase 2,Oral Ribupatide Phase 2,\"LS mean %CFB at W26; p<0.0001 vs PBO; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2816-LB/167927\"\n11,3,恒瑞医药,Ribupatide (HRS9531),Oral Ribupatide 50 mg,40,-11.40,,,92.60,26,Phase 2,Oral Ribupatide Phase 2,\"LS mean %CFB at W26; p<0.0001 vs PBO; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2816-LB/167927\"\n11,4,恒瑞医药,Ribupatide (HRS9531),Placebo,40,-2.10,,,92.60,26,Phase 2,Oral Ribupatide Phase 2,\"Reference arm; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2816-LB/167927\"\n12,1,甘李药业,Utreglutide (GL0034),GL0034 Cohort 1 (max 3.0 mg/wk),16,-7.70,,5.30,,16,Phase 2,GL0034,\"%CFB Mean ± SD; SD shown as SE; p<0.01 vs placebo; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2833-LB/167252\"\n12,2,甘李药业,Utreglutide (GL0034),GL0034 Cohort 2 (max 2.4 mg/wk),16,-6.50,,4.40,,16,Phase 2,GL0034,\"%CFB Mean ± SD; p<0.001 vs placebo; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2833-LB/167252\"\n12,3,甘李药业,Utreglutide (GL0034),Placebo,16,-0.70,,2.20,,16,Phase 2,GL0034,\"Reference arm; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2833-LB/167252\"\n13,1,诚益生物,Elecoglipron (ECC5004/AZD5004),Elecoglipron oral (Cohort A non-T2DM),16,,,,,16,Phase 1b,Elecoglipron Phase 1b,\"Headline only: 'clinically meaningful reductions in body weight'; no numeric %CFB reported in abstract; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2844-LB/168271\"\n13,2,诚益生物,Elecoglipron (ECC5004/AZD5004),Elecoglipron oral (Cohort B T2DM),14,,,,,16,Phase 1b,Elecoglipron Phase 1b,\"Headline only; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2844-LB/168271\"\n13,3,诚益生物,Elecoglipron (ECC5004/AZD5004),Placebo (pooled),15,,,,,16,Phase 1b,Elecoglipron Phase 1b,\"Reference arm; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2844-LB/168271\"\n14,1,先为达,Ecnoglutide,Ecnoglutide 2.4 mg QW SC,82,-12.80,,0.485,,20,Phase 2,Ecnoglutide vs Sema (NCT07073417),\"LSM %CFB at W20 interim; 95% CI -13.7 to -11.8; SE = (13.7-11.8)/3.92; n approx 163/2; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2849-LB/168781\"\n14,2,先为达,Ecnoglutide,Semaglutide 2.4 mg QW SC,81,-9.50,,0.485,,20,Phase 2,Ecnoglutide vs Sema (NCT07073417),\"LSM %CFB at W20 interim; 95% CI -10.4 to -8.5; head-to-head comparator; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2849-LB/168781\"\n15,1,恒瑞医药,HR17031,HR17031 (basal insulin + GLP-1 FRC) - QWINT vs iGlar Met-uncontrolled,200,1.97,1.50,,76.00,26,Phase 3,HR17031 (Met-uncontrolled),\"Weight GAIN (positive); kg CFB 1.50; baseline ~76 kg assumed (typical Chinese T2D); %change derived = 1.5/76*100 ≈ 1.97%; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1681-P/167718\"\n15,2,恒瑞医药,HR17031,Insulin Glargine (Met-uncontrolled),201,3.67,2.79,,76.00,26,Phase 3,HR17031 (Met-uncontrolled),\"Comparator weight GAIN; kg CFB 2.79; %change derived = 2.79/76*100 ≈ 3.67%; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1681-P/167718\"\n16,1,恒瑞医药,HR17031,HR17031 (BI+Met uncontrolled),197,-0.08,-0.06,,76.00,26,Phase 3,HR17031 (BI-uncontrolled),\"Weight LOSS (negative); kg CFB -0.06; %change derived = -0.06/76*100 ≈ -0.08%; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1712-P/167889\"\n16,2,恒瑞医药,HR17031,Insulin Glargine (BI+Met uncontrolled),196,1.78,1.35,,76.00,26,Phase 3,HR17031 (BI-uncontrolled),\"Weight GAIN; kg CFB 1.35; %change derived = 1.35/76*100 ≈ 1.78%; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1712-P/167889\"\n";
+  const blob = new Blob([csv], {type: 'text/csv;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'weight_data_chinese.csv'; a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>

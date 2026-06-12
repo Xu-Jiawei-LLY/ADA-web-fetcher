@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ADA 2026 - T2D Phase 2/3 RCTs with HbA1c Reduction</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 2rem; color: #333; background: #f5f7fa; }
+    h1 { color: #1a5276; margin-bottom: 0.3rem; }
+    .subtitle { color: #666; margin-bottom: 1.5rem; }
+
+    .summary-bar {
+      background: white; border-radius: 10px; padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .summary-bar .total { font-weight: 600; color: #2c3e50; margin-right: 1rem; }
+    .company-dot { display: inline-flex; align-items: center; gap: 4px; font-size: 0.85rem; color: #555; }
+    .company-dot::before { content: ''; width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+    .tabs-container {
+      background: white; border-radius: 10px; padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .tab-bar {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem;
+      border-bottom: 2px solid #eee; padding-bottom: 1rem;
+    }
+    .tab-btn {
+      border: none; background: #f0f0f0; color: #555;
+      padding: 8px 16px; border-radius: 20px; cursor: pointer;
+      font-size: 0.9rem; font-weight: 500; transition: all 0.2s;
+    }
+    .tab-btn:hover { background: #e0e0e0; }
+    .tab-btn.active { background: var(--tab-color, #2980b9); color: white; }
+    .tab-count { background: rgba(255,255,255,0.3); border-radius: 10px; padding: 1px 7px; margin-left: 4px; font-size: 0.8rem; }
+    .tab-btn.active .tab-count { background: rgba(255,255,255,0.3); }
+    .tab-btn:not(.active) .tab-count { background: rgba(0,0,0,0.08); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .section-group { margin-bottom: 1.5rem; }
+    .section-group h4 { color: #34495e; margin-bottom: 0.5rem; font-size: 0.95rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+
+    .article-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .article-table th { background: #f8f9fa; color: #555; text-align: left; padding: 8px 10px; font-weight: 600; border-bottom: 2px solid #eee; }
+    .article-table td { padding: 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+    .article-table tr:hover { background: #f8fbff; }
+    .col-id { width: 80px; font-weight: 600; white-space: nowrap; }
+    .col-id a { color: #c0392b; text-decoration: none; }
+    .col-id a:hover { text-decoration: underline; }
+    .col-type { width: 80px; }
+    .col-company { width: 160px; font-size: 0.82rem; color: #666; }
+    .col-trial { width: 100px; font-size: 0.82rem; color: #666; }
+
+    .type-badge {
+      display: inline-block; padding: 2px 8px; border-radius: 4px;
+      color: white; font-size: 0.75rem; font-weight: 600;
+    }
+    .compound-highlight { color: #e74c3c; font-weight: 600; }
+
+    a { color: #2980b9; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .data-section { background: white; border-radius: 10px; padding: 1.5rem; margin-top: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .data-section h2 { color: #1a5276; margin-bottom: 0.5rem; }
+    .download-btn { background: #27ae60; color: white; border: none; padding: 8px 20px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; margin: 0.5rem 0 1rem; }
+    .download-btn:hover { background: #219a52; }
+    .table-scroll { overflow-x: auto; }
+    .data-table { border-collapse: collapse; font-size: 0.82rem; width: 100%; min-width: 1000px; }
+    .data-table th { background: #34495e; color: white; padding: 6px 8px; text-align: left; white-space: nowrap; }
+    .data-table td { padding: 5px 8px; border-bottom: 1px solid #eee; }
+    .data-table tr:nth-child(even) { background: #f8f9fa; }
+    .data-table .col-comments { max-width: 200px; font-size: 0.75rem; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <h1>ADA 86th Scientific Sessions (2026) — Type 2 Diabetes Phase 2/3 RCTs</h1>
+  <p class="subtitle">All T2D randomized controlled trials reporting an HbA1c reduction (no geographic/sponsor restriction) | <a href="https://diabetesjournals.org/diabetes/issue/75/Supplement_1" target="_blank">Source</a> | Generated: 2026-06-07</p>
+
+  <div class="summary-bar">
+    <span class="total">6 companies | 7 reports total</span>
+    <span class="company-dot" style="--dot-color:#e74c3c">Current; JW Pharmaceutical Corporation 1</span> <span class="company-dot" style="--dot-color:#e67e22">Current; Sparrow Pharmarceuticals, Inc 1</span> <span class="company-dot" style="--dot-color:#27ae60">Unspecified 1</span> <span class="company-dot" style="--dot-color:#2980b9">Current; Huadong Medicine Co 1</span> <span class="company-dot" style="--dot-color:#8e44ad">Hengrui Pharma 2</span> <span class="company-dot" style="--dot-color:#16a085">Current; HighTide Therapeutics Inc 1</span>
+  </div>
+
+  <div class="tabs-container">
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="tab-0" style="--tab-color:#e74c3c">HR17031 <span class="tab-count">2</span></button>
+      <button class="tab-btn" data-tab="tab-1" style="--tab-color:#e67e22">Empagliflozin <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-2" style="--tab-color:#27ae60">Other / Unspecified <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-3" style="--tab-color:#2980b9">PG-102 <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-4" style="--tab-color:#8e44ad">HDM1002 <span class="tab-count">1</span></button>
+      <button class="tab-btn" data-tab="tab-5" style="--tab-color:#16a085">HTD1801 <span class="tab-count">1</span></button>
+    </div>
+    <div class="tab-panel active" id="tab-0">
+        <div class="section-group">
+          <h4>Poster Presentation — 2 items</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1681-P/167718/1681-P-Benefits-of-HR17031-vs-Insulin-Glargine" target="_blank">1681-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Benefits of <span class="compound-highlight">HR17031</span> vs. Insulin Glargine (iGlar) in Patients (pts) with Type 2 Diabetes (T2D) Uncontrolled on Metformin (Met) with/without One Other Oral Antidiabetic Drug (OAD)</td>
+            <td class="col-company">Hengrui Pharma</td>
+            <td class="col-trial">Other</td>
+          </tr>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1712-P/167889/1712-P-Benefits-of-HR17031-vs-Insulin-Glargine" target="_blank">1712-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Benefits of <span class="compound-highlight">HR17031</span> vs. Insulin Glargine (iGlar) in Patients (pts) with Type 2 Diabetes (T2D) Uncontrolled on Basal Insulin (BI) and Metformin</td>
+            <td class="col-company">Hengrui Pharma</td>
+            <td class="col-trial">Other</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-1">
+        <div class="section-group">
+          <h4>Poster Presentation — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1719-P/167882/1719-P-Efficacy-and-Safety-of-Anagliptin-Added-to" target="_blank">1719-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Efficacy and Safety of Anagliptin Added to Metformin and <span class="compound-highlight">Empagliflozin</span> 25 mg in Patients with Type 2 Diabetes: A 24-Week Randomized, Double-Blind, Placebo-Controlled Phase 3 Trial with 28-Week Open-Label Extension</td>
+            <td class="col-company">Current; JW Pharmaceutical Corporation</td>
+            <td class="col-trial">Phase III</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-2">
+        <div class="section-group">
+          <h4>Poster Presentation — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1807-P/168778/1807-P-Cardiometabolic-Effects-of-Clofutriben-CLO" target="_blank">1807-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Cardiometabolic Effects of Clofutriben (CLO) in Adults with Type 2 Diabetes (T2D): A Six-Week, Phase 2, Placebo-Controlled, Randomized Clinical Trial</td>
+            <td class="col-company">Current; Sparrow Pharmarceuticals, Inc</td>
+            <td class="col-trial">Phase II</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-3">
+        <div class="section-group">
+          <h4>Late-Breaking Poster — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2823-LB/167262/2823-LB-Efficacy-and-Safety-of-Extended-Interval" target="_blank">2823-LB</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e74c3c">LB Poster</span></td>
+            <td class="col-title">Efficacy and Safety of Extended-Interval <span class="compound-highlight">PG-102</span>, a GLP-1/GLP-2 Bispecific Agonist, in Adults with Type 2 Diabetes</td>
+            <td class="col-company">Unspecified</td>
+            <td class="col-trial">Clinical Trial</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-4">
+        <div class="section-group">
+          <h4>Oral Presentation — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198/1218-OR-Efficacy-and-Safety-of-a-Novel-Oral-Small" target="_blank">1218-OR</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#e67e22">Oral</span></td>
+            <td class="col-title">Efficacy and Safety of a Novel Oral Small Molecule Glucagon-Like Peptide 1 Receptor Agonist (<span class="compound-highlight">HDM1002</span>) in Type 2 Diabetes Mellitus Patients Inadequately Controlled on Diet and Exercise or Metformin</td>
+            <td class="col-company">Current; Huadong Medicine Co</td>
+            <td class="col-trial">Clinical Trial</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+    <div class="tab-panel" id="tab-5">
+        <div class="section-group">
+          <h4>Poster Presentation — 1 item</h4>
+          <table class="article-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Company / Sponsor</th><th>Trial Type</th></tr></thead>
+            <tbody>
+          <tr>
+            <td class="col-id"><a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049/1823-P-Long-Term-Safety-and-Efficacy-of-HTD1801-in" target="_blank">1823-P</a></td>
+            <td class="col-type"><span class="type-badge" style="background:#2980b9">Poster</span></td>
+            <td class="col-title">Long-Term Safety and Efficacy of <span class="compound-highlight">HTD1801</span> in Patients with Type 2 Diabetes: Two Phase 3 Open-Label Extensions</td>
+            <td class="col-company">Current; HighTide Therapeutics Inc</td>
+            <td class="col-trial">Phase III</td>
+          </tr></tbody>
+          </table>
+        </div></div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+
+  
+  <div class="data-section">
+    <h2>HbA1c Data Analysis</h2>
+    <p>25 data rows extracted from 8 studies</p>
+    <button class="download-btn" onclick="downloadCSV()">Download CSV</button>
+    <div class="table-scroll">
+      <table class="data-table">
+        <thead>
+          <tr><th>study_ind</th><th>arm_ind</th><th>compound</th><th>treat</th><th>n</th><th>y</th><th>se</th><th>base</th><th>weeks</th><th>Phase</th><th>study</th><th>comments</th></tr>
+        </thead>
+        <tbody>
+    <tr>
+      <td>1</td><td>1</td><td>Anagliptin</td>
+      <td>Anagliptin 100 mg BID + Met + Empa 25</td><td>97</td><td>-0.83</td><td></td>
+      <td>7.76</td><td>24</td><td>Phase 3</td>
+      <td>Anagliptin add-on (JW Pharma)</td><td class="col-comments">Mean CFB; Diff vs placebo -0.80% [95% CI -0.95 to -0.64], P<0.0001; baseline applied to both arms; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1719-P/167882" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>1</td><td>2</td><td>Anagliptin</td>
+      <td>Placebo + Met + Empa 25</td><td>100</td><td>-0.03</td><td></td>
+      <td>7.76</td><td>24</td><td>Phase 3</td>
+      <td>Anagliptin add-on (JW Pharma)</td><td class="col-comments">Mean CFB; placebo arm; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1719-P/167882" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>2</td><td>1</td><td>Clofutriben (CLO)</td>
+      <td>Clofutriben 10 mg QD (ITT vs placebo)</td><td>75</td><td>-0.36</td><td>0.029</td>
+      <td>7.36</td><td>6</td><td>Phase 2</td>
+      <td>Clofutriben (NCT02372578)</td><td class="col-comments">LSM diff vs placebo (SE); ITT pop; baseline = ITT mean; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1807-P/168778" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>2</td><td>2</td><td>Clofutriben (CLO)</td>
+      <td>Clofutriben 10 mg QD (EC-enriched vs placebo)</td><td>25</td><td>-0.51</td><td>0.095</td>
+      <td>7.36</td><td>6</td><td>Phase 2</td>
+      <td>Clofutriben (NCT02372578)</td><td class="col-comments">LSM diff vs placebo (SE); EC-enriched subset (HbA1c≥7.5% + ≥2 antidiabetic meds); baseline shown for ITT; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1807-P/168778" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>3</td><td>1</td><td>PG-102</td>
+      <td>PG-102 60 mg Q2W</td><td>16</td><td>-1.41</td><td>0.273</td>
+      <td>8.50</td><td>14</td><td>Phase 2a</td>
+      <td>PG-102 Phase 2a</td><td class="col-comments">LSM diff vs placebo (95% CI -1.94 to -0.87); n approximated as 48/3; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2823-LB/167262" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>3</td><td>2</td><td>PG-102</td>
+      <td>PG-102 60 mg Q4W</td><td>16</td><td>-0.87</td><td>0.217</td>
+      <td>8.50</td><td>14</td><td>Phase 2a</td>
+      <td>PG-102 Phase 2a</td><td class="col-comments">LSM diff vs placebo (95% CI -1.30 to -0.45); n approximated as 48/3; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2823-LB/167262" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>3</td><td>3</td><td>PG-102</td>
+      <td>Placebo</td><td>16</td><td>0</td><td></td>
+      <td>8.50</td><td>14</td><td>Phase 2a</td>
+      <td>PG-102 Phase 2a</td><td class="col-comments">Reference arm; n approximated as 48/3; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/2823-LB/167262" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>4</td><td>1</td><td>HDM1002</td>
+      <td>HDM1002 50 mg QD</td><td>65</td><td>-1.06</td><td></td>
+      <td>8.50</td><td>12</td><td>Phase 2</td>
+      <td>HDM1002 Phase 2</td><td class="col-comments">LSM CFB; n approx 324/5; baseline overall; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>4</td><td>2</td><td>HDM1002</td>
+      <td>HDM1002 100 mg QD</td><td>65</td><td>-0.82</td><td></td>
+      <td>8.50</td><td>12</td><td>Phase 2</td>
+      <td>HDM1002 Phase 2</td><td class="col-comments">LSM CFB; n approx 324/5; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>4</td><td>3</td><td>HDM1002</td>
+      <td>HDM1002 200 mg QD</td><td>65</td><td>-0.94</td><td></td>
+      <td>8.50</td><td>12</td><td>Phase 2</td>
+      <td>HDM1002 Phase 2</td><td class="col-comments">LSM CFB; n approx 324/5; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>4</td><td>4</td><td>HDM1002</td>
+      <td>HDM1002 400 mg QD</td><td>65</td><td>-1.29</td><td></td>
+      <td>8.50</td><td>12</td><td>Phase 2</td>
+      <td>HDM1002 Phase 2</td><td class="col-comments">LSM CFB; n approx 324/5; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>4</td><td>5</td><td>HDM1002</td>
+      <td>HDM1002 200 mg BID (open-label)</td><td>26</td><td>-1.23</td><td></td>
+      <td>8.50</td><td>12</td><td>Phase 2</td>
+      <td>HDM1002 Phase 2</td><td class="col-comments">LSM CFB; open-label cohort; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>4</td><td>6</td><td>HDM1002</td>
+      <td>Placebo</td><td>65</td><td></td><td></td>
+      <td>8.50</td><td>12</td><td>Phase 2</td>
+      <td>HDM1002 Phase 2</td><td class="col-comments">Reference arm; specific placebo CFB not reported in abstract; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>5</td><td>1</td><td>HR17031</td>
+      <td>HR17031 (insulin sudelidec + noiiglutide) - on Met±OAD</td><td>202</td><td>-1.85</td><td>0.069</td>
+      <td></td><td>26</td><td>Phase 3</td>
+      <td>HR17031 vs iGlar (OAD-uncontrolled)</td><td class="col-comments">LSM CFB 95% CI -1.98 to -1.71; SE = (1.98-1.71)/3.92; from Figure; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1681-P/167718" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>5</td><td>2</td><td>HR17031</td>
+      <td>Insulin Glargine (iGlar) - on Met±OAD</td><td>199</td><td>-1.06</td><td>0.069</td>
+      <td></td><td>26</td><td>Phase 3</td>
+      <td>HR17031 vs iGlar (OAD-uncontrolled)</td><td class="col-comments">LSM CFB 95% CI -1.20 to -0.93; from Figure; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1681-P/167718" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>6</td><td>1</td><td>HR17031</td>
+      <td>HR17031 - on BI + Met ± OAD</td><td>197</td><td>-1.53</td><td></td>
+      <td></td><td>26</td><td>Phase 3</td>
+      <td>HR17031 vs iGlar (BI-uncontrolled)</td><td class="col-comments">Diff vs iGlar -1.29% (P<0.0001); LSM from text; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1712-P/167889" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>6</td><td>2</td><td>HR17031</td>
+      <td>Insulin Glargine (iGlar) - on BI + Met ± OAD</td><td>196</td><td>-0.25</td><td></td>
+      <td></td><td>26</td><td>Phase 3</td>
+      <td>HR17031 vs iGlar (BI-uncontrolled)</td><td class="col-comments">LSM CFB; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1712-P/167889" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>7</td><td>1</td><td>HTD1801</td>
+      <td>HTD1801 1000 mg BID (SYMPHONY-1 monotherapy)</td><td>135</td><td>-1.30</td><td>0.10</td>
+      <td>8.50</td><td>24</td><td>Phase 3</td>
+      <td>SYMPHONY-1 (DB)</td><td class="col-comments">LSM CFB at Wk24; baseline 8.5±0.8; n = 271/2 in OLE so DB N≈135; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>7</td><td>2</td><td>HTD1801</td>
+      <td>Placebo (SYMPHONY-1 monotherapy)</td><td>136</td><td>-0.60</td><td>0.10</td>
+      <td>8.50</td><td>24</td><td>Phase 3</td>
+      <td>SYMPHONY-1 (DB)</td><td class="col-comments">LSM CFB at Wk24; placebo arm; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>7</td><td>3</td><td>HTD1801</td>
+      <td>HTD1801 1000 mg BID (SYMPHONY-2 add-on Met)</td><td>182</td><td>-1.20</td><td>0.05</td>
+      <td>8.60</td><td>24</td><td>Phase 3</td>
+      <td>SYMPHONY-2 (DB)</td><td class="col-comments">LSM CFB at Wk24; baseline 8.6±0.8; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>7</td><td>4</td><td>HTD1801</td>
+      <td>Placebo (SYMPHONY-2 add-on Met)</td><td>184</td><td>-0.70</td><td></td>
+      <td>8.50</td><td>24</td><td>Phase 3</td>
+      <td>SYMPHONY-2 (DB)</td><td class="col-comments">LSM CFB at Wk24; baseline 8.5±0.8; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>8</td><td>1</td><td>HTD1801</td>
+      <td>HTD1801 OLE (originally HTD1801) - SYMPHONY-1</td><td>135</td><td>-1.20</td><td>0.10</td>
+      <td>8.50</td><td>52</td><td>Phase 3 OLE</td>
+      <td>SYMPHONY-1 OLE</td><td class="col-comments">Continuing patients; durability through Wk 52; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>8</td><td>2</td><td>HTD1801</td>
+      <td>HTD1801 OLE (Placebo→HTD1801) - SYMPHONY-1</td><td>136</td><td>-1.30</td><td>0.10</td>
+      <td>8.50</td><td>52</td><td>Phase 3 OLE</td>
+      <td>SYMPHONY-1 OLE</td><td class="col-comments">Crossover from placebo arm; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>8</td><td>3</td><td>HTD1801</td>
+      <td>HTD1801 OLE (originally HTD1801) - SYMPHONY-2</td><td>182</td><td>-1.10</td><td></td>
+      <td>8.60</td><td>52</td><td>Phase 3 OLE</td>
+      <td>SYMPHONY-2 OLE</td><td class="col-comments">Continuing patients; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049" target="_blank">link</a></td>
+    </tr>
+    <tr>
+      <td>8</td><td>4</td><td>HTD1801</td>
+      <td>HTD1801 OLE (Placebo→HTD1801) - SYMPHONY-2</td><td>184</td><td>-1.20</td><td></td>
+      <td>8.50</td><td>52</td><td>Phase 3 OLE</td>
+      <td>SYMPHONY-2 OLE</td><td class="col-comments">Crossover from placebo arm; <a href="https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049" target="_blank">link</a></td>
+    </tr></tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    function downloadCSV() {
+      const csv = "study_ind,arm_ind,compound,treat,n,y,se,base,weeks,Phase,study,comments\n1,1,Anagliptin,Anagliptin 100 mg BID + Met + Empa 25,97,-0.83,,7.76,24,Phase 3,Anagliptin add-on (JW Pharma),\"Mean CFB; Diff vs placebo -0.80% [95% CI -0.95 to -0.64], P<0.0001; baseline applied to both arms; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1719-P/167882\"\n1,2,Anagliptin,Placebo + Met + Empa 25,100,-0.03,,7.76,24,Phase 3,Anagliptin add-on (JW Pharma),Mean CFB; placebo arm; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1719-P/167882\n2,1,Clofutriben (CLO),Clofutriben 10 mg QD (ITT vs placebo),75,-0.36,0.029,7.36,6,Phase 2,Clofutriben (NCT02372578),LSM diff vs placebo (SE); ITT pop; baseline = ITT mean; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1807-P/168778\n2,2,Clofutriben (CLO),Clofutriben 10 mg QD (EC-enriched vs placebo),25,-0.51,0.095,7.36,6,Phase 2,Clofutriben (NCT02372578),LSM diff vs placebo (SE); EC-enriched subset (HbA1c≥7.5% + ≥2 antidiabetic meds); baseline shown for ITT; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1807-P/168778\n3,1,PG-102,PG-102 60 mg Q2W,16,-1.41,0.273,8.50,14,Phase 2a,PG-102 Phase 2a,LSM diff vs placebo (95% CI -1.94 to -0.87); n approximated as 48/3; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2823-LB/167262\n3,2,PG-102,PG-102 60 mg Q4W,16,-0.87,0.217,8.50,14,Phase 2a,PG-102 Phase 2a,LSM diff vs placebo (95% CI -1.30 to -0.45); n approximated as 48/3; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2823-LB/167262\n3,3,PG-102,Placebo,16,0,,8.50,14,Phase 2a,PG-102 Phase 2a,Reference arm; n approximated as 48/3; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2823-LB/167262\n4,1,HDM1002,HDM1002 50 mg QD,65,-1.06,,8.50,12,Phase 2,HDM1002 Phase 2,LSM CFB; n approx 324/5; baseline overall; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198\n4,2,HDM1002,HDM1002 100 mg QD,65,-0.82,,8.50,12,Phase 2,HDM1002 Phase 2,LSM CFB; n approx 324/5; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198\n4,3,HDM1002,HDM1002 200 mg QD,65,-0.94,,8.50,12,Phase 2,HDM1002 Phase 2,LSM CFB; n approx 324/5; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198\n4,4,HDM1002,HDM1002 400 mg QD,65,-1.29,,8.50,12,Phase 2,HDM1002 Phase 2,LSM CFB; n approx 324/5; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198\n4,5,HDM1002,HDM1002 200 mg BID (open-label),26,-1.23,,8.50,12,Phase 2,HDM1002 Phase 2,LSM CFB; open-label cohort; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198\n4,6,HDM1002,Placebo,65,,,8.50,12,Phase 2,HDM1002 Phase 2,Reference arm; specific placebo CFB not reported in abstract; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198\n5,1,HR17031,HR17031 (insulin sudelidec + noiiglutide) - on Met±OAD,202,-1.85,0.069,,26,Phase 3,HR17031 vs iGlar (OAD-uncontrolled),LSM CFB 95% CI -1.98 to -1.71; SE = (1.98-1.71)/3.92; from Figure; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1681-P/167718\n5,2,HR17031,Insulin Glargine (iGlar) - on Met±OAD,199,-1.06,0.069,,26,Phase 3,HR17031 vs iGlar (OAD-uncontrolled),LSM CFB 95% CI -1.20 to -0.93; from Figure; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1681-P/167718\n6,1,HR17031,HR17031 - on BI + Met ± OAD,197,-1.53,,,26,Phase 3,HR17031 vs iGlar (BI-uncontrolled),Diff vs iGlar -1.29% (P<0.0001); LSM from text; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1712-P/167889\n6,2,HR17031,Insulin Glargine (iGlar) - on BI + Met ± OAD,196,-0.25,,,26,Phase 3,HR17031 vs iGlar (BI-uncontrolled),LSM CFB; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1712-P/167889\n7,1,HTD1801,HTD1801 1000 mg BID (SYMPHONY-1 monotherapy),135,-1.30,0.10,8.50,24,Phase 3,SYMPHONY-1 (DB),LSM CFB at Wk24; baseline 8.5±0.8; n = 271/2 in OLE so DB N≈135; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049\n7,2,HTD1801,Placebo (SYMPHONY-1 monotherapy),136,-0.60,0.10,8.50,24,Phase 3,SYMPHONY-1 (DB),LSM CFB at Wk24; placebo arm; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049\n7,3,HTD1801,HTD1801 1000 mg BID (SYMPHONY-2 add-on Met),182,-1.20,0.05,8.60,24,Phase 3,SYMPHONY-2 (DB),LSM CFB at Wk24; baseline 8.6±0.8; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049\n7,4,HTD1801,Placebo (SYMPHONY-2 add-on Met),184,-0.70,,8.50,24,Phase 3,SYMPHONY-2 (DB),LSM CFB at Wk24; baseline 8.5±0.8; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049\n8,1,HTD1801,HTD1801 OLE (originally HTD1801) - SYMPHONY-1,135,-1.20,0.10,8.50,52,Phase 3 OLE,SYMPHONY-1 OLE,Continuing patients; durability through Wk 52; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049\n8,2,HTD1801,HTD1801 OLE (Placebo→HTD1801) - SYMPHONY-1,136,-1.30,0.10,8.50,52,Phase 3 OLE,SYMPHONY-1 OLE,Crossover from placebo arm; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049\n8,3,HTD1801,HTD1801 OLE (originally HTD1801) - SYMPHONY-2,182,-1.10,,8.60,52,Phase 3 OLE,SYMPHONY-2 OLE,Continuing patients; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049\n8,4,HTD1801,HTD1801 OLE (Placebo→HTD1801) - SYMPHONY-2,184,-1.20,,8.50,52,Phase 3 OLE,SYMPHONY-2 OLE,Crossover from placebo arm; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1823-P/168049";
+      const blob = new Blob([csv], {type: 'text/csv'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'hba1c_data.csv'; a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+
+</body>
+</html>

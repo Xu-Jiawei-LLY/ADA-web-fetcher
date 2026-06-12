@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADA Web Fetcher</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="logo">📚</span>
+    <div>
+      <h1>ADA Web Fetcher</h1>
+      <p class="tag">Chat-driven scraper for diabetesjournals.org abstract supplements</p>
+    </div>
+  </div>
+  <div class="header-controls">
+    <button id="new-search-btn" class="btn-newsearch" title="Cancel any running scrape and start a new chat from scratch.">↻ New Search</button>
+    <label class="ai-toggle" title="Use the configured AI provider to parse free-text and curate figures. Falls back to rule-based parsing when AI is unavailable.">
+      <input type="checkbox" id="ai-mode-checkbox">
+      <span class="toggle-label">AI mode <span id="ai-status">●</span></span>
+    </label>
+    <div class="status" id="status">●</div>
+  </div>
+</header>
+
+<main id="chat">
+  <!-- Messages get appended here -->
+</main>
+
+<footer>
+  <div id="input-area" class="hidden">
+    <textarea id="input" rows="2" placeholder="Type your answer..." autofocus></textarea>
+    <button id="send-btn">Send</button>
+  </div>
+  <div id="action-area">
+    <!-- Quick-action buttons (e.g. 'Use defaults', 'Generate Table: Yes/No') get injected here -->
+  </div>
+</footer>
+
+<!-- Cookie-injection modal -->
+<div id="cookie-modal" class="modal hidden">
+  <div class="modal-card">
+    <h2>Cloudflare Cookie Bypass</h2>
+    <p class="muted">The site is showing a "Validate User" challenge. Solve it once in your own browser, copy the cookies, and paste them here. This is a one-time step per ~30 minutes.</p>
+    <ol>
+      <li>Open <a id="cf-url" target="_blank">the issue page</a> in your regular browser.</li>
+      <li>If a "Validate User" page appears, click <strong>Take me to my Content</strong> and complete the puzzle.</li>
+      <li>Wait until the issue page loads with the section list.</li>
+      <li>Open <strong>DevTools</strong> (<kbd>F12</kbd>) → <strong>Network</strong> tab.</li>
+      <li>Refresh the page (<kbd>Ctrl+R</kbd>). In the filtered list, click the first row (a <code>document</code> request to <code>Supplement_1</code>).</li>
+      <li>In the right pane, scroll to <strong>Request Headers</strong> → find the line starting with <code>cookie:</code> → right-click → <strong>Copy value</strong>.</li>
+      <li>Paste below. The relevant cookies are <code>cf_clearance</code> and <code>__cf_bm</code> — anything else is harmless.</li>
+    </ol>
+    <textarea id="cookie-input" rows="6" placeholder="cf_clearance=...; __cf_bm=...; ..."></textarea>
+    <div class="modal-actions">
+      <button id="cookie-cancel" class="btn-secondary">Cancel</button>
+      <button id="cookie-submit" class="btn-primary">Inject &amp; Resume</button>
+    </div>
+  </div>
+</div>
+
+<!-- Hidden file input for reference upload -->
+<input type="file" id="file-input" accept=".html,.htm,.csv,.txt" style="display:none">
+
+<script src="static/app.js"></script>
+</body>
+</html>

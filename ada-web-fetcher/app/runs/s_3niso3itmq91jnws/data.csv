@@ -1,0 +1,770 @@
+study_ind,arm_ind,abstract_id,compound,treat,n,y,se,base,weeks,Phase,study,source,comments
+1,1,2813-LB,,Placebo,,-0.2,,,48,,2813-LB,figure,"Mean
+  change in body weight (%), efficacy estimand.; Mean change in body weight
+  (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2813-LB/167971/2813-LB-CT-388-a-cAMP-Signal-Biased-GLP-1-GIP"
+1,2,2813-LB,,"CT-388 4 mg
+  once-weekly",,-6.7,,,48,,2813-LB,figure,"Mean change in body
+  weight (%), efficacy estimand; * p<0.001 vs placebo.; Mean change in body weight
+  (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2813-LB/167971/2813-LB-CT-388-a-cAMP-Signal-Biased-GLP-1-GIP"
+1,3,2813-LB,,"CT-388 8 mg
+  once-weekly",,-14.2,,,48,,2813-LB,figure,"Mean change in body
+  weight (%), efficacy estimand; * p<0.001 vs placebo.; Mean change in body weight
+  (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2813-LB/167971/2813-LB-CT-388-a-cAMP-Signal-Biased-GLP-1-GIP"
+1,4,2813-LB,,"CT-388 12 mg
+  once-weekly",,-16.6,,,48,,2813-LB,figure,"Mean change in body
+  weight (%), efficacy estimand; * p<0.001 vs placebo.; Mean change in body weight
+  (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2813-LB/167971/2813-LB-CT-388-a-cAMP-Signal-Biased-GLP-1-GIP"
+1,5,2813-LB,,"CT-388 16 mg
+  once-weekly",,-18.4,,,48,,2813-LB,figure,"Mean change in body
+  weight (%), efficacy estimand; * p<0.001 vs placebo.; Mean change in body weight
+  (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2813-LB/167971/2813-LB-CT-388-a-cAMP-Signal-Biased-GLP-1-GIP"
+1,6,2813-LB,,"CT-388 24 mg
+  once-weekly",,-22.7,,,48,,2813-LB,figure,"Mean change in body
+  weight (%), efficacy estimand; * p<0.001 vs
+  placebo.; Mean change in body weight
+  (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2813-LB/167971/2813-LB-CT-388-a-cAMP-Signal-Biased-GLP-1-GIP"
+1,7,2813-LB,,"CT-388 24 mg once-weekly
+  subcutaneous",,22.7,,,48,"Phase
+  2",NCT06525935,abstract,"Conclusion reports
+  statistically significant dose-dependent weight loss of up to 22.7% at Week 48. At Week 48 for
+  CT-388 24 mg: 95.7% achieved >=5% weight loss, 87.0% >=10%, 47.8% >=20%, and 26.1% >=30%. Among
+  participants with prediabetes at baseline, 73% achieved normoglycemia.; Percent weight loss from baseline to Week 48; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2813-LB/167971/2813-LB-CT-388-a-cAMP-Signal-Biased-GLP-1-GIP"
+1,8,2813-LB,,"Volume-matched
+  placebo (Pbo)",,,,,,"Phase
+  2",NCT06525935,abstract,"Among participants
+  with prediabetes at baseline, 7.5% on placebo achieved normoglycemia. No arm-level placebo %
+  weight-loss value is explicitly provided in the text.; Percent weight loss from baseline to Week 48; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2813-LB/167971/2813-LB-CT-388-a-cAMP-Signal-Biased-GLP-1-GIP"
+2,1,2869-LB,Tirzepatide,"Once-weekly tirzepatide 5 mg SC plus daily oral
+  placebo",22,-8.8,,,24,Phase 2a,NCT05822544,abstract,"Mean weight change from
+  baseline to W24 was -8.8%.; Percent change in body
+  weight from baseline to Week 24; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2869-LB/167758/2869-LB-Increasing-Energy-Expenditure-with-the"
+2,2,2869-LB,Tirzepatide,"Once-weekly tirzepatide 5 mg SC plus daily oral TLC-6740
+  180 mg",33,-13.3,,,24,Phase 2a,NCT05822544,abstract,"Mean weight change from
+  baseline to W24 was -13.3%; additional 4.5% weight loss vs placebo arm (p=0.018,
+  ITT).; Percent change in body
+  weight from baseline to Week 24; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2869-LB/167758/2869-LB-Increasing-Energy-Expenditure-with-the"
+3,1,1227-OR,,Placebo,63,-2.96,,91.74,24,,1227-OR,figure,"Primary
+  endpoint shown as LSM change from baseline in body weight % (95% CI: -4.26 to
+  -1.65).; Body weight, % change from
+  baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1227-OR/167132/1227-OR-RAY1225-a-Biweekly-Biased-GLP-1-GIP-RA-for"
+3,2,1227-OR,,RAY1225 3 mg,41,-9.73,,90.75,24,,1227-OR,figure,"LSM
+  change from baseline in body weight % (95% CI: -11.24 to -8.21); estimated difference vs placebo
+  -6.77 (95% CI: -8.52 to -5.03); p<0.001.; Body weight, % change from
+  baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1227-OR/167132/1227-OR-RAY1225-a-Biweekly-Biased-GLP-1-GIP-RA-for"
+3,3,1227-OR,,"RAY1225 6
+  mg",41,-12.68,,92.02,24,,1227-OR,figure,"LSM change from baseline in body
+  weight % (95% CI: -14.17 to -11.19); estimated difference vs placebo -9.73 (95% CI: -11.47 to
+  -7.98); p<0.001.; Body weight, % change from
+  baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1227-OR/167132/1227-OR-RAY1225-a-Biweekly-Biased-GLP-1-GIP-RA-for"
+3,4,1227-OR,,"RAY1225 9
+  mg",41,-14.75,,94.03,24,,1227-OR,figure,"LSM change from baseline in body
+  weight % (95% CI: -16.26 to -13.23); estimated difference vs placebo -11.79 (95% CI: -13.53 to
+  -10.05); p<0.001.; Body weight, % change from
+  baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1227-OR/167132/1227-OR-RAY1225-a-Biweekly-Biased-GLP-1-GIP-RA-for"
+3,5,1227-OR,,"RAY1225 12
+  mg",41,-14.13,,91.2,24,,1227-OR,figure,"LSM change from baseline in body
+  weight % (95% CI: -15.67 to -12.58); estimated difference vs placebo -11.17 (95% CI: -12.92 to
+  -9.42); p<0.001.; Body weight, % change from
+  baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1227-OR/167132/1227-OR-RAY1225-a-Biweekly-Biased-GLP-1-GIP-RA-for"
+3,6,1227-OR,,"RAY1225 15
+  mg",8,-14.92,,101.18,24,,1227-OR,figure,"LSM change from baseline in body
+  weight % (95% CI: -18.08 to -11.76); estimated difference vs placebo -11.97 (95% CI: -15.23 to
+  -8.70); p<0.001.; Body weight, % change from
+  baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1227-OR/167132/1227-OR-RAY1225-a-Biweekly-Biased-GLP-1-GIP-RA-for"
+3,7,1227-OR,,"RAY1225 18
+  mg",8,-21.18,,95.23,24,,1227-OR,figure,"LSM change from baseline in body
+  weight % (95% CI: -24.35 to -18.01); estimated difference vs placebo -18.22 (95% CI: -21.48 to
+  -14.97); p<0.001.; Body weight, % change from
+  baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1227-OR/167132/1227-OR-RAY1225-a-Biweekly-Biased-GLP-1-GIP-RA-for"
+3,8,1227-OR,,"RAY1225 3 mg
+  bi-weekly",,-9.73,,,24,"Phase
+  2",REBUILDING-1,abstract,"LS mean % body weight
+  change from baseline at week 24; vs placebo all p<0.001.; Percent body weight change from baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1227-OR/167132/1227-OR-RAY1225-a-Biweekly-Biased-GLP-1-GIP-RA-for"
+3,9,1227-OR,,"RAY1225 6 mg
+  bi-weekly",,-12.68,,,24,"Phase
+  2",REBUILDING-1,abstract,"LS mean % body weight
+  change from baseline at week 24; vs placebo all p<0.001.; Percent body weight change from baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1227-OR/167132/1227-OR-RAY1225-a-Biweekly-Biased-GLP-1-GIP-RA-for"
+3,10,1227-OR,,"RAY1225 9 mg
+  bi-weekly",,-14.75,,,24,"Phase
+  2",REBUILDING-1,abstract,"LS mean % body weight
+  change from baseline at week 24; vs placebo all p<0.001.; Percent body weight change from baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1227-OR/167132/1227-OR-RAY1225-a-Biweekly-Biased-GLP-1-GIP-RA-for"
+3,11,1227-OR,,"RAY1225 12 mg
+  bi-weekly",,-14.13,,,24,"Phase
+  2",REBUILDING-1,abstract,"LS mean % body weight
+  change from baseline at week 24; vs placebo all p<0.001.; Percent body weight change from baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1227-OR/167132/1227-OR-RAY1225-a-Biweekly-Biased-GLP-1-GIP-RA-for"
+3,12,1227-OR,,"RAY1225 15 mg
+  bi-weekly",,-14.92,,,24,"Phase
+  2",REBUILDING-1,abstract,"LS mean % body weight
+  change from baseline at week 24; vs placebo all p<0.001.; Percent body weight change from baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1227-OR/167132/1227-OR-RAY1225-a-Biweekly-Biased-GLP-1-GIP-RA-for"
+3,13,1227-OR,,"RAY1225 18 mg
+  bi-weekly",,-21.18,,,24,"Phase
+  2",REBUILDING-1,abstract,"LS mean % body weight
+  change from baseline at week 24; vs placebo all
+  p<0.001.; Percent body weight change from baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1227-OR/167132/1227-OR-RAY1225-a-Biweekly-Biased-GLP-1-GIP-RA-for"
+3,14,1227-OR,,Placebo,,-2.96,,,24,"Phase
+  2",REBUILDING-1,abstract,"LS mean
+   % body weight change from baseline at week 24.; Percent body weight change from baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1227-OR/167132/1227-OR-RAY1225-a-Biweekly-Biased-GLP-1-GIP-RA-for"
+4,1,1672-P,,"ASC30 oral tablet 20 mg once daily (weekly
+  titration)",,-5.4,,,13,Phase II,ASC30,abstract,"Week 13 dose-dependent
+  placebo-adjusted weight reduction of 5.4%.; Body weight reduction (%)
+  at Week 13 (placebo-adjusted); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1672-P/169112/1672-P-Oral-Small-Molecule-GLP-1-ASC30"
+4,2,1672-P,,"ASC30 oral tablet 40 mg once daily (weekly
+  titration)",,-7,,,13,Phase II,ASC30,abstract,"Week 13 dose-dependent
+  placebo-adjusted weight reduction of 7.0%.; Body weight reduction (%)
+  at Week 13 (placebo-adjusted); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1672-P/169112/1672-P-Oral-Small-Molecule-GLP-1-ASC30"
+4,3,1672-P,,"ASC30 oral tablet 60 mg once daily (weekly
+  titration)",,-7.7,,,13,Phase II,ASC30,abstract,"Week 13 dose-dependent
+  placebo-adjusted weight reduction of
+  7.7%.; Body weight reduction (%)
+  at Week 13 (placebo-adjusted); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1672-P/169112/1672-P-Oral-Small-Molecule-GLP-1-ASC30"
+4,4,1672-P,,Placebo,,,,,13,Phase II,ASC30,abstract,"Placebo arm
+   is reported, but no arm-level numeric weight-change value is
+  provided.; Body weight reduction (%)
+  at Week 13 (placebo-adjusted); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1672-P/169112/1672-P-Oral-Small-Molecule-GLP-1-ASC30"
+5,1,2816-LB,Ribupatide,"oral ribupatide 10
+  mg",,6.7,,,26,"Phase
+  2",2816-LB,abstract,"LS mean weight loss from baseline
+  at W26: 6.7%; vs PBO p=0.0023 (treatment policy estimand).; Percentage change in body weight from baseline at week 26 (LS mean weight
+  loss, %); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2816-LB/167269/2816-LB-Efficacy-and-Safety-of-Oral-Ribupatide"
+5,2,2816-LB,Ribupatide,"oral ribupatide 25
+  mg",,11.9,,,26,"Phase
+  2",2816-LB,abstract,"LS mean weight loss from baseline
+  at W26: 11.9%; vs PBO p<0.0001 (treatment policy estimand).; Percentage change in body weight from baseline at week 26 (LS mean weight
+  loss, %); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2816-LB/167269/2816-LB-Efficacy-and-Safety-of-Oral-Ribupatide"
+5,3,2816-LB,Ribupatide,"oral ribupatide 50
+  mg",,11.4,,,26,"Phase
+  2",2816-LB,abstract,"LS mean weight loss from baseline
+  at W26: 11.4%; vs PBO p<0.0001 (treatment policy estimand).; Percentage change in body weight from baseline at week 26 (LS mean weight
+  loss, %); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2816-LB/167269/2816-LB-Efficacy-and-Safety-of-Oral-Ribupatide"
+5,4,2816-LB,Ribupatide,"placebo
+  (PBO)",,2.1,,,26,"Phase
+  2",2816-LB,abstract,"LS mean weight loss from
+  baseline at W26: 2.1% (treatment policy estimand comparator).; Percentage change in body weight from baseline at week 26 (LS mean weight
+  loss, %); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2816-LB/167269/2816-LB-Efficacy-and-Safety-of-Oral-Ribupatide"
+6,1,2849-LB,Ecnoglutide,"ecnoglutide 2.4 mg once weekly
+  (subcutaneous)",,-12.8,,,20,Phase 2,NCT07073417,abstract,"Least-squares mean
+  percentage change in body weight: -12.8% (95% CI, -13.7 to -11.8).; Least-squares mean
+  percentage change in body weight (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2849-LB/167777/2849-LB-Efficacy-and-Safety-of-cAMP-Biased"
+6,2,2849-LB,Ecnoglutide,"semaglutide 2.4 mg
+  once weekly
+  (subcutaneous)",,-9.5,,,20,Phase 2,NCT07073417,abstract,"Least-squares mean
+  percentage change in body weight: -9.5% (95% CI, -10.4 to -8.5). Between-group P <
+  0.0001.; Least-squares mean
+  percentage change in body weight (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2849-LB/167777/2849-LB-Efficacy-and-Safety-of-cAMP-Biased"
+7,1,3083-LB,,"Petrelintide (weekly s.c.; five dose levels, up to 16-week escalation then
+  maintenance)",,-10.7,,,42,Phase 2,"ZUPREME
+  1",abstract,"Mean body-weight
+  reduction from baseline was reported as 'up to 10.7%' (efficacy estimand); compared vs placebo,
+  p<0.001. Specific dose-arm value breakdown not provided.; Percent change in body weight from
+  baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/3083-LB/167451/3083-LB-Petrelintide-a-Human-Amylin-Analog-for-the"
+7,2,3083-LB,,"Placebo (weekly
+  s.c.)",,-1.7,,,42,Phase 2,"ZUPREME
+  1",abstract,"Mean body-weight reduction from
+   baseline to Week 42 was 1.7% (efficacy estimand) in the placebo group.; Percent change in body weight from
+  baseline; https://diabetesjournals.org/diabetes/article/75/Supplement_1/3083-LB/167451/3083-LB-Petrelintide-a-Human-Amylin-Analog-for-the"
+8,1,3090-LB,,2.0 mg group,,,,,24,Phase 2,3090-LB,figure,"Week
+  24 responder rates shown as labeled values. Panel B (primary analysis; non-responder imputation):
+  >=5% 90.2, >=10% 68.6, >=15% 35.3, >=20% 17.6. Panel C (sensitivity; multiple imputation): >=5%
+  92.2, >=10% 70.6, >=15% 37.1, >=20% 19.0. Panel A error bars are SE, but numeric mean-change
+  values are not printed.; Body weight efficacy: mean
+  percentage change from baseline over time (Panel A) and Week 24 proportion achieving weight-loss
+  thresholds (>=5%, >=10%, >=15%, >=20%; Panels B/C), all in %.; https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/168446/3090-LB-UBT251-a-Triple-Hormone-Receptor-Agonist"
+8,2,3090-LB,,"4.0 mg group (ID
+  0.5mg)",,,,,24,Phase 2,3090-LB,figure,"Week 24 responder rates shown
+  as labeled values. Panel B: >=5% 88.0, >=10% 84.0, >=15% 64.0, >=20% 24.0. Panel C: >=5% 95.9,
+  >=10% 89.8, >=15% 66.4, >=20% 24.0. Panel A error bars are SE, but numeric mean-change values are
+  not printed.; Body weight efficacy: mean
+  percentage change from baseline over time (Panel A) and Week 24 proportion achieving weight-loss
+  thresholds (>=5%, >=10%, >=15%, >=20%; Panels B/C), all in %.; https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/168446/3090-LB-UBT251-a-Triple-Hormone-Receptor-Agonist"
+8,3,3090-LB,,"4.0 mg group (ID
+  1.0mg)",,,,,24,Phase 2,3090-LB,figure,"Week 24 responder rates shown
+  as labeled values. Panel B: >=5% 92.0, >=10% 84.0, >=15% 72.0, >=20% 44.0. Panel C: >=5% 96.0,
+  >=10% 88.0, >=15% 76.0, >=20% 48.0. Panel A error bars are SE, but numeric mean-change values are
+  not printed.; Body weight efficacy: mean
+  percentage change from baseline over time (Panel A) and Week 24 proportion achieving weight-loss
+  thresholds (>=5%, >=10%, >=15%, >=20%; Panels B/C), all in %.; https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/168446/3090-LB-UBT251-a-Triple-Hormone-Receptor-Agonist"
+8,4,3090-LB,,"4.0 mg group
+  Total",,,,,24,Phase 2,3090-LB,figure,"Week 24 responder rates shown
+  as labeled values. Panel B: >=5% 90.0, >=10% 84.0, >=15% 68.0, >=20% 34.0. Panel C: >=5% 95.9,
+  >=10% 88.4, >=15% 71.4, >=20% 36.0. Panel A error bars are SE, but numeric mean-change values are
+  not printed.; Body weight efficacy: mean
+  percentage change from baseline over time (Panel A) and Week 24 proportion achieving weight-loss
+  thresholds (>=5%, >=10%, >=15%, >=20%; Panels B/C), all in %.; https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/168446/3090-LB-UBT251-a-Triple-Hormone-Receptor-Agonist"
+8,5,3090-LB,,"6.0 mg
+  group",,,,,24,Phase 2,3090-LB,figure,"Week 24 responder rates shown
+  as labeled values. Panel B: >=5% 85.2, >=10% 75.9, >=15% 59.3, >=20% 44.4. Panel C: >=5% 98.1,
+  >=10% 88.3, >=15% 68.6, >=20% 48.4. Panel A error bars are SE, but numeric mean-change values are
+  not printed.; Body weight efficacy: mean
+  percentage change from baseline over time (Panel A) and Week 24 proportion achieving weight-loss
+  thresholds (>=5%, >=10%, >=15%, >=20%; Panels B/C), all in %.; https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/168446/3090-LB-UBT251-a-Triple-Hormone-Receptor-Agonist"
+8,6,3090-LB,,"Placebo
+  group",,,,,24,Phase 2,3090-LB,figure,"Week 24 responder rates shown
+  as labeled values. Panel B: >=5% 22.0, >=10% 8.0, >=15% 2.0, >=20% 0.0. Panel C: >=5% 23.6, >=10%
+  8.3, >=15% 2.0, >=20% 0.0. Panel A error bars are SE, but numeric mean-change values are not
+  printed.; Body weight efficacy: mean
+  percentage change from baseline over time (Panel A) and Week 24 proportion achieving weight-loss
+  thresholds (>=5%, >=10%, >=15%, >=20%; Panels B/C), all in %.; https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/168446/3090-LB-UBT251-a-Triple-Hormone-Receptor-Agonist"
+8,7,3090-LB,,"UBT251 2.0 mg once-weekly
+  s.c.",,13.6,,,24,Phase 2,NCT07177469,abstract,"At week 24, least-square mean
+  %WL was 13.6%; all UBT251 doses vs placebo P<0.001.; Percentage weight loss
+   (%WL) from baseline to week 24; https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/168446/3090-LB-UBT251-a-Triple-Hormone-Receptor-Agonist"
+8,8,3090-LB,,"UBT251 4.0 mg (initial dose 0.5
+  mg) once-weekly s.c.",,16.2,,,24,Phase 2,NCT07177469,abstract,"At week 24,
+  least-square mean %WL was 16.2%; all UBT251 doses vs placebo P<0.001.; Percentage weight loss
+   (%WL) from baseline to week 24; https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/168446/3090-LB-UBT251-a-Triple-Hormone-Receptor-Agonist"
+8,9,3090-LB,,"UBT251 4.0 mg
+  (initial dose 1.0 mg) once-weekly
+  s.c.",,19.7,,,24,Phase 2,NCT07177469,abstract,"At week 24, least-square mean
+  %WL was 19.7%; all UBT251 doses vs placebo P<0.001.; Percentage weight loss
+   (%WL) from baseline to week 24; https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/168446/3090-LB-UBT251-a-Triple-Hormone-Receptor-Agonist"
+8,10,3090-LB,,"UBT251 6.0 mg once-weekly
+  s.c.",,18.7,,,24,Phase 2,NCT07177469,abstract,"At week 24, least-square mean
+  %WL was 18.7%; all UBT251 doses vs placebo P<0.001.; Percentage weight loss
+   (%WL) from baseline to week 24; https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/168446/3090-LB-UBT251-a-Triple-Hormone-Receptor-Agonist"
+8,11,3090-LB,,"Placebo (pbo) once-weekly
+  s.c.",,2,,,24,Phase 2,NCT07177469,abstract,"At week 24, least-square mean %WL
+  was 2.0%.; Percentage weight loss
+   (%WL) from baseline to week 24; https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/168446/3090-LB-UBT251-a-Triple-Hormone-Receptor-Agonist"
+9,1,1225-OR,Mazdutide,"Mazdutide 9 mg once weekly (overall
+  population)",,-18.5,,,60,Phase 3,GLORY-2,abstract,"Percentage change in
+  body weight from baseline at week 60; 85.7% achieved >=5% weight reduction and 44.0% achieved
+  >=20%.; Percentage change in body
+  weight from baseline (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1225-OR/167122/1225-OR-Efficacy-and-Safety-of-Mazdutide-9-mg-in"
+9,2,1225-OR,Mazdutide,"Placebo once weekly (overall
+  population)",,-3,,,60,Phase 3,GLORY-2,abstract,"Percentage change in body
+   weight from baseline at week 60; 33.2% achieved >=5% weight reduction and 2.6% achieved
+  >=20%.; Percentage change in body
+  weight from baseline (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1225-OR/167122/1225-OR-Efficacy-and-Safety-of-Mazdutide-9-mg-in"
+9,3,1225-OR,Mazdutide,"Mazdutide 9 mg once weekly (participants without
+  T2D)",,-20.1,,,60,Phase 3,GLORY-2,abstract,"Percentage change in body
+  weight from baseline at week 60 in participants without T2D; 88.2% achieved >=5% weight reduction
+  and 48.7% achieved >=20%.; Percentage change in body
+  weight from baseline (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1225-OR/167122/1225-OR-Efficacy-and-Safety-of-Mazdutide-9-mg-in"
+9,4,1225-OR,Mazdutide,"Placebo once weekly (participants without
+  T2D)",,-2.8,,,60,Phase 3,GLORY-2,abstract,"Percentage change in body weight
+   from baseline at week 60 in participants without T2D; 32.3% achieved >=5% weight reduction and
+  3.1% achieved >=20%; P<0.001 for all comparisons in this
+  subgroup.; Percentage change in body
+  weight from baseline (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1225-OR/167122/1225-OR-Efficacy-and-Safety-of-Mazdutide-9-mg-in"
+10,1,1226-OR,Mazdutide,"Mazdutide 6
+  mg",174,48,,,32,Phase 3b,DREAMS-3,figure,"Primary endpoint proportion (%),
+  efficacy estimand: 48.0 (95% CI 40.4, 55.7). Treatment-policy estimand: 49.2 (41.4,
+  57.0).; Proportion of patients
+  achieving both HbA1c <7.0% and weight loss >=10% at week 32 (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1226-OR/167125/1226-OR-Mazdutide-vs-Semaglutide-in-Chinese-Adults"
+10,2,1226-OR,Mazdutide,"Semaglutide 1
+  mg",174,21,,,32,Phase 3b,DREAMS-3,figure,"Primary endpoint proportion (%),
+  efficacy estimand: 21.0 (95% CI 14.9, 27.1). Treatment-policy estimand: 20.3 (14.3,
+  26.4).; Proportion of patients
+  achieving both HbA1c <7.0% and weight loss >=10% at week 32 (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1226-OR/167125/1226-OR-Mazdutide-vs-Semaglutide-in-Chinese-Adults"
+11,1,1230-OR,Semaglutide,"LLM at baseline: Semaglutide + trevogrumab
+  200",47,,,,26,,1230-OR,figure,"LS mean difference vs semaglutide:
+  4.30% (95% CI 2.47, 6.13).; LS mean % change from baseline in total lean
+   mass; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+11,2,1230-OR,Semaglutide,"LLM at baseline: Semaglutide + trevogrumab
+  400",36,,,,26,,1230-OR,figure,"LS mean difference vs semaglutide:
+  3.69% (95% CI 1.74, 5.64).; LS mean % change from baseline in total lean
+   mass; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+11,3,1230-OR,Semaglutide,"LLM at baseline: Semaglutide + trevogrumab 400 +
+  garetosmab",21,,,,26,,1230-OR,figure,"LS mean difference vs
+  semaglutide: 4.55% (95% CI 2.26, 6.84).; LS mean % change from baseline in total lean
+   mass; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+11,4,1230-OR,Semaglutide,"LLM at baseline:
+  Semaglutide",51,,,,26,,1230-OR,figure,"Reference comparator in
+  this subgroup; numeric LS mean % change and CI not printed as text.; LS mean % change from baseline in total lean
+   mass; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+11,5,1230-OR,Semaglutide,"Without LLM at
+  baseline: Semaglutide + trevogrumab
+  200",61,,,,26,,1230-OR,figure,"LS mean difference vs semaglutide:
+  2.18% (95% CI 0.53, 3.83).; LS mean % change from baseline in total lean
+   mass; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+11,6,1230-OR,Semaglutide,"Without LLM at baseline: Semaglutide + trevogrumab
+  400",60,,,,26,,1230-OR,figure,"LS mean difference vs semaglutide:
+  1.95% (95% CI 0.31, 3.59).; LS mean % change from baseline in total lean
+   mass; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+11,7,1230-OR,Semaglutide,"Without LLM at baseline: Semaglutide + trevogrumab 400 +
+  garetosmab",50,,,,26,,1230-OR,figure,"LS mean difference vs
+  semaglutide: 4.17% (95% CI 2.45, 5.89).; LS mean % change from baseline in total lean
+   mass; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+11,8,1230-OR,Semaglutide,"Without LLM at baseline:
+  Semaglutide",60,,,,26,,1230-OR,figure,"Reference comparator in
+  this subgroup; numeric LS mean % change and CI not printed as
+  text.; LS mean % change from baseline in total lean
+   mass; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+11,9,1230-OR,Semaglutide,"Semaglutide alone (participants with low lean mass at
+  baseline)",,-7.1,,,26,"Phase
+  2",COURAGE,abstract,"Percent change in lean mass
+   from baseline to Week 26; reported as comparator for LLM subgroup.; Percent change in lean mass (LM) by DXA from baseline to Week
+  26; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+11,10,1230-OR,Semaglutide,"Semaglutide +
+  trevogrumab 200 mg (participants with low lean mass at
+  baseline)",,-2.8,,,26,"Phase
+  2",COURAGE,abstract,"Significantly less lean
+  mass loss vs semaglutide alone in LLM subgroup.; Percent change in lean mass (LM) by DXA from baseline to Week
+  26; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+11,11,1230-OR,Semaglutide,"Semaglutide + trevogrumab 400 mg
+  (participants with low lean mass at
+  baseline)",,-3.4,,,26,"Phase
+  2",COURAGE,abstract,"Significantly less lean
+  mass loss vs semaglutide alone in LLM subgroup.; Percent change in lean mass (LM) by DXA from baseline to Week
+  26; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+11,12,1230-OR,Semaglutide,"Semaglutide + trevogrumab 400 mg +
+  garetosmab 10 mg/kg (triplet) (participants with low lean mass at
+  baseline)",,-2.5,,,26,"Phase
+  2",COURAGE,abstract,"Significantly less lean
+  mass loss vs semaglutide alone in LLM subgroup.; Percent change in lean mass (LM) by DXA from baseline to Week
+  26; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+11,13,1230-OR,Semaglutide,"Semaglutide alone (participants
+  without low lean mass at
+  baseline)",,-5.9,,,26,"Phase
+  2",COURAGE,abstract,"Percent change in lean mass
+   from baseline to Week 26; reported as comparator for non-LLM subgroup.; Percent change in lean mass (LM) by DXA from baseline to Week
+  26; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+11,14,1230-OR,Semaglutide,"Semaglutide +
+  trevogrumab 200 mg (participants without low lean mass at
+  baseline)",,-3.8,,,26,"Phase
+  2",COURAGE,abstract,"Significantly less lean
+  mass loss vs semaglutide alone in non-LLM subgroup.; Percent change in lean mass (LM) by DXA from baseline to Week
+  26; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+11,15,1230-OR,Semaglutide,"Semaglutide + trevogrumab 400 mg
+  (participants without low lean mass at
+  baseline)",,-4,,,26,"Phase
+  2",COURAGE,abstract,"Significantly less lean mass
+  loss vs semaglutide alone in non-LLM subgroup.; Percent change in lean mass (LM) by DXA from baseline to Week
+  26; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+11,16,1230-OR,Semaglutide,"Semaglutide + trevogrumab 400 mg +
+  garetosmab 10 mg/kg (triplet) (participants without low lean mass at
+  baseline)",,-1.8,,,26,"Phase
+  2",COURAGE,abstract,"Significantly less lean
+  mass loss vs semaglutide alone in non-LLM subgroup.; Percent change in lean mass (LM) by DXA from baseline to Week
+  26; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1230-OR/167148/1230-OR-Lean-Mass-Effects-of-Anti-GDF8-Trevogrumab"
+12,1,1032-OR,,"Aleniglipron 45 mg
+  arm",,-8.2,,,36,"Phase
+  2b",ACCESS trial,abstract,"Placebo-adjusted LS mean
+  percentage change in body weight from baseline at week 36; p<0.0001 vs
+  placebo.; Percentage change in body weight from baseline
+  (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1032-OR/167934/1032-OR-ACCESS-Trial-Dose-Ranging-Evaluation-of"
+12,2,1032-OR,,"Aleniglipron 90 mg
+  arm",,-9.8,,,36,"Phase
+  2b",ACCESS trial,abstract,"Placebo-adjusted LS mean
+  percentage change in body weight from baseline at week 36; p<0.0001 vs
+  placebo.; Percentage change in body weight from baseline
+  (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1032-OR/167934/1032-OR-ACCESS-Trial-Dose-Ranging-Evaluation-of"
+12,3,1032-OR,,"Aleniglipron 120 mg
+  arm",,-11.3,,,36,"Phase
+  2b",ACCESS trial,abstract,"Placebo-adjusted LS mean
+  percentage change in body weight from baseline at week 36; p<0.0001 vs placebo. Also reported in
+  this arm: >=5% weight loss in 86%, >=10% in 70%, >=15% in 38%; placebo-adjusted HbA1c change
+  -0.37% and systolic BP change -7.5 mmHg.; Percentage change in body weight from baseline
+  (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1032-OR/167934/1032-OR-ACCESS-Trial-Dose-Ranging-Evaluation-of"
+13,1,1034-OR,HDM1005,"HDM1005 0.5 mg once weekly
+  (subcutaneous)",,-7.38,,,22,Phase 2,NCT06886126,abstract,"Body weight reduction
+   from baseline at W22; treatment-policy estimand; vs placebo, all p<0.0001. >=10% weight loss
+  achieved in 24.0%.; Percentage change in body
+  weight from baseline to week 22; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1034-OR/167745/1034-OR-Efficacy-and-Safety-of-Dual-GLP-1-GIP"
+13,2,1034-OR,HDM1005,"HDM1005 1.0 mg once weekly
+  (subcutaneous)",,-9.61,,,22,Phase 2,NCT06886126,abstract,"Body weight reduction
+   from baseline at W22; treatment-policy estimand; vs placebo, all p<0.0001. >=10% weight loss
+  achieved in 52.1%.; Percentage change in body
+  weight from baseline to week 22; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1034-OR/167745/1034-OR-Efficacy-and-Safety-of-Dual-GLP-1-GIP"
+13,3,1034-OR,HDM1005,"HDM1005 2.0 mg once weekly
+  (subcutaneous)",,-13.21,,,22,Phase 2,NCT06886126,abstract,"Body weight
+  reduction from baseline at W22; treatment-policy estimand; vs placebo, all p<0.0001. >=10% weight
+  loss achieved in 75.0%.; Percentage change in body
+  weight from baseline to week 22; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1034-OR/167745/1034-OR-Efficacy-and-Safety-of-Dual-GLP-1-GIP"
+13,4,1034-OR,HDM1005,"HDM1005 4.0 mg once weekly
+  (subcutaneous)",,-13.32,,,22,Phase 2,NCT06886126,abstract,"Body weight
+  reduction from baseline at W22; treatment-policy estimand; vs placebo, all p<0.0001. >=10% weight
+  loss achieved in 70.8%.; Percentage change in body
+  weight from baseline to week 22; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1034-OR/167745/1034-OR-Efficacy-and-Safety-of-Dual-GLP-1-GIP"
+13,5,1034-OR,HDM1005,"Placebo once weekly
+  (subcutaneous)",,-2.45,,,22,Phase 2,NCT06886126,abstract,"Body weight reduction
+   from baseline at W22. >=10% weight loss achieved in
+  6.1%.; Percentage change in body
+  weight from baseline to week 22; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1034-OR/167745/1034-OR-Efficacy-and-Safety-of-Dual-GLP-1-GIP"
+14,1,1666-P,,"Prediabetes: OFG 6
+  mg",246,1.19,0.17,2.1,72,,ATTAIN-1,figure,"Matsuda Index (during OGTT) CFB;
+  model-based estimate (SE); baseline mean (SD)=2.10 (1.27); ***; Matsuda Index (during OGTT), change
+  from baseline at week 72; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1666-P/168229/1666-P-Orforglipron-and-Markers-of-Insulin"
+14,2,1666-P,,"Prediabetes: OFG 12
+  mg",253,1.29,0.19,2.29,72,,ATTAIN-1,figure,"Matsuda Index (during OGTT) CFB;
+  model-based estimate (SE); baseline mean (SD)=2.29 (2.03); ***; Matsuda Index (during OGTT), change
+  from baseline at week 72; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1666-P/168229/1666-P-Orforglipron-and-Markers-of-Insulin"
+14,3,1666-P,,"Prediabetes: OFG 36
+  mg",252,1.23,0.19,2.29,72,,ATTAIN-1,figure,"Matsuda Index (during OGTT) CFB;
+  model-based estimate (SE); baseline mean (SD)=2.29 (1.82); ***; Matsuda Index (during OGTT), change
+  from baseline at week 72; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1666-P/168229/1666-P-Orforglipron-and-Markers-of-Insulin"
+14,4,1666-P,,"Prediabetes:
+  Placebo",335,0.72,0.18,2.35,72,,ATTAIN-1,figure,"Matsuda Index (during OGTT)
+  CFB; model-based estimate (SE); baseline mean (SD)=2.35 (2.01); ***; Matsuda Index (during OGTT), change
+  from baseline at week 72; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1666-P/168229/1666-P-Orforglipron-and-Markers-of-Insulin"
+14,5,1666-P,,"Normoglycemia: OFG
+   6 mg",435,0.57,0.15,3.76,72,,ATTAIN-1,figure,"Matsuda Index (during OGTT) CFB;
+   model-based estimate (SE); baseline mean (SD)=3.76 (4.26); ***; Matsuda Index (during OGTT), change
+  from baseline at week 72; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1666-P/168229/1666-P-Orforglipron-and-Markers-of-Insulin"
+14,6,1666-P,,"Normoglycemia: OFG 12
+  mg",440,0.86,0.15,3.36,72,,ATTAIN-1,figure,"Matsuda Index (during OGTT) CFB;
+  model-based estimate (SE); baseline mean (SD)=3.36 (2.87); ***; Matsuda Index (during OGTT), change
+  from baseline at week 72; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1666-P/168229/1666-P-Orforglipron-and-Markers-of-Insulin"
+14,7,1666-P,,"Normoglycemia: OFG 36
+  mg",445,1.22,0.18,3.51,72,,ATTAIN-1,figure,"Matsuda Index (during OGTT) CFB;
+  model-based estimate (SE); baseline mean (SD)=3.51 (5.55); ***; Matsuda Index (during OGTT), change
+  from baseline at week 72; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1666-P/168229/1666-P-Orforglipron-and-Markers-of-Insulin"
+14,8,1666-P,,"Normoglycemia:
+  Placebo",576,-0.31,0.12,3.28,72,,ATTAIN-1,figure,"Matsuda Index (during OGTT)
+  CFB; model-based estimate (SE); baseline mean (SD)=3.28 (3.21);
+  **; Matsuda Index (during OGTT), change
+  from baseline at week 72; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1666-P/168229/1666-P-Orforglipron-and-Markers-of-Insulin"
+15,1,1723-P,Semaglutide,"once-weekly semaglutide 2.4
+  mg",588,27,,,,phase 3,SELECT,abstract,"Lower incidence of asthma-related
+  AEs/SAEs vs placebo; hazard ratio 0.58 (95% CI 0.36, 0.93) for semaglutide vs placebo.; Incidence of
+  asthma-related adverse/serious adverse events (AEs/SAEs), reported as event
+  counts; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1723-P/167878/1723-P-Semaglutide-Reduces-Asthma-Related-Adverse"
+15,2,1723-P,Semaglutide,placebo,602,46,,,,phase 3,SELECT,abstract,"Asthma-related AEs/SAEs count
+   reported as n=46.; Incidence of
+  asthma-related adverse/serious adverse events (AEs/SAEs), reported as event
+  counts; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1723-P/167878/1723-P-Semaglutide-Reduces-Asthma-Related-Adverse"
+16,1,1725-P,,"zovaglutide 80 mg once every 4 weeks
+  (Q4W)",,93.5,,,24,Phase 2,ZT002,abstract,"Proportion achieving HbA1c
+  <5.7% at week 24; reported as greater than placebo. Weight change from baseline at week 24: -10.8%
+   (all p values <0.0001 vs placebo for zovaglutide groups).; Proportion of participants with
+   HbA1c <5.7% at week 24 (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1725-P/168235/1725-P-Once-Monthly-Zovaglutide-ZT002-in-Adults"
+16,2,1725-P,,"zovaglutide 160 mg once
+  every 4 weeks (Q4W)",,96.4,,,24,Phase 2,ZT002,abstract,"Proportion
+  achieving HbA1c <5.7% at week 24; reported as greater than placebo. Weight change from baseline at
+   week 24: -12.8% (all p values <0.0001 vs placebo for zovaglutide groups).; Proportion of participants with
+   HbA1c <5.7% at week 24 (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1725-P/168235/1725-P-Once-Monthly-Zovaglutide-ZT002-in-Adults"
+16,3,1725-P,,"zovaglutide
+   80 mg once every 2 weeks
+  (Q2W)",,90.5,,,24,Phase 2,ZT002,abstract,"Proportion achieving HbA1c
+  <5.7% at week 24; reported as greater than placebo. Weight change from baseline at week 24: -12.9%
+   (all p values <0.0001 vs placebo for zovaglutide groups).; Proportion of participants with
+   HbA1c <5.7% at week 24 (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1725-P/168235/1725-P-Once-Monthly-Zovaglutide-ZT002-in-Adults"
+16,4,1725-P,,"zovaglutide 160 mg once
+  every 2 weeks (Q2W)",,100,,,24,Phase 2,ZT002,abstract,"Proportion
+  achieving HbA1c <5.7% at week 24; reported as greater than placebo. Weight change from baseline at
+   week 24: -12.8% (all p values <0.0001 vs placebo for zovaglutide groups).; Proportion of participants with
+   HbA1c <5.7% at week 24 (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1725-P/168235/1725-P-Once-Monthly-Zovaglutide-ZT002-in-Adults"
+16,5,1725-P,,"matched
+  placebo",,22.2,,,24,Phase 2,ZT002,abstract,"Proportion achieving HbA1c
+  <5.7% at week 24. Weight change from baseline at week 24:
+  -0.8%.; Proportion of participants with
+   HbA1c <5.7% at week 24 (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1725-P/168235/1725-P-Once-Monthly-Zovaglutide-ZT002-in-Adults"
+17,1,1733-P,Mazdutide,Placebo,47,,,90.4,48,,1733-P,figure,"eGFR panel
+  baseline mean shown as 90.4 mL/min/1.73 m^2. Week-by-week point estimates are plotted but not
+  numerically labeled.; Absolute change in eGFR from baseline
+  (mL/min/1.73 m^2); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1733-P/169005/1733-P-Effect-of-Mazdutide-on-Kidney-Function-in"
+17,2,1733-P,Mazdutide,"MAZ 3/6
+  mg",32,,,90.4,48,,1733-P,figure,"eGFR panel baseline mean shown as
+  90.4 mL/min/1.73 m^2. Model-based estimates ± SE; exact values not printed. Significant vs placebo
+   at Week 12 in UACR panel () and Week 32 in UACR panel ().; Absolute change in eGFR from baseline
+  (mL/min/1.73 m^2); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1733-P/169005/1733-P-Effect-of-Mazdutide-on-Kidney-Function-in"
+17,3,1733-P,Mazdutide,"MAZ 10
+  mg",47,,,91.7,48,,1733-P,figure,"eGFR panel baseline mean shown as
+  91.7 mL/min/1.73 m^2. Model-based estimates ± SE; exact values not printed. Significant vs placebo
+   at Week 24 () and Week 32 () in eGFR panel; Week 32 () in UACR panel.; Absolute change in eGFR from baseline
+  (mL/min/1.73 m^2); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1733-P/169005/1733-P-Effect-of-Mazdutide-on-Kidney-Function-in"
+17,4,1733-P,Mazdutide,"MAZ 16
+  mg",51,,,90,48,,1733-P,figure,"eGFR panel baseline mean shown as 90.0
+   mL/min/1.73 m^2. Model-based estimates ± SE; exact values not printed. Significant vs placebo at
+  Week 24 () and Week 32 (**) in eGFR panel; Week 32 (*) in UACR
+  panel.; Absolute change in eGFR from baseline
+  (mL/min/1.73 m^2); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1733-P/169005/1733-P-Effect-of-Mazdutide-on-Kidney-Function-in"
+17,5,1733-P,Mazdutide,"once-weekly subcutaneous MAZ 10
+  mg",48,7.7,1.6,,32,Phase 2,NCT06124807,abstract,"Cystatin C-derived eGFR CFB [SE] in
+  mL/min/1.73 m²: 7.7 [1.6]; p<0.001 vs placebo.; Change from
+  baseline in kidney-function measures at W32: cystatin C-derived eGFR (mL/min/1.73 m²) and UACR
+  (%).; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1733-P/169005/1733-P-Effect-of-Mazdutide-on-Kidney-Function-in"
+17,6,1733-P,Mazdutide,"once-weekly subcutaneous MAZ 16
+  mg",51,7.2,2.1,,32,Phase 2,NCT06124807,abstract,"Cystatin C-derived eGFR CFB [SE] in
+  mL/min/1.73 m²: 7.2 [2.1]; p=0.006 vs placebo.; Change from
+  baseline in kidney-function measures at W32: cystatin C-derived eGFR (mL/min/1.73 m²) and UACR
+  (%).; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1733-P/169005/1733-P-Effect-of-Mazdutide-on-Kidney-Function-in"
+17,7,1733-P,Mazdutide,"placebo
+  (PBO)",48,-0.3,1.6,,32,Phase 2,NCT06124807,abstract,"Cystatin C-derived eGFR CFB [SE]
+  in mL/min/1.73 m²: -0.3 [1.6] at W32.; Change from
+  baseline in kidney-function measures at W32: cystatin C-derived eGFR (mL/min/1.73 m²) and UACR
+  (%).; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1733-P/169005/1733-P-Effect-of-Mazdutide-on-Kidney-Function-in"
+17,8,1733-P,Mazdutide,"once-weekly subcutaneous MAZ 3/6 mg (dose
+  escalation at W32)",32,-39.8,10.8,,32,Phase 2,NCT06124807,abstract,"UACR percent CFB
+  [SE]: -39.8% [10.8]; p=0.028 vs placebo.; Change from
+  baseline in kidney-function measures at W32: cystatin C-derived eGFR (mL/min/1.73 m²) and UACR
+  (%).; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1733-P/169005/1733-P-Effect-of-Mazdutide-on-Kidney-Function-in"
+17,9,1733-P,Mazdutide,"once-weekly subcutaneous MAZ 10
+  mg",48,-36.2,6.1,,32,Phase 2,NCT06124807,abstract,"UACR percent CFB [SE]: -36.2% [6.1];
+   p=0.007 vs placebo.; Change from
+  baseline in kidney-function measures at W32: cystatin C-derived eGFR (mL/min/1.73 m²) and UACR
+  (%).; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1733-P/169005/1733-P-Effect-of-Mazdutide-on-Kidney-Function-in"
+17,10,1733-P,Mazdutide,"once-weekly subcutaneous MAZ 16
+  mg",51,-32.7,7.7,,32,Phase 2,NCT06124807,abstract,"UACR percent CFB [SE]: -32.7% [7.7];
+   p=0.030 vs placebo.; Change from
+  baseline in kidney-function measures at W32: cystatin C-derived eGFR (mL/min/1.73 m²) and UACR
+  (%).; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1733-P/169005/1733-P-Effect-of-Mazdutide-on-Kidney-Function-in"
+17,11,1733-P,Mazdutide,"placebo
+  (PBO)",48,-4.2,11.1,,32,Phase 2,NCT06124807,abstract,"UACR percent CFB [SE]: -4.2%
+  [11.1] at W32.; Change from
+  baseline in kidney-function measures at W32: cystatin C-derived eGFR (mL/min/1.73 m²) and UACR
+  (%).; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1733-P/169005/1733-P-Effect-of-Mazdutide-on-Kidney-Function-in"
+18,1,1782-P,,ATX (Day 56),15,,,,8,"Phase
+  1b",1782-P,figure,"Relative
+   change (%) values shown: adiponectin 42.7 (p=0.0037), liver fat -14.4 (p=0.0391), visceral
+  adipose tissue -0.03 (p=0.9803), resting metabolic rate 7.04 (p=0.0066).; Relative change from baseline (%) in metabolic outcomes (adiponectin, liver
+   fat, visceral adipose tissue, resting metabolic rate); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1782-P/169109/1782-P-Phase-1b-Study-of-AMPK-Mitochondrial"
+18,2,1782-P,,"Placebo (Day
+  56)",8,,,,8,"Phase
+  1b",1782-P,figure,"Relative change (%) values shown:
+  adiponectin 3.3 (p=0.8588), liver fat -8.39 (p=0.3787), visceral adipose tissue 0.80 (p=0.6454),
+  resting metabolic rate 5.69 (p=0.1099).; Relative change from baseline (%) in metabolic outcomes (adiponectin, liver
+   fat, visceral adipose tissue, resting metabolic rate); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1782-P/169109/1782-P-Phase-1b-Study-of-AMPK-Mitochondrial"
+18,3,1782-P,,"ATX (Day
+  102)",7,,,,15,"Phase
+  1b",1782-P,figure,"Relative change (%) values shown:
+  adiponectin 88.6 (p=0.0108), liver fat -32.4 (p=0.0125), visceral adipose tissue -4.7 (p=0.0429),
+  resting metabolic rate not determined.; Relative change from baseline (%) in metabolic outcomes (adiponectin, liver
+   fat, visceral adipose tissue, resting metabolic rate); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1782-P/169109/1782-P-Phase-1b-Study-of-AMPK-Mitochondrial"
+19,1,2608-P,,Placebo,,-2.38,,,16,,2608-P,figure,"Panel A
+  (Percentage Weight Loss Change from Baseline), week-16 value label shown; error bars present but
+  SE/SD not numerically reported.; Percent body weight change from baseline
+   (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2608-P/168458/2608-P-Efficacy-and-Safety-of-DA-302168S-a-Novel"
+19,2,2608-P,,"DA-302168S 5 mg once
+  daily",,-5.59,,,16,,2608-P,figure,"Panel A week-16 value label
+  shown; error bars present but SE/SD not numerically reported.; Percent body weight change from baseline
+   (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2608-P/168458/2608-P-Efficacy-and-Safety-of-DA-302168S-a-Novel"
+19,3,2608-P,,"DA-302168S 10 mg once
+  daily",,-8.06,,,16,,2608-P,figure,"Panel A week-16 value label
+  shown; error bars present but SE/SD not numerically reported.; Percent body weight change from baseline
+   (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2608-P/168458/2608-P-Efficacy-and-Safety-of-DA-302168S-a-Novel"
+19,4,2608-P,,"DA-302168S 20 mg once
+  daily",,-9.27,,,16,,2608-P,figure,"Panel A week-16 value label
+  shown; error bars present but SE/SD not numerically reported.; Percent body weight change from baseline
+   (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2608-P/168458/2608-P-Efficacy-and-Safety-of-DA-302168S-a-Novel"
+19,5,2608-P,,"DA-302168S 30 mg once
+  daily",,-10.22,,,16,,2608-P,figure,"Panel A week-16 value label
+  shown; error bars present but SE/SD not numerically
+  reported.; Percent body weight change from baseline
+   (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2608-P/168458/2608-P-Efficacy-and-Safety-of-DA-302168S-a-Novel"
+20,1,2609-P,HDM1002,"HDM1002 100 mg
+  BID",,-4.63,,,12,Phase 2,NCT06500299,abstract,"LS mean percentage change in
+  body weight from baseline at week 12 was -4.63%; 46.8% achieved weight reduction
+  >=5%.; Percentage
+  change in body weight (%) from baseline at week 12; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2609-P/168457/2609-P-Efficacy-and-Safety-of-a-Novel-Oral-Small"
+20,2,2609-P,HDM1002,"HDM1002 200 mg
+  BID",,-6.08,,,12,Phase 2,NCT06500299,abstract,"LS mean percentage change in
+  body weight from baseline at week 12 was -6.08%; 63.0% achieved weight reduction
+  >=5%.; Percentage
+  change in body weight (%) from baseline at week 12; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2609-P/168457/2609-P-Efficacy-and-Safety-of-a-Novel-Oral-Small"
+20,3,2609-P,HDM1002,"HDM1002 400 mg
+  QD",,-6.83,,,12,Phase 2,NCT06500299,abstract,"LS mean percentage change in body
+   weight from baseline at week 12 was -6.83%; 56.5% achieved weight reduction
+  >=5%.; Percentage
+  change in body weight (%) from baseline at week 12; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2609-P/168457/2609-P-Efficacy-and-Safety-of-a-Novel-Oral-Small"
+20,4,2609-P,HDM1002,placebo (PBO),,-2.88,,,12,Phase 2,NCT06500299,abstract,"LS
+  mean percentage change in body weight from baseline at week 12 was -2.88%; 30.4% achieved weight
+  reduction >=5%.; Percentage
+  change in body weight (%) from baseline at week 12; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2609-P/168457/2609-P-Efficacy-and-Safety-of-a-Novel-Oral-Small"
+21,1,2620-P,MDR-001,Placebo,62,-2.6,,,24,,2620-P,figure,"Panel A
+  primary endpoint; body weight % change from baseline reported as LSM (SE). SE value not
+  numerically shown.; Percentage change from baseline in body
+  weight (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168752/2620-P-MDR-001-an-AI-Enabled-arrestin2-Biased-Oral"
+21,2,2620-P,MDR-001,"MDR-001 90 mg
+  BID",58,-8,,,24,,2620-P,figure,"Panel A primary endpoint; body
+  weight % change from baseline reported as LSM (SE). SE value not numerically
+  shown.; Percentage change from baseline in body
+  weight (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168752/2620-P-MDR-001-an-AI-Enabled-arrestin2-Biased-Oral"
+21,3,2620-P,MDR-001,"MDR-001 120 mg
+  BID",53,-9.1,,,24,,2620-P,figure,"Panel A primary endpoint; body
+  weight % change from baseline reported as LSM (SE). SE value not numerically
+  shown.; Percentage change from baseline in body
+  weight (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168752/2620-P-MDR-001-an-AI-Enabled-arrestin2-Biased-Oral"
+21,4,2620-P,MDR-001,"MDR-001 150 mg
+  BID",58,-9.3,,,24,,2620-P,figure,"Panel A primary endpoint; body
+  weight % change from baseline reported as LSM (SE). SE value not numerically
+  shown.; Percentage change from baseline in body
+  weight (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168752/2620-P-MDR-001-an-AI-Enabled-arrestin2-Biased-Oral"
+21,5,2620-P,MDR-001,"MDR-001 180 mg
+  BID",54,-9.6,,,24,,2620-P,figure,"Panel A primary endpoint; body
+  weight % change from baseline reported as LSM (SE). SE value not numerically
+  shown.; Percentage change from baseline in body
+  weight (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168752/2620-P-MDR-001-an-AI-Enabled-arrestin2-Biased-Oral"
+21,6,2620-P,MDR-001,"MDR-001 90 mg
+  BID",,-8,,,24,Phase 2b,MDR-001,abstract,"Least-squares mean percentage
+  change in body weight at W24; vs placebo all P <.0001.; Percentage change from
+  baseline in body weight (%) at week 24; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168752/2620-P-MDR-001-an-AI-Enabled-arrestin2-Biased-Oral"
+21,7,2620-P,MDR-001,"MDR-001 120 mg
+  BID",,-9.1,,,24,Phase 2b,MDR-001,abstract,"Least-squares mean percentage
+  change in body weight at W24; vs placebo all P <.0001.; Percentage change from
+  baseline in body weight (%) at week 24; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168752/2620-P-MDR-001-an-AI-Enabled-arrestin2-Biased-Oral"
+21,8,2620-P,MDR-001,"MDR-001 150 mg
+  BID",,-9.6,,,24,Phase 2b,MDR-001,abstract,"Least-squares mean percentage
+  change in body weight at W24; vs placebo all P <.0001.; Percentage change from
+  baseline in body weight (%) at week 24; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168752/2620-P-MDR-001-an-AI-Enabled-arrestin2-Biased-Oral"
+21,9,2620-P,MDR-001,"MDR-001 180 mg
+  BID",,-9.3,,,24,Phase 2b,MDR-001,abstract,"Least-squares mean percentage
+  change in body weight at W24; vs placebo all P <.0001.; Percentage change from
+  baseline in body weight (%) at week 24; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168752/2620-P-MDR-001-an-AI-Enabled-arrestin2-Biased-Oral"
+21,10,2620-P,MDR-001,"placebo
+  (PBO)",,-2.6,,,24,Phase 2b,MDR-001,abstract,"Least-squares mean percentage
+  change in body weight at W24; comparator for active-dose P
+  values.; Percentage change from
+  baseline in body weight (%) at week 24; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2620-P/168752/2620-P-MDR-001-an-AI-Enabled-arrestin2-Biased-Oral"
+22,1,2636-P,,Placebo,,-3.61,,,,Phase 2b,ENLIGHT,figure,"Panel A
+   body weight change (%). Panel B: -2.88 kg; Panel C: -4.35 cm; Panel D responders: >=5% 26.8,
+  >=10% 9.8, >=15% 0.0.; Body weight change from
+  baseline (%) at end of treatment; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2636-P/167996/2636-P-Efsubaglutide-Alfa-in-Overweight-or-Obesity"
+22,2,2636-P,,"Efsubaglutide alfa 5 mg
+  QW",,-7.95,,,,Phase 2b,ENLIGHT,figure,"Panel A body weight change (%).
+   Panel B: -6.73 kg; Panel C: -6.88 cm; Panel D responders: >=5% 75.6, >=10% 31.7, >=15%
+  4.9.; Body weight change from
+  baseline (%) at end of treatment; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2636-P/167996/2636-P-Efsubaglutide-Alfa-in-Overweight-or-Obesity"
+22,3,2636-P,,"Efsubaglutide alfa 10 mg
+  QW",,-9.99,,,,Phase 2b,ENLIGHT,figure,"Panel A body weight change (%).
+   Panel B: -8.59 kg; Panel C: -8.87 cm; Panel D responders: >=5% 78.0, >=10% 48.8, >=15%
+  14.6.; Body weight change from
+  baseline (%) at end of treatment; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2636-P/167996/2636-P-Efsubaglutide-Alfa-in-Overweight-or-Obesity"
+22,4,2636-P,,"Efsubaglutide alfa 20 mg
+  QW",,-10.58,,,,Phase 2b,ENLIGHT,figure,"Panel A body weight change
+  (%). Panel B: -9.22 kg; Panel C: -8.94 cm; Panel D responders: >=5% 81.6, >=10% 34.2, >=15%
+  13.2.; Body weight change from
+  baseline (%) at end of treatment; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2636-P/167996/2636-P-Efsubaglutide-Alfa-in-Overweight-or-Obesity"
+22,5,2636-P,,"Efsubaglutide alfa 20 mg
+  Q2W",,-9.7,,,,Phase 2b,ENLIGHT,figure,"Panel A body weight change (%).
+   Panel B: -8.48 kg; Panel C: -8.39 cm; Panel D responders: >=5% 73.7, >=10% 28.9, >=15%
+  5.3.; Body weight change from
+  baseline (%) at end of treatment; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2636-P/167996/2636-P-Efsubaglutide-Alfa-in-Overweight-or-Obesity"
+22,6,2636-P,,Placebo (PBO),,-3.61,,,18,Phase 2b,ENLIGHT,abstract,"BW
+  change (%) was -3.61; BW change (kg) was -2.88; proportion achieving >=5% weight loss was 26.8%;
+  WC decreased by -4.35 cm.; Percent
+  change in body weight (%) at end of treatment; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2636-P/167996/2636-P-Efsubaglutide-Alfa-in-Overweight-or-Obesity"
+22,7,2636-P,,"Efsubaglutide alfa (Suba) 5 mg once weekly
+  (QW)",,-7.95,,,18,Phase 2b,ENLIGHT,abstract,"BW change (%) was -7.95; BW
+  change (kg) was -6.73; proportion achieving >=5% weight loss was 75.6%.; Percent
+  change in body weight (%) at end of treatment; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2636-P/167996/2636-P-Efsubaglutide-Alfa-in-Overweight-or-Obesity"
+22,8,2636-P,,"Efsubaglutide
+  alfa (Suba) 10 mg once weekly
+  (QW)",,-9.99,,,18,Phase 2b,ENLIGHT,abstract,"BW change (%) was -9.99; BW
+  change (kg) was -8.59; proportion achieving >=5% weight loss was 78.0%; text notes 20 mg Q2W
+  comparable with 10 mg QW.; Percent
+  change in body weight (%) at end of treatment; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2636-P/167996/2636-P-Efsubaglutide-Alfa-in-Overweight-or-Obesity"
+22,9,2636-P,,"Efsubaglutide alfa (Suba) 20 mg once weekly
+  (QW)",,-10.58,,,18,Phase 2b,ENLIGHT,abstract,"BW change (%) was -10.58; BW
+  change (kg) was -9.22; proportion achieving >=5% weight loss was 81.6%.; Percent
+  change in body weight (%) at end of treatment; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2636-P/167996/2636-P-Efsubaglutide-Alfa-in-Overweight-or-Obesity"
+22,10,2636-P,,"Efsubaglutide
+  alfa (Suba) 20 mg once every 2 weeks
+  (Q2W)",,-9.7,,,18,Phase 2b,ENLIGHT,abstract,"BW change (%) was -9.70; BW
+  change (kg) was -8.48; proportion achieving >=5% weight loss was 73.7%; text notes 20 mg Q2W
+  comparable with 10 mg QW.; Percent
+  change in body weight (%) at end of treatment; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2636-P/167996/2636-P-Efsubaglutide-Alfa-in-Overweight-or-Obesity"
+23,1,2637-P,,"Aleniglipron 120
+  mg",,-13.1,,,36,,2637-P,figure,"LS mean % change in body weight;
+  95% CI (-16.8, -9.4).; Percent
+   change in body weight from baseline (LS mean).; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2637-P/167995/2637-P-Safety-Tolerability-and-Efficacy-of"
+23,2,2637-P,,"Aleniglipron 180
+  mg",,-13.3,,,36,,2637-P,figure,"LS mean % change in body weight;
+  95% CI (-16.6, -10.0).; Percent
+   change in body weight from baseline (LS mean).; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2637-P/167995/2637-P-Safety-Tolerability-and-Efficacy-of"
+23,3,2637-P,,"Aleniglipron 240
+  mg",,-14.2,,,36,,2637-P,figure,"LS mean % change in body weight;
+  95% CI (-17.7,
+  -10.8).; Percent
+   change in body weight from baseline (LS mean).; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2637-P/167995/2637-P-Safety-Tolerability-and-Efficacy-of"
+23,4,2637-P,,Placebo,,1,,,36,,2637-P,figure,"LS mean %
+  change in body weight; 95% CI (-2.4, 4.5).; Percent
+   change in body weight from baseline (LS mean).; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2637-P/167995/2637-P-Safety-Tolerability-and-Efficacy-of"
+23,5,2637-P,,"aleniglipron 120 mg once
+  daily",,-14.1,,,36,"Phase
+  2",ACCESS II,abstract,"Placebo-adjusted mean
+  body-weight reduction; 95% CI -19.0 to -9.3.; Body weight reduction (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2637-P/167995/2637-P-Safety-Tolerability-and-Efficacy-of"
+23,6,2637-P,,"aleniglipron 180 mg once
+  daily",,-14.4,,,36,"Phase
+  2",ACCESS II,abstract,"Placebo-adjusted mean
+  body-weight reduction; 95% CI -19.1 to -9.6.; Body weight reduction (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2637-P/167995/2637-P-Safety-Tolerability-and-Efficacy-of"
+23,7,2637-P,,"aleniglipron 240 mg once
+  daily",,-15.3,,,36,"Phase
+  2",ACCESS II,abstract,"Placebo-adjusted mean
+  body-weight reduction; 95% CI -20.1 to -10.4.; Body weight reduction (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/2637-P/167995/2637-P-Safety-Tolerability-and-Efficacy-of"
+24,1,2649-P,Semaglutide,"Sema + trevo 400 mg + gareto vs.
+  Sema",,,,,,,2649-P,figure,"Cohen's D vs Sema shown for
+  two endpoints and two metrics. Approx point estimates from plot: Total Fat Mass (blue z-score)
+  ~-1.6, (red % change) ~-0.9; Total Lean Mass (blue z-score) ~1.7, (red % change) ~1.1. 95% CI bars
+   shown but not numerically labeled.; Cohen's D standardized mean difference
+  compared to Sema for total fat mass and total lean mass (z-score change-from-baseline and percent
+  change-from-baseline).; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2649-P/168277/2649-P-Population-Normed-Z-scores-for-Body"
+24,2,2649-P,Semaglutide,"Sema + trevo 400 mg vs.
+  Sema",,,,,,,2649-P,figure,"Approx point estimates from
+  plot: Total Fat Mass (blue z-score) ~-0.7, (red % change) ~-0.3; Total Lean Mass (blue z-score)
+  ~0.7, (red % change) ~0.5. 95% CI bars shown but not numerically labeled.; Cohen's D standardized mean difference
+  compared to Sema for total fat mass and total lean mass (z-score change-from-baseline and percent
+  change-from-baseline).; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2649-P/168277/2649-P-Population-Normed-Z-scores-for-Body"
+24,3,2649-P,Semaglutide,"Sema + trevo
+   200 mg vs. Sema",,,,,,,2649-P,figure,"Approx point
+  estimates from plot: Total Fat Mass (blue z-score) ~-0.7, (red % change) ~-0.1; Total Lean Mass
+  (blue z-score) ~0.6, (red % change) ~0.6. 95% CI bars shown but not numerically
+  labeled.; Cohen's D standardized mean difference
+  compared to Sema for total fat mass and total lean mass (z-score change-from-baseline and percent
+  change-from-baseline).; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2649-P/168277/2649-P-Population-Normed-Z-scores-for-Body"
+25,1,2835-LB,Semaglutide,"Oral semaglutide 14
+  mg",,,,,,,2835-LB,figure,"Estimated odds (reference arm)
+  shown for each composite endpoint. 26 weeks: 0.05 (A1C <=6.5% & weight loss >=10%), 0.18 (A1C
+  <=6.5% & weight loss >=5%), 0.06 (A1C <7.0% & weight loss >=10%), 0.30 (A1C <7.0% & weight loss
+  >=5%). 52 weeks: 0.07, 0.19, 0.10, 0.30 for the same endpoint order.; Estimated
+  odds of achieving composite efficacy endpoints (A1C <=6.5% or <7.0% combined with weight loss >=5%
+   or >=10%) at 26 and 52 weeks.; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2835-LB/167250/2835-LB-Greater-Combined-A1C-Reductions-and-Weight"
+25,2,2835-LB,Semaglutide,"Oral semaglutide
+  25 mg",,,,,,,2835-LB,figure,"Estimated odds shown versus
+  14 mg comparator. 26 weeks: 0.16, 0.37, 0.18, 0.52 (same endpoint order as figure rows). EOR vs 14
+   mg: 2.95 (1.89, 4.60), 2.08 (1.53, 2.84), 2.83 (1.85, 4.32), 1.75 (1.32, 2.31); all P<0.0001. 52
+  weeks: 0.23, 0.41, 0.26, 0.57; EOR vs 14 mg: 3.13 (2.10, 4.67), 2.15 (1.59, 2.91), 2.73 (1.89,
+  3.95), 1.88 (1.43, 2.48); all P<0.0001.; Estimated
+  odds of achieving composite efficacy endpoints (A1C <=6.5% or <7.0% combined with weight loss >=5%
+   or >=10%) at 26 and 52 weeks.; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2835-LB/167250/2835-LB-Greater-Combined-A1C-Reductions-and-Weight"
+25,3,2835-LB,Semaglutide,"Oral semaglutide 50
+  mg",,,,,,,2835-LB,figure,"Estimated odds shown versus 14
+  mg comparator. 26 weeks: 0.21, 0.57, 0.24, 0.91 (same endpoint order as figure rows). EOR vs 14
+  mg: 3.89 (2.52, 6.00), 3.24 (2.40, 4.38), 3.75 (2.49, 5.66), 3.08 (2.35, 4.05); all P<0.0001. 52
+  weeks: 0.36, 0.70, 0.44, 0.97; EOR vs 14 mg: 5.00 (3.40, 7.36), 3.69 (2.75, 4.95), 4.60 (3.22,
+  6.55), 3.24 (2.47, 4.26); all P<0.0001.; Estimated
+  odds of achieving composite efficacy endpoints (A1C <=6.5% or <7.0% combined with weight loss >=5%
+   or >=10%) at 26 and 52 weeks.; https://diabetesjournals.org/diabetes/article/75/Supplement_1/2835-LB/167250/2835-LB-Greater-Combined-A1C-Reductions-and-Weight"
+26,1,1218-OR,HDM1002,"HDM1002 50 mg
+  QD",,-1.06,,,12,2,1218-OR,abstract,"Least-squares mean change from
+  baseline in HbA1c (%). Statistically significant vs placebo (P < 0.05).; Change from baseline in HbA1c (%) at
+   12 weeks (LS mean); additional body weight change (kg) reported for 400 mg QD vs
+  placebo.; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198/1218-OR-Efficacy-and-Safety-of-a-Novel-Oral-Small"
+26,2,1218-OR,HDM1002,"HDM1002 100 mg
+   QD",,-0.82,,,12,2,1218-OR,abstract,"Least-squares mean change from
+  baseline in HbA1c (%). Statistically significant vs placebo (P < 0.05).; Change from baseline in HbA1c (%) at
+   12 weeks (LS mean); additional body weight change (kg) reported for 400 mg QD vs
+  placebo.; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198/1218-OR-Efficacy-and-Safety-of-a-Novel-Oral-Small"
+26,3,1218-OR,HDM1002,"HDM1002 200 mg
+   QD",,-0.94,,,12,2,1218-OR,abstract,"Least-squares mean change from
+  baseline in HbA1c (%). Subgroup reductions: 1.60% (diet/exercise-failing) and 0.76%
+  (metformin-failing). Statistically significant vs placebo (P < 0.05).; Change from baseline in HbA1c (%) at
+   12 weeks (LS mean); additional body weight change (kg) reported for 400 mg QD vs
+  placebo.; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198/1218-OR-Efficacy-and-Safety-of-a-Novel-Oral-Small"
+26,4,1218-OR,HDM1002,"HDM1002 400 mg
+  QD",,-1.29,,,12,2,1218-OR,abstract,"Least-squares mean change from
+  baseline in HbA1c (%). Subgroup reductions: 1.90% (diet/exercise-failing) and 1.11%
+  (metformin-failing). Also reported body weight change at 12 weeks: -2.14 kg.; Change from baseline in HbA1c (%) at
+   12 weeks (LS mean); additional body weight change (kg) reported for 400 mg QD vs
+  placebo.; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198/1218-OR-Efficacy-and-Safety-of-a-Novel-Oral-Small"
+26,5,1218-OR,HDM1002,"HDM1002
+  200 mg BID (total 400 mg/day, open-label
+  cohort)",26,-1.23,,,12,2,1218-OR,abstract,"Least-squares mean change from
+   baseline in HbA1c (%).; Change from baseline in HbA1c (%) at
+   12 weeks (LS mean); additional body weight change (kg) reported for 400 mg QD vs
+  placebo.; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198/1218-OR-Efficacy-and-Safety-of-a-Novel-Oral-Small"
+26,6,1218-OR,HDM1002,"Placebo
+  (PBO)",,-0.78,,,12,2,1218-OR,abstract,"Least-squares mean percentage
+  change in body weight reported as -0.78 kg at 12 weeks; no arm-level HbA1c numeric value reported
+  for placebo.; Change from baseline in HbA1c (%) at
+   12 weeks (LS mean); additional body weight change (kg) reported for 400 mg QD vs
+  placebo.; https://diabetesjournals.org/diabetes/article/75/Supplement_1/1218-OR/167198/1218-OR-Efficacy-and-Safety-of-a-Novel-Oral-Small"
+27,1,1683-P,Tirzepatide,"Tirzepatide (combined dose groups across randomized
+  trials)",6357,0.58,,,,"Phase 2/3 trials (pooled in
+  meta-analysis)",1683-P,abstract,"Reported fractures:
+  37/6,357 (0.58%); pooled comparison vs control: Peto OR 1.84 (95% CI 1.02-3.31),
+  p=0.04.; Fracture incidence (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1683-P/167716/1683-P-Fracture-Risk-Associated-with-Tirzepatide-A"
+27,2,1683-P,Tirzepatide,"Control groups (across randomized
+  trials)",3883,0.33,,,,"Phase 2/3 trials (pooled in
+  meta-analysis)",1683-P,abstract,"Reported fractures:
+  13/3,883 (0.33%).; Fracture incidence (%); https://diabetesjournals.org/diabetes/article/75/Supplement_1/1683-P/167716/1683-P-Fracture-Risk-Associated-with-Tirzepatide-A"
